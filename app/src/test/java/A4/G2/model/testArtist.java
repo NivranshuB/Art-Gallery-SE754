@@ -14,7 +14,7 @@ public class testArtist {
 		LinkGenerator artistLink = new LinkGenerator();
 		Artist artist = new Artist();
 		String link = artistLink.generateLink(artist.getArtistId());
-		assertFalse(artist.getArtistId()=="");
+		assertFalse(artist.getArtistId() == "");
 		assertEquals("https://www.g2gallery.com/"+artist.getArtistId(), link);
 	}
 
