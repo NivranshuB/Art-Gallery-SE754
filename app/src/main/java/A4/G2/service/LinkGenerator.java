@@ -1,7 +1,11 @@
 package A4.G2.service;
 
 public class LinkGenerator implements ILinkGenerator {
-	public String generateLink(String customerName) {
-		return "";
+	private final String site = "https://www.g2gallery.com/";
+
+	public String generateLink(String customerSiteId) {
+		String link;
+		link = site + customerSiteId;
+		return link;
 	}
 }
