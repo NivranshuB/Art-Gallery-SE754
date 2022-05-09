@@ -2,7 +2,8 @@ package A4.G2.service;
 
 import A4.G2.model.Artist;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito.*;
+import org.mockito.Mockito;
+
 
 import java.util.UUID;
 
