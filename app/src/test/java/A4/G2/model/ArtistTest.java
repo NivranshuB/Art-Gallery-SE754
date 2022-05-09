@@ -26,7 +26,8 @@ public class ArtistTest {
 
 	@Test
 	public void testCheckArtistIdNotEmpty(){
-		assertNotSame("", artist.getArtistId());
+		assertTrue(artist.getArtistId().matches("^[\\da-f]{8}-[\\da-f]{4}-[\\da-f]{4}-[\\da-f]{4}-[\\da-f]{12}$"));
+
 	}
 
 }
