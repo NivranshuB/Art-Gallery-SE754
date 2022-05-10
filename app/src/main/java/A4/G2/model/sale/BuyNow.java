@@ -7,4 +7,8 @@ public class BuyNow extends Sale {
     public BuyNow(int saleID, double startingPrice, Art artPiece) {
         super(saleID, startingPrice, artPiece);
     }
+
+    public double getGst() {
+        return this.getPrice() * 0.15;
+    }
 }
