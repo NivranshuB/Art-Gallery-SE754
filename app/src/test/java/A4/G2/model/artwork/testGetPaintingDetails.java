@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.withSettings;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class testGetPaintingDetails {
@@ -23,9 +24,7 @@ public class testGetPaintingDetails {
 	public void setUp() throws IOException {
 		artist = Mockito.mock(Artist.class);
 		image = ImageIO.read(new File("src/test/java/A4/G2/model/artwork/testImage.png"));
-
-		painting = Mockito.mock(Painting.class, Mockito.withSettings().useConstructor(artist, "Art Title", "Art Description", image));
-
+		painting = Mockito.spy(new Painting(artist, "Art Title", "Art Description", image));
 	}
 
 
