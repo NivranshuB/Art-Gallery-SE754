@@ -41,4 +41,10 @@ public class testGetPaintingDetails {
 	public void testGetPaintingDescription() {
 		assertEquals("Art Description", painting.getPaintingDescription());
 	}
+
+	@Test
+	public void testGetPaintingImage() {
+		assertEquals(image, painting.getPaintingImage());
+	}
+
 }
