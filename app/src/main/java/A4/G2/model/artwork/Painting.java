@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class Painting extends Art {
 
-    public Painting(Artist artist, String title, String description, Image photo) {
-        super(artist, title, description, photo);
+    public Painting(Artist artist, String title, String description, Image photo, String dimensions) {
+        super(artist, title, description, photo, dimensions);
 
     }
 
