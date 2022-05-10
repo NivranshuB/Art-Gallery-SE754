@@ -54,4 +54,10 @@ public class BuyNowTest {
 		assertEquals(15.00, buyNow.getDeliveryCost());
 	}
 
+	@Test
+	public void testGetBuyNowDeliveryTime() {
+		Mockito.doReturn("5 working days").when(buyNow).getDeliveryTime();
+		assertEquals("5 working days", buyNow.getDeliveryTime());
+	}
+
 }
