@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class Sculpture extends Art {
 
-    public Sculpture(Artist artist, String title, String description, Image photo) {
-        super(artist, title, description, photo);
+    public Sculpture(Artist artist, String title, String description, Image photo, String dimensions) {
+        super(artist, title, description, photo, dimensions);
 
     }
 
