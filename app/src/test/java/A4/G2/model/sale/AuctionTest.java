@@ -62,4 +62,10 @@ public class AuctionTest {
 		assertEquals(timeRemaining, auction.getTimeRemaining());
 	}
 
+	@Test
+	public void testGetAuctionCurrentBid() {
+		Mockito.doReturn(75.00).when(auction).getCurrentBid();
+		assertEquals(75.00, auction.getCurrentBid());
+	}
+
 }
