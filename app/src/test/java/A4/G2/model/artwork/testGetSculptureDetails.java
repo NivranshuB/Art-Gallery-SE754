@@ -34,4 +34,9 @@ public class testGetSculptureDetails {
 	public void testGetSculptureTitle() {
 		assertEquals("Art Title", sculpture.getSculptureTitle());
 	}
+
+	@Test
+	public void testGetSculptureDescription() {
+		assertEquals("Art Description", sculpture.getSculptureDescription());
+	}
 }
