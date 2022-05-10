@@ -7,11 +7,13 @@ import java.awt.*;
 public class Print extends Art {
     private Artist artist;
     private String title;
+    private String description;
 
     public Print(Artist artist, String title, String description, Image photo) {
         super(artist, title, description, photo);
         this.artist = artist;
         this.title = title;
+        this.description = description;
     }
 
     public Artist getPrintArtist() {
@@ -20,5 +22,9 @@ public class Print extends Art {
 
     public String getPrintTitle() {
         return this.title;
+    }
+
+    public String getPrintDescription() {
+        return this.description;
     }
 }
