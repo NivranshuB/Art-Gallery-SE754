@@ -90,4 +90,9 @@ public class AuctionTest {
 		assertEquals(15.00, auction.getDeliveryCost());
 	}
 
+	@Test
+	public void testGetAuctionDeliveryTime() {
+		Mockito.doReturn(5).when(auction).getDeliveryTime();
+		assertEquals(5, auction.getDeliveryTime());
+	}
 }
