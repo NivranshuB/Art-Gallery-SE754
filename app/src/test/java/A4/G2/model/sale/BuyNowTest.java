@@ -38,7 +38,7 @@ public class BuyNowTest {
 
 	@Test
 	public void testGetBuyNowSaleId() {
-		Mockito.doReturn(111.11).when(buyNow).getSaleId();
+		Mockito.doReturn(1).when(buyNow).getSaleId();
 		assertEquals(saleId, buyNow.getSaleId());
 	}
 
