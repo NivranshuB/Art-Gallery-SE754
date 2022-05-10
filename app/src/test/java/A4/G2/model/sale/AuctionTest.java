@@ -84,4 +84,10 @@ public class AuctionTest {
 		assertEquals(user, auction.getCurrentBidder());
 	}
 
+	@Test
+	public void testGetAuctionDeliveryCost() {
+		Mockito.doReturn(15.00).when(auction).getDeliveryCost();
+		assertEquals(15.00, auction.getDeliveryCost());
+	}
+
 }
