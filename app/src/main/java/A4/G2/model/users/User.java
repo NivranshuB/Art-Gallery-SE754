@@ -1,4 +1,6 @@
-package A4.G2.model;
+package A4.G2.model.users;
+
+import A4.G2.model.Payment;
 
 public class User {
     private String userName;
