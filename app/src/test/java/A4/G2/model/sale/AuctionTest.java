@@ -56,4 +56,10 @@ public class AuctionTest {
 		assertEquals(reservePrice, auction.getReservePrice());
 	}
 
+	@Test
+	public void testGetAuctionTimeRemaining() {
+		Mockito.doReturn(timeRemaining).when(auction).getTimeRemaining();
+		assertEquals(timeRemaining, auction.getTimeRemaining());
+	}
+
 }
