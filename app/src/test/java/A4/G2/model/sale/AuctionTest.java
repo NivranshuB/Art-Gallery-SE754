@@ -44,4 +44,10 @@ public class AuctionTest {
 		assertEquals(saleId, auction.getSaleId());
 	}
 
+	@Test
+	public void testGetAuctionStartingPrice() {
+		Mockito.doReturn(price).when(auction).getPrice();
+		assertEquals(price, auction.getPrice());
+	}
+
 }
