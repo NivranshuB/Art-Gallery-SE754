@@ -6,6 +6,7 @@ public abstract class Sale {
     private int saleID;
     private double price;
     private double deliveryCost;
+    private String deliveryTime;
     Art artPiece;
 
     public Sale(int saleID, double startingPrice, Art artPiece) {
@@ -24,5 +25,9 @@ public abstract class Sale {
 
     public double getDeliveryCost() {
         return this.deliveryCost;
+    }
+
+    public String getDeliveryTime() {
+        return this.deliveryTime;
     }
 }
