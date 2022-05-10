@@ -2,6 +2,7 @@ package A4.G2.model.sale;
 
 import A4.G2.model.artwork.Painting;
 import A4.G2.model.users.Artist;
+import A4.G2.model.users.User;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -17,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AuctionTest {
 	Artist artist;
+	User user;
 	Image image;
 	Painting painting;
 	Auction auction;
@@ -36,6 +38,8 @@ public class AuctionTest {
 		reservePrice = 200.00;
 		timeRemaining = 7; // days
 		auction = Mockito.spy(new Auction(saleId, price, painting, reservePrice, timeRemaining));
+
+		user = Mockito.mock(User.class);
 	}
 
 	@Test
@@ -72,6 +76,12 @@ public class AuctionTest {
 	public void testGetAuctionTotalBids() {
 		Mockito.doReturn(3).when(auction).getTotalBids();
 		assertEquals(3, auction.getTotalBids());
+	}
+
+	@Test
+	public void testGetAuctionCurrentBidder() {
+		Mockito.doReturn(user).when(auction).getCurrentBidder();
+		assertEquals(user, auction.getCurrentBidder());
 	}
 
 }
