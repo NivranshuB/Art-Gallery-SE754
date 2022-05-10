@@ -29,4 +29,9 @@ public class testGetSculptureDetails {
 	public void testGetSculptureArtist() {
 		assertEquals(artist, sculpture.getSculptureArtist());
 	}
+
+	@Test
+	public void testGetSculptureTitle() {
+		assertEquals("Art Title", sculpture.getSculptureTitle());
+	}
 }
