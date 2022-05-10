@@ -9,6 +9,7 @@ public class Auction extends  Sale {
     private int numBids;
     private double reservePrice;
     private int timeRemaining;
+    private double currentBid;
 
     public Auction(int saleID, double startingPrice, Art artPiece, double reservePrice, int timeRemain) {
         super(saleID, startingPrice, artPiece);
@@ -22,5 +23,9 @@ public class Auction extends  Sale {
 
     public int getTimeRemaining() {
         return this.timeRemaining;
+    }
+
+    public double getCurrentBid() {
+        return this.currentBid;
     }
 }
