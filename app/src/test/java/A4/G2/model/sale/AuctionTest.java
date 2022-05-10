@@ -92,7 +92,7 @@ public class AuctionTest {
 
 	@Test
 	public void testGetAuctionDeliveryTime() {
-		Mockito.doReturn(5).when(auction).getDeliveryTime();
-		assertEquals(5, auction.getDeliveryTime());
+		Mockito.doReturn("5 working days").when(auction).getDeliveryTime();
+		assertEquals("5 working days", auction.getDeliveryTime());
 	}
 }
