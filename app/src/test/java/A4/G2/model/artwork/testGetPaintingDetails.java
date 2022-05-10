@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.withSettings;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class testGetPaintingDetails {
