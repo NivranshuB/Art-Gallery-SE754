@@ -32,4 +32,8 @@ public class Auction extends  Sale {
     public int getTotalBids() {
         return this.numBids;
     }
+
+    public User getCurrentBidder() {
+        return this.bidPerson;
+    }
 }
