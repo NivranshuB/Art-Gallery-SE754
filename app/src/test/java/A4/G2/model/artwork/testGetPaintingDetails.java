@@ -27,10 +27,14 @@ public class testGetPaintingDetails {
 		painting = Mockito.spy(new Painting(artist, "Art Title", "Art Description", image));
 	}
 
-
 	@Test
 	public void testGetPaintingArtist() {
 		assertEquals(artist, painting.getPaintingArtist());
+	}
+
+	@Test
+	public void testGetPaintingTitle() {
+		assertEquals("Art Title", painting.getPaintingTitle());
 	}
 
 }
