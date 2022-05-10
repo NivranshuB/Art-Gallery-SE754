@@ -50,4 +50,10 @@ public class AuctionTest {
 		assertEquals(price, auction.getPrice());
 	}
 
+	@Test
+	public void testGetAuctionReservePrice() {
+		Mockito.doReturn(reservePrice).when(auction).getReservePrice();
+		assertEquals(reservePrice, auction.getReservePrice());
+	}
+
 }
