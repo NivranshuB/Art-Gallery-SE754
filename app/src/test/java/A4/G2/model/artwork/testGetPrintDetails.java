@@ -22,7 +22,7 @@ public class testGetPrintDetails {
 	public void setUp() throws IOException {
 		artist = Mockito.mock(Artist.class);
 		image = ImageIO.read(new File("src/test/java/A4/G2/model/artwork/testImage.png"));
-		print = Mockito.spy(new Print(artist, "Art Title", "Art Description", image));
+		print = Mockito.spy(new Print(artist, "Art Title", "Art Description", image, "1920x1080px"));
 	}
 
 	@Test
@@ -43,5 +43,10 @@ public class testGetPrintDetails {
 	@Test
 	public void testGetPrintImage() {
 		assertEquals(image, print.getImage());
+	}
+
+	@Test
+	public void testGetPrintDimensions() {
+		assertEquals("1920x1080px", print.getDimensions());
 	}
 }
