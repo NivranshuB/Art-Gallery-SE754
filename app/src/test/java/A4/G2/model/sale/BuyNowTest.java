@@ -48,4 +48,10 @@ public class BuyNowTest {
 		assertEquals(price, buyNow.getPrice());
 	}
 
+	@Test
+	public void testGetBuyNowDeliveryCost() {
+		Mockito.doReturn(15.00).when(buyNow).getDeliveryCost();
+		assertEquals(15.00, buyNow.getDeliveryCost());
+	}
+
 }
