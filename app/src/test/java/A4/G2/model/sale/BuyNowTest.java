@@ -60,4 +60,11 @@ public class BuyNowTest {
 		assertEquals("5 working days", buyNow.getDeliveryTime());
 	}
 
+	@Test
+	public void testGetBuyNowGstCalculation() {
+		double gst = price * 0.15;
+		Mockito.doReturn(gst).when(buyNow).getGst();
+		assertEquals(gst, buyNow.getGst());
+	}
+
 }
