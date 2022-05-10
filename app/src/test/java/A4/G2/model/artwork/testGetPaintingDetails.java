@@ -23,7 +23,7 @@ public class testGetPaintingDetails {
 	public void setUp() throws IOException {
 		artist = Mockito.mock(Artist.class);
 		image = ImageIO.read(new File("src/test/java/A4/G2/model/artwork/testImage.png"));
-		painting = Mockito.spy(new Painting(artist, "Art Title", "Art Description", image));
+		painting = Mockito.spy(new Painting(artist, "Art Title", "Art Description", image, "2x1m"));
 	}
 
 	@Test
@@ -44,6 +44,11 @@ public class testGetPaintingDetails {
 	@Test
 	public void testGetPaintingImage() {
 		assertEquals(image, painting.getImage());
+	}
+
+	@Test
+	public void testGetPaintingDimensions() {
+		assertEquals("2x1m", painting.getDimensions());
 	}
 
 }
