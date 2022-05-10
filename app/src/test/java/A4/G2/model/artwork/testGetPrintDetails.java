@@ -29,4 +29,9 @@ public class testGetPrintDetails {
 	public void testGetPrintArtist() {
 		assertEquals(artist, print.getPrintArtist());
 	}
+
+	@Test
+	public void testGetPrintTitle() {
+		assertEquals("Art Title", print.getPrintTitle());
+	}
 }
