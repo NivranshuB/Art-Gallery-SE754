@@ -28,4 +28,8 @@ public class Auction extends  Sale {
     public double getCurrentBid() {
         return this.currentBid;
     }
+
+    public int getTotalBids() {
+        return this.numBids;
+    }
 }
