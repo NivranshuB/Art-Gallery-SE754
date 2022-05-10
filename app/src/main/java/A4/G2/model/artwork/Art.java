@@ -6,11 +6,34 @@ import A4.G2.model.sale.Sale;
 import java.awt.*;
 
 public abstract class Art {
-
+    private Artist artist;
+    private String title;
+    private String description;
+    private Image image;
     private Sale sale;
 
-    public Art(Artist artist, String title, String description, Image photo) {
+    public Art(Artist artist, String title, String description, Image image) {
+        this.artist = artist;
+        this.title = title;
+        this.description = description;
+        this.image = image;
         boolean onSale = false;
+    }
+
+    public Artist getArtist() {
+        return this.artist;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public Image getImage() {
+        return this.image;
     }
 
 }

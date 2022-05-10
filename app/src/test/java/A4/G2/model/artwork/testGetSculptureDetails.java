@@ -27,21 +27,21 @@ public class testGetSculptureDetails {
 
 	@Test
 	public void testGetSculptureArtist() {
-		assertEquals(artist, sculpture.getSculptureArtist());
+		assertEquals(artist, sculpture.getArtist());
 	}
 
 	@Test
 	public void testGetSculptureTitle() {
-		assertEquals("Art Title", sculpture.getSculptureTitle());
+		assertEquals("Art Title", sculpture.getTitle());
 	}
 
 	@Test
 	public void testGetSculptureDescription() {
-		assertEquals("Art Description", sculpture.getSculptureDescription());
+		assertEquals("Art Description", sculpture.getDescription());
 	}
 
 	@Test
 	public void testGetSculptureImage() {
-		assertEquals(image, sculpture.getSculptureImage());
+		assertEquals(image, sculpture.getImage());
 	}
 }

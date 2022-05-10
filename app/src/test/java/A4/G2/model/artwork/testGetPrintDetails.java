@@ -27,21 +27,21 @@ public class testGetPrintDetails {
 
 	@Test
 	public void testGetPrintArtist() {
-		assertEquals(artist, print.getPrintArtist());
+		assertEquals(artist, print.getArtist());
 	}
 
 	@Test
 	public void testGetPrintTitle() {
-		assertEquals("Art Title", print.getPrintTitle());
+		assertEquals("Art Title", print.getTitle());
 	}
 
 	@Test
 	public void testGetPrintDescription() {
-		assertEquals("Art Description", print.getPrintDescription());
+		assertEquals("Art Description", print.getDescription());
 	}
 
 	@Test
 	public void testGetPrintImage() {
-		assertEquals(image, print.getPrintImage());
+		assertEquals(image, print.getImage());
 	}
 }

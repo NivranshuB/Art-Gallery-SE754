@@ -28,22 +28,22 @@ public class testGetPaintingDetails {
 
 	@Test
 	public void testGetPaintingArtist() {
-		assertEquals(artist, painting.getPaintingArtist());
+		assertEquals(artist, painting.getArtist());
 	}
 
 	@Test
 	public void testGetPaintingTitle() {
-		assertEquals("Art Title", painting.getPaintingTitle());
+		assertEquals("Art Title", painting.getTitle());
 	}
 
 	@Test
 	public void testGetPaintingDescription() {
-		assertEquals("Art Description", painting.getPaintingDescription());
+		assertEquals("Art Description", painting.getDescription());
 	}
 
 	@Test
 	public void testGetPaintingImage() {
-		assertEquals(image, painting.getPaintingImage());
+		assertEquals(image, painting.getImage());
 	}
 
 }
