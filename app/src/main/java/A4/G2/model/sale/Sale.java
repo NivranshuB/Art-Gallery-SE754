@@ -30,4 +30,8 @@ public abstract class Sale {
     public String getDeliveryTime() {
         return this.deliveryTime;
     }
+
+    public Art getArtPiece() {
+        return this.artPiece;
+    }
 }
