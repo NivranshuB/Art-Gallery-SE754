@@ -95,4 +95,10 @@ public class AuctionTest {
 		Mockito.doReturn("5 working days").when(auction).getDeliveryTime();
 		assertEquals("5 working days", auction.getDeliveryTime());
 	}
+
+	@Test
+	public void testGetArtPiece() {
+		Mockito.doReturn(painting).when(auction).getArtPiece();
+		assertEquals(painting, auction.getArtPiece());
+	}
 }
