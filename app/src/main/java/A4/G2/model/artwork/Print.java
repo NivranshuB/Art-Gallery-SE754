@@ -6,7 +6,9 @@ import java.awt.*;
 
 public class Print extends Art {
 
-    public Print(Artist artist, String title, String description, Image photo) {
-        super(artist, title, description, photo);
+    public Print(Artist artist, String title, String description, Image photo, String dimensions) {
+        super(artist, title, description, photo, dimensions);
+
     }
+
 }
