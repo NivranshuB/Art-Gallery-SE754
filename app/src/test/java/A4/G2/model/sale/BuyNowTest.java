@@ -69,8 +69,8 @@ public class BuyNowTest {
 
 	@Test
 	public void testGetArtwork() {
-		Mockito.doReturn(painting).when(buyNow).getArtwork();
-		assertEquals(painting, buyNow.getArtwork());
+		Mockito.doReturn(painting).when(buyNow).getArtPiece();
+		assertEquals(painting, buyNow.getArtPiece());
 	}
 
 }
