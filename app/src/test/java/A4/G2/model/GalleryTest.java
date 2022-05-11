@@ -1,6 +1,7 @@
 package A4.G2.model;
 
 import A4.G2.model.artwork.Art;
+import A4.G2.model.sale.BuyNow;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -13,10 +14,13 @@ public class GalleryTest {
 
     Gallery gallery;
     Art art;
+    BuyNow buyNow;
+
     @BeforeAll
     public void setUp() {
         gallery = Mockito.spy(new Gallery());
         art = Mockito.mock(Art.class);
+        buyNow = Mockito.mock(BuyNow.class);
     }
 
     @Test
@@ -25,4 +29,9 @@ public class GalleryTest {
         assertEquals(gallery.getArtList().size(), 1);
     }
 
+    @Test
+    public void testAddingArtToGallerySalesList() {
+        gallery.addArtForSale(buyNow);
+        assertEquals(gallery.getArtSalesList().size(), 1);
+    }
 }
