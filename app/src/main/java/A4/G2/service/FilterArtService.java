@@ -83,6 +83,13 @@ public class FilterArtService implements IFilterArtService{
 
     @Override
     public List<Sale> filterAuctionItemsOverTime(List<Sale> saleList, int min) {
-        return new ArrayList<>();
+        List<Sale> overTimeRemainingList = new ArrayList<>();
+
+        for (Sale sale : saleList) {
+            if ((sale instanceof Auction) && (sale.getTimeRemaining() > min)) {
+                overTimeRemainingList.add(sale);
+            }
+        }
+        return overTimeRemainingList;
     }
 }
