@@ -205,4 +205,15 @@ public class FilterArtworkTest {
 
         assertEquals(0, actual.size());
     }
+
+    @Test
+    public void testFilterArtByTypePrintOnlyWithResults() {
+        List<Art> actual = filterService.getArtPiecesByArtType(artList, Print.class);
+
+        assertEquals(1, actual.size());
+
+        for (Art art : actual) {
+            assertTrue(art instanceof Print);
+        }
+    }
 }

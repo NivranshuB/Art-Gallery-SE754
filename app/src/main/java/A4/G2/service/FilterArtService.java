@@ -113,6 +113,7 @@ public class FilterArtService implements IFilterArtService{
         List<Art> artMatchingTypeList = new ArrayList<>();
 
         for (Art art : artList) {
+            System.out.println(art.getClass() + " does not match " + artClass);
             if (artClass == art.getClass()) {
                 artMatchingTypeList.add(art);
             }
