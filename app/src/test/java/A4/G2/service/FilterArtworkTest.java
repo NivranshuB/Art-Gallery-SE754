@@ -41,17 +41,23 @@ public class FilterArtworkTest {
         Sale buyNow1 = Mockito.mock(BuyNow.class);
         Sale buyNow2 = Mockito.mock(BuyNow.class);
         Sale buyNow3 = Mockito.mock(BuyNow.class);
+
         Sale auction1 = Mockito.mock(Auction.class);
+        Sale auction2 = Mockito.mock(Auction.class);
 
         Mockito.when(buyNow1.getPrice()).thenReturn(120.00);
         Mockito.when(buyNow2.getPrice()).thenReturn(101.00);
         Mockito.when(buyNow3.getPrice()).thenReturn(99.0);
+
         Mockito.when(auction1.getTimeRemaining()).thenReturn(90000);
+        Mockito.when(auction2.getTimeRemaining()).thenReturn(7200);
 
         saleList.add(buyNow1);
         saleList.add(buyNow2);
         saleList.add(buyNow3);
+
         saleList.add(auction1);
+        saleList.add(auction2);
 
         filterService = new FilterArtService();
     }
@@ -59,7 +65,7 @@ public class FilterArtworkTest {
     @Test
     public void testFilterOnlyAuctionPieces() {
         List<Sale> actual = filterService.getAuctionItems(saleList);
-        assertEquals(1, actual.size());
+        assertEquals(2, actual.size());
 
         for (Sale sale : actual) {
             assertTrue(sale instanceof Auction);
@@ -109,7 +115,7 @@ public class FilterArtworkTest {
     }
 
     @Test
-    public void testOnlyRetrievingBuyNowItemsWhenFilteringByPrice() {
+    public void testOnlyRetrievingBuyNowPiecesWhenFilteringByPrice() {
         List<Sale> actual = filterService.getPriceHigherThan(saleList, 0.0);
 
         for (Sale sale : actual) {
@@ -118,12 +124,7 @@ public class FilterArtworkTest {
     }
 
     @Test
-    public void testFilterOnlyAuctionUnder1DayLeft() {
-        Sale auction2 = Mockito.mock(Auction.class);
-        saleList.add(auction2);
-
-        Mockito.when(auction2.getTimeRemaining()).thenReturn(7200);
-
+    public void testFilterOnlyAuctionPiecesUnder1DayLeft() {
         List<Sale> actual = filterService.filterAuctionItemsUnderTime(saleList, 86400);
 
         assertEquals(1, actual.size());
