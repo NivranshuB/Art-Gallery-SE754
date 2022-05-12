@@ -3,7 +3,9 @@ package A4.G2.service;
 import A4.G2.model.sale.Auction;
 import A4.G2.model.sale.BuyNow;
 import A4.G2.model.sale.Sale;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
@@ -28,13 +30,14 @@ import static org.junit.jupiter.api.Assertions.*;
  * - A user should be able to filter art to view a specific type of art, such as sculptures, paintings, prints etc.
  */
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class FilterArtworkTest {
 
     IFilterArtService filterService;
     List<Sale> saleList = new ArrayList<>();
 
-    @Test
-    public void testFilterOnlyAuctionPieces() {
+    @BeforeAll
+    public void setup() {
         Sale buyNow1 = Mockito.mock(BuyNow.class);
         Sale buyNow2 = Mockito.mock(BuyNow.class);
         Sale auction1 = Mockito.mock(Auction.class);
@@ -48,7 +51,10 @@ public class FilterArtworkTest {
         saleList.add(auction1);
 
         filterService = new FilterArtService();
+    }
 
+    @Test
+    public void testFilterOnlyAuctionPieces() {
         List<Sale> actual = filterService.getAuctionItems(saleList);
         assertEquals(1, actual.size());
 
@@ -59,20 +65,6 @@ public class FilterArtworkTest {
 
     @Test
     public void testFilterOnlyBuyNowPieces() {
-        Sale buyNow1 = Mockito.mock(BuyNow.class);
-        Sale buyNow2 = Mockito.mock(BuyNow.class);
-        Sale auction1 = Mockito.mock(Auction.class);
-
-        Mockito.when(buyNow1.getPrice()).thenReturn(120.00);
-        Mockito.when(buyNow2.getPrice()).thenReturn(101.00);
-        Mockito.when(auction1.getTimeRemaining()).thenReturn(90000);
-
-        saleList.add(buyNow1);
-        saleList.add(buyNow2);
-        saleList.add(auction1);
-
-        filterService = new FilterArtService();
-
         List<Sale> actual = filterService.getBuyNowItems(saleList);
         assertEquals(2, actual.size());
 
