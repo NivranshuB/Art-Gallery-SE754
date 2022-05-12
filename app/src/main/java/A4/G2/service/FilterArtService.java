@@ -55,4 +55,9 @@ public class FilterArtService implements IFilterArtService{
         }
         return higherPriceList;
     }
+
+    @Override
+    public List<Sale> getPriceBetween(List<Sale> saleList, double v, double v1) {
+        return new ArrayList<>();
+    }
 }
