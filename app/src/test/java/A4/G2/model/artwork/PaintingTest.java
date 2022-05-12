@@ -33,7 +33,7 @@ public class PaintingTest {
 	@Test
 	public void testGetPaintingLinkGeneration() {
 		LinkGenerator paintingLink = new LinkGenerator();
-		String link = paintingLink.generateArtistLink(painting.getId());
+		String link = paintingLink.generateArtLink(painting.getId());
 		assertEquals("https://www.g2gallery.com/art/"+painting.getId(), link);
 	}
 
