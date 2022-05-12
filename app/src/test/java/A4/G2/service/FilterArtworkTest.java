@@ -116,4 +116,19 @@ public class FilterArtworkTest {
             assertTrue(sale instanceof BuyNow);
         }
     }
+
+    @Test
+    public void testFilterOnlyAuctionUnder1DayLeft() {
+        Sale auction2 = Mockito.mock(Auction.class);
+        saleList.add(auction2);
+
+        Mockito.when(auction2.getTimeRemaining()).thenReturn(7200);
+
+        List<Sale> actual = filterService.filterAuctionPiecesUnderTime(saleList, 86400);
+
+        assertEquals(1, actual.size());
+        for (Sale sale : actual) {
+            assertTrue(sale.getTimeRemaining() < 86400);
+        }
+    }
 }
