@@ -1,8 +1,12 @@
 package A4.G2.service;
 
+import A4.G2.model.artwork.Art;
+import A4.G2.model.artwork.Painting;
+import A4.G2.model.artwork.Print;
 import A4.G2.model.sale.Auction;
 import A4.G2.model.sale.BuyNow;
 import A4.G2.model.sale.Sale;
+import A4.G2.model.users.Artist;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -34,10 +38,16 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FilterArtworkTest {
 
     IFilterArtService filterService;
+
+    Artist artist1;
     List<Sale> saleList = new ArrayList<>();
+    List<Art> artList = new ArrayList<>();
 
     @BeforeAll
     public void setup() {
+        artist1 = Mockito.mock(Artist.class);
+        Mockito.when(artist1.getArtistId()).thenReturn("a1");
+
         Sale buyNow1 = Mockito.mock(BuyNow.class);
         Sale buyNow2 = Mockito.mock(BuyNow.class);
         Sale buyNow3 = Mockito.mock(BuyNow.class);
@@ -58,6 +68,18 @@ public class FilterArtworkTest {
 
         saleList.add(auction1);
         saleList.add(auction2);
+
+        Art painting1 = Mockito.mock(Painting.class);
+        Art painting2 = Mockito.mock(Painting.class);
+        Art print1 = Mockito.mock(Print.class);
+
+        Mockito.when(painting1.getArtist()).thenReturn(artist1);
+        Mockito.when(print1.getArtist()).thenReturn(artist1);
+        Mockito.when(painting2.getArtist()).thenReturn(artist1);
+
+        artList.add(painting1);
+        artList.add(print1);
+        artList.add(painting2);
 
         filterService = new FilterArtService();
     }
@@ -149,6 +171,16 @@ public class FilterArtworkTest {
 
         for (Sale sale : actual) {
             assertTrue(sale instanceof Auction);
+        }
+    }
+
+    @Test
+    public void testArtistArtworksRetrievalWhenListNonEmpty() {
+        List<Art> actual = filterService.filterArtFromArtist(artList, artist1);
+
+        assertEquals(1, actual.size());
+        for (Art art : actual) {
+            assertEquals(art.getArtist().getArtistId(), artist1.getArtistId());
         }
     }
 }
