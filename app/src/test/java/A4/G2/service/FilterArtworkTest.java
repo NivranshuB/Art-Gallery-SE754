@@ -187,4 +187,14 @@ public class FilterArtworkTest {
             assertEquals(art.getArtist().getArtistId(), artist1.getArtistId());
         }
     }
+
+    @Test
+    public void testArtistArtworksRetrievalWhenListEmpty() {
+        Artist artist3 = Mockito.mock(Artist.class);
+        Mockito.when(artist3.getArtistId()).thenReturn("jeff");
+
+        List<Art> actual = filterService.filterArtFromArtist(artList, artist3);
+
+        assertEquals(0, actual.size());
+    }
 }
