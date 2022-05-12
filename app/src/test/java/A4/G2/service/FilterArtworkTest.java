@@ -107,4 +107,13 @@ public class FilterArtworkTest {
                     (Double.compare(sale.getPrice(), 110.0) <= 0));
         }
     }
+
+    @Test
+    public void testOnlyRetrievingBuyNowItemsWhenFilteringByPrice() {
+        List<Sale> actual = filterService.getPriceHigherThan(saleList, 0.0);
+
+        for (Sale sale : actual) {
+            assertTrue(sale instanceof BuyNow);
+        }
+    }
 }
