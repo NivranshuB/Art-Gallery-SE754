@@ -58,6 +58,14 @@ public class FilterArtService implements IFilterArtService{
 
     @Override
     public List<Sale> getPriceBetween(List<Sale> saleList, double v, double v1) {
-        return new ArrayList<>();
+        List<Sale> inRangeList = new ArrayList<>();
+
+        for (Sale sale : saleList) {
+            if ((sale instanceof BuyNow) && (Double.compare(sale.getPrice(), v) > 0) &&
+                    (Double.compare(sale.getPrice(), v1) < 0)) {
+                inRangeList.add(sale);
+            }
+        }
+        return inRangeList;
     }
 }
