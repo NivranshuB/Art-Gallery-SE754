@@ -132,4 +132,14 @@ public class FilterArtworkTest {
             assertTrue(sale.getTimeRemaining() < 86400);
         }
     }
+
+    @Test
+    public void testFilterOnlyAuctionOver2DaysLeft() {
+        List<Sale> actual = filterService.filterAuctionItemsOverTime(saleList, 86400);
+
+        assertEquals(1, actual.size());
+        for (Sale sale : actual) {
+            assertTrue(sale.getTimeRemaining() > 86400);
+        }
+    }
 }
