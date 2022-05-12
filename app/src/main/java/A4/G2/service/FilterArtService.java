@@ -34,6 +34,19 @@ public class FilterArtService implements IFilterArtService{
 
     @Override
     public List<Sale> getPriceLowerThan(List<Sale> saleList, double v) {
+        List<Sale> lowerPriceList = new ArrayList<>();
+
+        for (Sale sale : saleList) {
+            if ((sale instanceof BuyNow) && (Double.compare(sale.getPrice(), v) < 0)) {
+                System.out.print(sale.getPrice() + " is less than " + v);
+                lowerPriceList.add(sale);
+            }
+        }
+        return lowerPriceList;
+    }
+
+    @Override
+    public List<Sale> getPriceHigherThan(List<Sale> saleList, double v) {
         return new ArrayList<>();
     }
 }

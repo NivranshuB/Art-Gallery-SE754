@@ -10,4 +10,6 @@ public interface IFilterArtService {
     List<Sale> getBuyNowItems(List<Sale> saleList);
 
     List<Sale> getPriceLowerThan(List<Sale> saleList, double v);
+
+    List<Sale> getPriceHigherThan(List<Sale> saleList, double v);
 }

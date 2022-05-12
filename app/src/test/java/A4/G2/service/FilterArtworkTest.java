@@ -82,9 +82,9 @@ public class FilterArtworkTest {
 
     @Test
     public void testFilterOnlyBuyNowPiecesHigherThan$100() {
-        List<Sale> actual = filterService.getPriceHigherThan(saleList, 100);
+        List<Sale> actual = filterService.getPriceHigherThan(saleList, 100.0);
 
-        assertEquals(2, actual);
+        assertEquals(2, actual.size());
         for (Sale sale : actual) {
             assertTrue(sale.getPrice() > 100);
         }
