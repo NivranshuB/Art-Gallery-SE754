@@ -3,6 +3,7 @@ package A4.G2.service;
 import A4.G2.model.artwork.Art;
 import A4.G2.model.artwork.Painting;
 import A4.G2.model.artwork.Print;
+import A4.G2.model.artwork.Sculpture;
 import A4.G2.model.sale.Auction;
 import A4.G2.model.sale.BuyNow;
 import A4.G2.model.sale.Sale;
@@ -194,6 +195,13 @@ public class FilterArtworkTest {
         Mockito.when(artist3.getArtistId()).thenReturn("jeff");
 
         List<Art> actual = filterService.filterArtFromArtist(artList, artist3);
+
+        assertEquals(0, actual.size());
+    }
+
+    @Test
+    public void testFilterArtByTypeSculptureWithNoResults() {
+        List<Art> actual = filterService.getArtByArtType(artList, Sculpture.class);
 
         assertEquals(0, actual.size());
     }
