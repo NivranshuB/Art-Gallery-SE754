@@ -74,7 +74,7 @@ public class FilterArtService implements IFilterArtService{
         List<Sale> lowerTimeRemainingList = new ArrayList<>();
 
         for (Sale sale : saleList) {
-            if (sale.getTimeRemaining() < i) {
+            if ((sale instanceof Auction) && (sale.getTimeRemaining() < i)) {
                 lowerTimeRemainingList.add(sale);
             }
         }
