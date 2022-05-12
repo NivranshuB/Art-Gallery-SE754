@@ -1,6 +1,7 @@
 package A4.G2.service;
 
 import A4.G2.model.sale.Auction;
+import A4.G2.model.sale.BuyNow;
 import A4.G2.model.sale.Sale;
 
 import java.util.ArrayList;
@@ -21,6 +22,13 @@ public class FilterArtService implements IFilterArtService{
 
     @Override
     public List<Sale> getBuyNowItems(List<Sale> saleList) {
-        return new ArrayList<>();
+        List<Sale> buyNowItemsList = new ArrayList<>();
+
+        for (Sale sale : saleList) {
+            if (sale instanceof BuyNow) {
+                buyNowItemsList.add(sale);
+            }
+        }
+        return buyNowItemsList;
     }
 }
