@@ -1,6 +1,8 @@
 package A4.G2.service;
 
+import A4.G2.model.artwork.Art;
 import A4.G2.model.sale.Sale;
+import A4.G2.model.users.Artist;
 
 import java.util.List;
 
@@ -18,4 +20,6 @@ public interface IFilterArtService {
     List<Sale> filterAuctionItemsUnderTime(List<Sale> saleList, int i);
 
     List<Sale> filterAuctionItemsOverTime(List<Sale> saleList, int i);
+
+    List<Art> filterArtFromArtist(List<Art> artList, Artist artist1);
 }

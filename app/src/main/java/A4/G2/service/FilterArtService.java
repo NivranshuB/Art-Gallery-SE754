@@ -1,8 +1,10 @@
 package A4.G2.service;
 
+import A4.G2.model.artwork.Art;
 import A4.G2.model.sale.Auction;
 import A4.G2.model.sale.BuyNow;
 import A4.G2.model.sale.Sale;
+import A4.G2.model.users.Artist;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,5 +93,10 @@ public class FilterArtService implements IFilterArtService{
             }
         }
         return overTimeRemainingList;
+    }
+
+    @Override
+    public List<Art> filterArtFromArtist(List<Art> artList, Artist artist1) {
+        return new ArrayList<>();
     }
 }
