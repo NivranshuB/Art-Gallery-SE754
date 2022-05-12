@@ -72,4 +72,11 @@ public class FilterArtworkTest {
             assertTrue(sale instanceof BuyNow);
         }
     }
+
+    @Test
+    public void testFilterOnlyBuyNowPiecesLowerThan$100() {
+        List<Sale> actual = filterService.getPriceLowerThan(saleList, 100.0);
+
+        assertEquals(0, actual.size());
+    }
 }
