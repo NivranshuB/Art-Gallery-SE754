@@ -1,6 +1,8 @@
 package A4.G2.service;
 
 import A4.G2.model.artwork.Art;
+import A4.G2.model.artwork.Painting;
+import A4.G2.model.artwork.Print;
 import A4.G2.model.artwork.Sculpture;
 import A4.G2.model.sale.Auction;
 import A4.G2.model.sale.BuyNow;
@@ -109,15 +111,28 @@ public class FilterArtService implements IFilterArtService{
     }
 
     @Override
-    public List<Art> getArtPiecesByArtType(List<Art> artList, Class<?> artClass) {
-        List<Art> artMatchingTypeList = new ArrayList<>();
+    public List<Art> getArtPiecesByArtType(List<Art> artList, String artType) {
+        List<Art> paintingTypeList = new ArrayList<>();
+        List<Art> printTypeList = new ArrayList<>();
+        List<Art> sculptureTypeList = new ArrayList<>();
 
         for (Art art : artList) {
-            System.out.println(art.getClass() + " does not match " + artClass);
-            if (artClass == art.getClass()) {
-                artMatchingTypeList.add(art);
+            if (art instanceof Painting) {
+                paintingTypeList.add(art);
+            } else if (art instanceof Print) {
+                printTypeList.add(art);
+            } else if (art instanceof Sculpture) {
+                sculptureTypeList.add(art);
             }
         }
-        return artMatchingTypeList;
+
+        if (artType.equalsIgnoreCase("painting")) {
+            return paintingTypeList;
+        } else if (artType.equalsIgnoreCase("print")) {
+            return printTypeList;
+        } else if (artType.equalsIgnoreCase("sculpture")) {
+            return sculptureTypeList;
+        }
+        return new ArrayList<>();
     }
 }

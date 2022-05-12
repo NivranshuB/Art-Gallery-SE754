@@ -24,5 +24,5 @@ public interface IFilterArtService {
 
     List<Art> filterArtFromArtist(List<Art> artList, Artist artist1);
 
-    List<Art> getArtPiecesByArtType(List<Art> artList, Class<?> cls);
+    List<Art> getArtPiecesByArtType(List<Art> artList, String artType);
 }

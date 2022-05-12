@@ -201,14 +201,14 @@ public class FilterArtworkTest {
 
     @Test
     public void testFilterArtByTypeSculptureWithNoResults() {
-        List<Art> actual = filterService.getArtPiecesByArtType(artList, Sculpture.class);
+        List<Art> actual = filterService.getArtPiecesByArtType(artList, "sculpture");
 
         assertEquals(0, actual.size());
     }
 
     @Test
     public void testFilterArtByTypePrintOnlyWithResults() {
-        List<Art> actual = filterService.getArtPiecesByArtType(artList, Print.class);
+        List<Art> actual = filterService.getArtPiecesByArtType(artList, "print");
 
         assertEquals(1, actual.size());
 
