@@ -201,7 +201,7 @@ public class FilterArtworkTest {
 
     @Test
     public void testFilterArtByTypeSculptureWithNoResults() {
-        List<Art> actual = filterService.getArtByArtType(artList, Sculpture.class);
+        List<Art> actual = filterService.getArtPiecesByArtType(artList, Sculpture.class);
 
         assertEquals(0, actual.size());
     }

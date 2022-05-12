@@ -1,6 +1,7 @@
 package A4.G2.service;
 
 import A4.G2.model.artwork.Art;
+import A4.G2.model.artwork.Sculpture;
 import A4.G2.model.sale.Auction;
 import A4.G2.model.sale.BuyNow;
 import A4.G2.model.sale.Sale;
@@ -105,5 +106,10 @@ public class FilterArtService implements IFilterArtService{
             }
         }
         return artByArtistList;
+    }
+
+    @Override
+    public List<Art> getArtPiecesByArtType(List<Art> artList, Class<?> artClass) {
+        return new ArrayList<>();
     }
 }

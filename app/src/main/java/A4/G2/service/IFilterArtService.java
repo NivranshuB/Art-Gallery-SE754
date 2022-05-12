@@ -1,6 +1,7 @@
 package A4.G2.service;
 
 import A4.G2.model.artwork.Art;
+import A4.G2.model.artwork.Sculpture;
 import A4.G2.model.sale.Sale;
 import A4.G2.model.users.Artist;
 
@@ -22,4 +23,6 @@ public interface IFilterArtService {
     List<Sale> filterAuctionItemsOverTime(List<Sale> saleList, int i);
 
     List<Art> filterArtFromArtist(List<Art> artList, Artist artist1);
+
+    List<Art> getArtPiecesByArtType(List<Art> artList, Class<?> cls);
 }
