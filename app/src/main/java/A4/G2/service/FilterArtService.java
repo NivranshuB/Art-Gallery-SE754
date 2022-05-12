@@ -70,14 +70,19 @@ public class FilterArtService implements IFilterArtService{
     }
 
     @Override
-    public List<Sale> filterAuctionItemsUnderTime(List<Sale> saleList, int i) {
+    public List<Sale> filterAuctionItemsUnderTime(List<Sale> saleList, int max) {
         List<Sale> lowerTimeRemainingList = new ArrayList<>();
 
         for (Sale sale : saleList) {
-            if ((sale instanceof Auction) && (sale.getTimeRemaining() < i)) {
+            if ((sale instanceof Auction) && (sale.getTimeRemaining() < max)) {
                 lowerTimeRemainingList.add(sale);
             }
         }
         return lowerTimeRemainingList;
+    }
+
+    @Override
+    public List<Sale> filterAuctionItemsOverTime(List<Sale> saleList, int min) {
+        return new ArrayList<>();
     }
 }
