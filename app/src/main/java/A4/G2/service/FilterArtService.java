@@ -97,6 +97,13 @@ public class FilterArtService implements IFilterArtService{
 
     @Override
     public List<Art> filterArtFromArtist(List<Art> artList, Artist artist1) {
-        return new ArrayList<>();
+        List<Art> artByArtistList = new ArrayList<>();
+
+        for (Art art : artList) {
+            if (art.getArtist().getArtistId().equals(artist1.getArtistId())) {
+                artByArtistList.add(art);
+            }
+        }
+        return artByArtistList;
     }
 }

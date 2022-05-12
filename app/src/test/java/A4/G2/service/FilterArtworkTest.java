@@ -10,6 +10,7 @@ import A4.G2.model.users.Artist;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
@@ -48,6 +49,9 @@ public class FilterArtworkTest {
         artist1 = Mockito.mock(Artist.class);
         Mockito.when(artist1.getArtistId()).thenReturn("a1");
 
+        Artist artist2 = Mockito.mock(Artist.class);
+        Mockito.when(artist2.getArtistId()).thenReturn("a2");
+
         Sale buyNow1 = Mockito.mock(BuyNow.class);
         Sale buyNow2 = Mockito.mock(BuyNow.class);
         Sale buyNow3 = Mockito.mock(BuyNow.class);
@@ -75,7 +79,7 @@ public class FilterArtworkTest {
 
         Mockito.when(painting1.getArtist()).thenReturn(artist1);
         Mockito.when(print1.getArtist()).thenReturn(artist1);
-        Mockito.when(painting2.getArtist()).thenReturn(artist1);
+        Mockito.when(painting2.getArtist()).thenReturn(artist2);
 
         artList.add(painting1);
         artList.add(print1);
@@ -178,7 +182,7 @@ public class FilterArtworkTest {
     public void testArtistArtworksRetrievalWhenListNonEmpty() {
         List<Art> actual = filterService.filterArtFromArtist(artList, artist1);
 
-        assertEquals(1, actual.size());
+        assertEquals(2, actual.size());
         for (Art art : actual) {
             assertEquals(art.getArtist().getArtistId(), artist1.getArtistId());
         }
