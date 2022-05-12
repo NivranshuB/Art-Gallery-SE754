@@ -79,4 +79,14 @@ public class FilterArtworkTest {
 
         assertEquals(0, actual.size());
     }
+
+    @Test
+    public void testFilterOnlyBuyNowPiecesHigherThan$100() {
+        List<Sale> actual = filterService.getPriceHigherThan(saleList, 100);
+
+        assertEquals(2, actual);
+        for (Sale sale : actual) {
+            assertTrue(sale.getPrice() > 100);
+        }
+    }
 }
