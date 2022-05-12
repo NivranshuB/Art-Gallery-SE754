@@ -21,15 +21,15 @@ public class LinkGeneratorTest {
 		LinkGenerator artistLink = new LinkGenerator();
 		Artist artist = Mockito.mock(Artist.class);
 		Mockito.doReturn(uuid).when(artist).getArtistId();
-		String link = artistLink.generateLink(artist.getArtistId());
+		String link = artistLink.generateArtistLink(artist.getArtistId());
 		assertEquals("https://www.g2gallery.com/"+uuid, link);
 	}
 
 	@Test
 	public void testArtPageLinkGenerator() {
 		String uuid = UUID.randomUUID().toString();
-		LinkGenerator paintingLinkGenerator = new LinkGenerator();
-		String link = paintingLinkGenerator.generateArtLink(uuid);
+		LinkGenerator artLinkGenerator = new LinkGenerator();
+		String link = artLinkGenerator.generateArtLink(uuid);
 		assertEquals("https://www.g2gallery.com/art/"+uuid, link);
 	}
 
