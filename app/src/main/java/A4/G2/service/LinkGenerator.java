@@ -8,4 +8,10 @@ public class LinkGenerator implements ILinkGenerator {
 		link = site + artistId;
 		return link;
 	}
+
+	public String generateArtLink(String artId) {
+		String link;
+		link = site + "art/" + artId;
+		return link;
+	}
 }
