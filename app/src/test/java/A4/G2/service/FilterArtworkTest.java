@@ -40,14 +40,17 @@ public class FilterArtworkTest {
     public void setup() {
         Sale buyNow1 = Mockito.mock(BuyNow.class);
         Sale buyNow2 = Mockito.mock(BuyNow.class);
+        Sale buyNow3 = Mockito.mock(BuyNow.class);
         Sale auction1 = Mockito.mock(Auction.class);
 
         Mockito.when(buyNow1.getPrice()).thenReturn(120.00);
         Mockito.when(buyNow2.getPrice()).thenReturn(101.00);
+        Mockito.when(buyNow3.getPrice()).thenReturn(99.0);
         Mockito.when(auction1.getTimeRemaining()).thenReturn(90000);
 
         saleList.add(buyNow1);
         saleList.add(buyNow2);
+        saleList.add(buyNow3);
         saleList.add(auction1);
 
         filterService = new FilterArtService();
@@ -66,7 +69,7 @@ public class FilterArtworkTest {
     @Test
     public void testFilterOnlyBuyNowPieces() {
         List<Sale> actual = filterService.getBuyNowItems(saleList);
-        assertEquals(2, actual.size());
+        assertEquals(3, actual.size());
 
         for (Sale sale : actual) {
             assertTrue(sale instanceof BuyNow);
@@ -77,7 +80,11 @@ public class FilterArtworkTest {
     public void testFilterOnlyBuyNowPiecesLowerThan$100() {
         List<Sale> actual = filterService.getPriceLowerThan(saleList, 100.0);
 
-        assertEquals(0, actual.size());
+        assertEquals(1, actual.size());
+
+        for (Sale sale : actual) {
+            assertTrue(Double.compare(sale.getPrice(), 100.0) <= 0);
+        }
     }
 
     @Test
@@ -86,7 +93,7 @@ public class FilterArtworkTest {
 
         assertEquals(2, actual.size());
         for (Sale sale : actual) {
-            assertTrue(sale.getPrice() > 100);
+            assertTrue(sale.getPrice() >= 100);
         }
     }
 
@@ -96,7 +103,8 @@ public class FilterArtworkTest {
 
         assertEquals(1, actual.size());
         for (Sale sale : actual) {
-            assertTrue((Double.compare(sale.getPrice(), 100.0) > 0) && (Double.compare(sale.getPrice(), 110.0) < 0));
+            assertTrue((Double.compare(sale.getPrice(), 100.0) >= 0) &&
+                    (Double.compare(sale.getPrice(), 110.0) <= 0));
         }
     }
 }

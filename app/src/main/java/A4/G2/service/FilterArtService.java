@@ -33,11 +33,11 @@ public class FilterArtService implements IFilterArtService{
     }
 
     @Override
-    public List<Sale> getPriceLowerThan(List<Sale> saleList, double v) {
+    public List<Sale> getPriceLowerThan(List<Sale> saleList, double max) {
         List<Sale> lowerPriceList = new ArrayList<>();
 
         for (Sale sale : saleList) {
-            if ((sale instanceof BuyNow) && (Double.compare(sale.getPrice(), v) < 0)) {
+            if ((sale instanceof BuyNow) && (Double.compare(sale.getPrice(), max) <= 0)) {
                 lowerPriceList.add(sale);
             }
         }
@@ -45,11 +45,11 @@ public class FilterArtService implements IFilterArtService{
     }
 
     @Override
-    public List<Sale> getPriceHigherThan(List<Sale> saleList, double v) {
+    public List<Sale> getPriceHigherThan(List<Sale> saleList, double min) {
         List<Sale> higherPriceList = new ArrayList<>();
 
         for (Sale sale : saleList) {
-            if ((sale instanceof BuyNow) && (Double.compare(sale.getPrice(), v) > 0)) {
+            if ((sale instanceof BuyNow) && (Double.compare(sale.getPrice(), min) >= 0)) {
                 higherPriceList.add(sale);
             }
         }
@@ -57,12 +57,12 @@ public class FilterArtService implements IFilterArtService{
     }
 
     @Override
-    public List<Sale> getPriceBetween(List<Sale> saleList, double v, double v1) {
+    public List<Sale> getPriceBetween(List<Sale> saleList, double max, double min) {
         List<Sale> inRangeList = new ArrayList<>();
 
         for (Sale sale : saleList) {
-            if ((sale instanceof BuyNow) && (Double.compare(sale.getPrice(), v) > 0) &&
-                    (Double.compare(sale.getPrice(), v1) < 0)) {
+            if ((sale instanceof BuyNow) && (Double.compare(sale.getPrice(), max) >= 0) &&
+                    (Double.compare(sale.getPrice(), min) <= 0)) {
                 inRangeList.add(sale);
             }
         }
