@@ -31,4 +31,9 @@ public class FilterArtService implements IFilterArtService{
         }
         return buyNowItemsList;
     }
+
+    @Override
+    public List<Sale> getPriceLowerThan(List<Sale> saleList, double v) {
+        return new ArrayList<>();
+    }
 }

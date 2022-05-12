@@ -8,4 +8,6 @@ public interface IFilterArtService {
     List<Sale> getAuctionItems(List<Sale> saleList);
 
     List<Sale> getBuyNowItems(List<Sale> saleList);
+
+    List<Sale> getPriceLowerThan(List<Sale> saleList, double v);
 }
