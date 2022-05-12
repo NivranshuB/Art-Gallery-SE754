@@ -6,6 +6,7 @@ import A4.G2.model.sale.Sale;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,8 +30,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class FilterArtworkTest {
 
-    FilterArtService filterService;
-    List<Sale> saleList;
+    IFilterArtService filterService;
+    List<Sale> saleList = new ArrayList<>();
 
     @Test
     public void testFilterOnlyAuctionPieces() {
@@ -40,7 +41,7 @@ public class FilterArtworkTest {
 
         Mockito.when(buyNow1.getPrice()).thenReturn(120.00);
         Mockito.when(buyNow2.getPrice()).thenReturn(101.00);
-        Mockito.when(auction1.getTimeRemainingj()).thenReturn(90000);
+        Mockito.when(auction1.getTimeRemaining()).thenReturn(90000);
 
         saleList.add(buyNow1);
         saleList.add(buyNow2);

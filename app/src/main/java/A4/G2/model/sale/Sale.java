@@ -34,4 +34,8 @@ public abstract class Sale {
     public Art getArtPiece() {
         return this.artPiece;
     }
+
+    public int getTimeRemaining() {
+        return -1;
+    }
 }
