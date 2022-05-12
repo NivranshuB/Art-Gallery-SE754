@@ -89,4 +89,14 @@ public class FilterArtworkTest {
             assertTrue(sale.getPrice() > 100);
         }
     }
+
+    @Test
+    public void testFilterOnlyBuyNowPiecesBetween$100and$110() {
+        List<Sale> actual = filterService.getPriceBetween(saleList, 100.0, 110.0);
+
+        assertEquals(1, actual.size());
+        for (Sale sale : actual) {
+            assertTrue((Double.compare(sale.getPrice(), 100.0) > 0) && (Double.compare(sale.getPrice(), 110.0) < 0));
+        }
+    }
 }
