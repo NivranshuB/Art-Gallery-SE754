@@ -21,7 +21,7 @@ public class ArtistTest {
 	@Test
 	public void testArtistPageLinkGeneration() {
 		LinkGenerator artistLink = new LinkGenerator();
-		String link = artistLink.generateLink(artist.getArtistId());
+		String link = artistLink.generateArtistLink(artist.getArtistId());
 		assertEquals("https://www.g2gallery.com/"+artist.getArtistId(), link);
 	}
 
