@@ -14,4 +14,6 @@ public interface IFilterArtService {
     List<Sale> getPriceHigherThan(List<Sale> saleList, double v);
 
     List<Sale> getPriceBetween(List<Sale> saleList, double v, double v1);
+
+    List<Sale> filterAuctionItemsUnderTime(List<Sale> saleList, int i);
 }

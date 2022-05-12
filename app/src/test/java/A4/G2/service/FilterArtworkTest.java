@@ -124,7 +124,7 @@ public class FilterArtworkTest {
 
         Mockito.when(auction2.getTimeRemaining()).thenReturn(7200);
 
-        List<Sale> actual = filterService.filterAuctionPiecesUnderTime(saleList, 86400);
+        List<Sale> actual = filterService.filterAuctionItemsUnderTime(saleList, 86400);
 
         assertEquals(1, actual.size());
         for (Sale sale : actual) {
