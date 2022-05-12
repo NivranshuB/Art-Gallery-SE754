@@ -142,4 +142,13 @@ public class FilterArtworkTest {
             assertTrue(sale.getTimeRemaining() > 86400);
         }
     }
+
+    @Test
+    public void testOnlyRetrievingAuctionItemsWhenFilteringByPrice() {
+        List<Sale> actual = filterService.filterAuctionItemsOverTime(saleList, 86400);
+
+        for (Sale sale : actual) {
+            assertTrue(sale instanceof Auction);
+        }
+    }
 }
