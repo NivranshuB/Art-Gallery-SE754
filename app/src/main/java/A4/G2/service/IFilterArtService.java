@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IFilterArtService {
     List<Sale> getAuctionItems(List<Sale> saleList);
+
+    List<Sale> getBuyNowItems(List<Sale> saleList);
 }

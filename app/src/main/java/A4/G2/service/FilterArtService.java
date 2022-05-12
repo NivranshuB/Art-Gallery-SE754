@@ -18,4 +18,9 @@ public class FilterArtService implements IFilterArtService{
         }
         return auctionItemsList;
     }
+
+    @Override
+    public List<Sale> getBuyNowItems(List<Sale> saleList) {
+        return new ArrayList<>();
+    }
 }
