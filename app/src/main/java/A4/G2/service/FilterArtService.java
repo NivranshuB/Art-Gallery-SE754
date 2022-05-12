@@ -110,6 +110,13 @@ public class FilterArtService implements IFilterArtService{
 
     @Override
     public List<Art> getArtPiecesByArtType(List<Art> artList, Class<?> artClass) {
-        return new ArrayList<>();
+        List<Art> artMatchingTypeList = new ArrayList<>();
+
+        for (Art art : artList) {
+            if (artClass == art.getClass()) {
+                artMatchingTypeList.add(art);
+            }
+        }
+        return artMatchingTypeList;
     }
 }
