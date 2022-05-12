@@ -185,7 +185,7 @@ public class FilterArtworkTest {
 
         assertEquals(2, actual.size());
         for (Art art : actual) {
-            assertEquals(art.getArtist().getArtistId(), artist1.getArtistId());
+            assertTrue(art.getArtist().getArtistId().equalsIgnoreCase(artist1.getArtistId()));
         }
     }
 
