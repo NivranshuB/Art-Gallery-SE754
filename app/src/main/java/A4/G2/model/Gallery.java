@@ -31,6 +31,9 @@ public class Gallery {
     public void removeArt(Art art) {
         arts.remove(art);
     }
+    public void removeArtForSale(Sale sale) {
+        artsForSale.remove(sale);
+    }
 
 
 }
