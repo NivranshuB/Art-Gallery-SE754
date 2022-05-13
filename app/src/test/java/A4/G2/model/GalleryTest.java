@@ -41,4 +41,11 @@ public class GalleryTest {
         gallery.removeArt(art);
         assertEquals(gallery.getArtList().size(), 0);
     }
+
+    @Test
+    public void testRemoveArtFromGallerySalesList() {
+        gallery.addArtForSale(buyNow);
+        gallery.removeArtForSale(buyNow);
+        assertEquals(gallery.getArtSalesList().size(), 0);
+    }
 }
