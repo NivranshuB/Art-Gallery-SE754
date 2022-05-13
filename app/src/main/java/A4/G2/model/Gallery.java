@@ -28,5 +28,9 @@ public class Gallery {
         return artsForSale;
     }
 
+    public void removeArt(Art art) {
+        arts.remove(art);
+    }
+
 
 }
