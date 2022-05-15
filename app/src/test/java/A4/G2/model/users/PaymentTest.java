@@ -47,7 +47,7 @@ public class PaymentTest {
 
 	@Test
 	public void testValidCreatePayment() {
-		Payment payment = new Payment(cardNumber,cardHolder,expiryDate,CVV);
+		Payment payment = getValidPayment();
 		assertEquals(payment.getCardNumber(),"5555555555554444");
 		assertEquals(payment.getCardHolder(),"Luxman");
 		assertEquals(payment.getExpiryDate(),"02/21");
