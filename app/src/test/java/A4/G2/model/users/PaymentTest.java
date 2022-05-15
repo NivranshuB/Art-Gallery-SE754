@@ -75,7 +75,7 @@ public class PaymentTest {
 	}
 
 	@Test
-	public void failAuctionNoPayment() {
+	public void testFailAuctionNoPayment() {
 		try {
 			auction.placeBid(user,60);
 		}
@@ -86,7 +86,7 @@ public class PaymentTest {
 	}
 
 	@Test
-	public void failBuyNoPayment() {
+	public void testFailBuyNoPayment() {
 		try {
 			buyNow.buyArtPiece(user);
 		}
@@ -96,12 +96,33 @@ public class PaymentTest {
 
 	}
 
+	@Test
+	public void testAddPayment() {
+		Payment payment = getValidPayment();
+		user.modifyPayment(payment);
+		assertEquals(payment, user.getPaymentDetails());
+	}
+
+	@Test
+	public void modifyPayment() {
+		User user = getUserWithPayment();
+		Payment payment = new Payment("5557553552554446",
+				"Harry","02/21","743");
+		assertEquals(payment, user.getPaymentDetails());
+	}
+
 	private Payment getValidPayment() {
 		String cardNumber = "5555555555554444";
 		String cardHolder = "Luxman";
 		String expiryDate = "02/21";
 		String CVV = "333";
 		return new Payment(cardNumber,cardHolder,expiryDate,CVV);
+	}
+
+	private User getUserWithPayment() {
+		Payment payment = getValidPayment();
+		user.modifyPayment(payment);
+		return user;
 	}
 
 }
