@@ -108,6 +108,7 @@ public class PaymentTest {
 		User user = getUserWithPayment();
 		Payment payment = new Payment("5557553552554446",
 				"Harry","02/21","743");
+		user.modifyPayment(payment);
 		assertEquals(payment, user.getPaymentDetails());
 	}
 
