@@ -27,4 +27,8 @@ public User(String userName, String password, String email, String phone, String
 	    this.payment = payment;
 	}
 
+    public Payment getPaymentDetails() {
+        return this.payment;
+    }
+
 }
