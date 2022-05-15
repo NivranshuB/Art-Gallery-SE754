@@ -38,7 +38,7 @@ public class PaymentVerifier {
         }
         try {
             int month = Integer.parseInt(expiryDate.substring(0,2));
-            int year = Integer.parseInt(expiryDate.substring(0,2));
+            int year = Integer.parseInt(expiryDate.substring(3,5));
 
             if (month < 0 || month > 12 || year < 0) {
                 return false;
