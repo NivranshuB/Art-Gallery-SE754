@@ -31,5 +31,9 @@ public User(String userName, String password, String email, String phone, String
         return this.payment;
     }
 
+    public void deletePaymentDetails() {
+        this.payment = null;
+    }
+
 
 }
