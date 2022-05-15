@@ -51,7 +51,7 @@ public class PaymentTest {
 		assertEquals(payment.getCardNumber(),"5555555555554444");
 		assertEquals(payment.getCardHolder(),"Luxman");
 		assertEquals(payment.getExpiryDate(),"02/21");
-		assertEquals(payment.getExpiryDate(),"333");
+		assertEquals(payment.getCVV(),"333");
 
 	}
 
