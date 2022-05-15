@@ -3,6 +3,7 @@ package A4.G2.model.users;
 import A4.G2.model.Payment;
 import A4.G2.model.artwork.Painting;
 import A4.G2.model.sale.Auction;
+import A4.G2.model.sale.BuyNow;
 import A4.G2.model.users.Artist;
 import A4.G2.model.users.User;
 import A4.G2.service.payment.InvalidPaymentException;
@@ -31,7 +32,7 @@ public class PaymentTest {
 	double price;
 	double reservePrice;
 	int timeRemaining;
-	Payment payment;
+	BuyNow buyNow;
 
 	@BeforeAll
 	public void setUp() throws IOException {
@@ -46,6 +47,7 @@ public class PaymentTest {
 		auction = Mockito.spy(new Auction(saleId, price, painting, reservePrice, timeRemaining));
 
 		user = Mockito.spy(new User("Luxman", "Luxman", "luxman.gmail.com", "0222222222", "9 Narnia Land"));
+		buyNow = Mockito.spy(new BuyNow(saleId, 100, painting));
 	}
 
 	@Test
@@ -76,6 +78,17 @@ public class PaymentTest {
 	public void failAuctionNoPayment() {
 		try {
 			auction.placeBid(user,60);
+		}
+		catch (NoPaymentDetailsException e) {
+			assertEquals(e.getMessage(),"User has no payment details.");
+		}
+
+	}
+
+	@Test
+	public void failBuyNoPayment() {
+		try {
+			buyNow.buyArtPiece(user);
 		}
 		catch (NoPaymentDetailsException e) {
 			assertEquals(e.getMessage(),"User has no payment details.");
