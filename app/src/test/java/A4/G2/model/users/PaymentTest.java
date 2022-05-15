@@ -5,6 +5,8 @@ import A4.G2.model.artwork.Painting;
 import A4.G2.model.sale.Auction;
 import A4.G2.model.users.Artist;
 import A4.G2.model.users.User;
+import A4.G2.service.payment.InvalidPaymentException;
+import A4.G2.service.payment.PaymentVerifier;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -15,7 +17,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class PaymentTest {
@@ -52,7 +54,21 @@ public class PaymentTest {
 		assertEquals(payment.getCardHolder(),"Luxman");
 		assertEquals(payment.getExpiryDate(),"02/21");
 		assertEquals(payment.getCVV(),"333");
+	}
 
+	@Test
+	public void testInvalidCreatePayment() {
+		try {
+			String invalidCardNumber = "5";
+			String cardHolder = "Luxman";
+			String expiryDate = "02/21";
+			String invalidCVV = "3";
+			PaymentVerifier.verifyPayment(invalidCardNumber,cardHolder,expiryDate,invalidCVV);
+			fail("This should have thrown an exception");
+
+		} catch (InvalidPaymentException e) {
+			assertEquals(e.getMessage(),"Invalid Payment Details");
+		}
 	}
 
 	private Payment getValidPayment() {
@@ -60,7 +76,7 @@ public class PaymentTest {
 		String cardHolder = "Luxman";
 		String expiryDate = "02/21";
 		String CVV = "333";
-		return new Payment("5555555555554444","Luxman","02/21","333");
+		return new Payment(cardNumber,cardHolder,expiryDate,CVV);
 	}
 
 }
