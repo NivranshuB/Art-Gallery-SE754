@@ -112,6 +112,13 @@ public class PaymentTest {
 		assertEquals(payment, user.getPaymentDetails());
 	}
 
+	@Test
+	public void deletePayment() {
+		User user = getUserWithPayment();
+		user.deletePaymentDetails();
+		assertEquals(null,user.getPaymentDetails());
+	}
+
 	private Payment getValidPayment() {
 		String cardNumber = "5555555555554444";
 		String cardHolder = "Luxman";
@@ -125,6 +132,8 @@ public class PaymentTest {
 		user.modifyPayment(payment);
 		return user;
 	}
+
+
 
 }
 
