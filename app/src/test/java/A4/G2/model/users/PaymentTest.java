@@ -6,6 +6,7 @@ import A4.G2.model.sale.Auction;
 import A4.G2.model.users.Artist;
 import A4.G2.model.users.User;
 import A4.G2.service.payment.InvalidPaymentException;
+import A4.G2.service.payment.NoPaymentDetailsException;
 import A4.G2.service.payment.PaymentVerifier;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -69,6 +70,17 @@ public class PaymentTest {
 		} catch (InvalidPaymentException e) {
 			assertEquals(e.getMessage(),"Invalid Payment Details");
 		}
+	}
+
+	@Test
+	public void failAuctionNoPayment() {
+		try {
+			auction.placeBid(user,60);
+		}
+		catch (NoPaymentDetailsException e) {
+			assertEquals(e.getMessage(),"User has no payment details.");
+		}
+
 	}
 
 	private Payment getValidPayment() {
