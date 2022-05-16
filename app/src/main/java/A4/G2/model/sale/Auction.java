@@ -40,6 +40,9 @@ public class Auction extends  Sale {
     }
 
     public void placeBid(User user, int price) throws NoPaymentDetailsException, UnregisteredUserPurchaseException {
+        if (user == null) {
+            throw new UnregisteredUserPurchaseException("User is not registered.");
+        }
         if (user.getPaymentDetails() == null) {
             throw new NoPaymentDetailsException("User has no payment details.");
         }
