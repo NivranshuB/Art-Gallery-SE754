@@ -15,7 +15,7 @@ public class LoginDetailsManager implements ILoginDetailsManager {
     @Override
     public boolean changeUsername(User user, String newUsername) throws UsernameTakenException {
         if (userDaoService.checkIfUsernameTaken(newUsername)) {
-            throw new UsernameTakenException();
+            throw new UsernameTakenException("'" + newUsername + "' already taken as a username");
         }
         user.setUsername(newUsername);
         return true;

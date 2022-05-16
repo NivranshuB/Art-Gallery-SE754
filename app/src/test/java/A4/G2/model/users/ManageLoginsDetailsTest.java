@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 
 /**
@@ -42,7 +41,7 @@ public class ManageLoginsDetailsTest {
 
         loginDetailsManager = new LoginDetailsManager(userDaoService);
 
-        user = Mockito.spy(new User("jeff", "qwerty30", "jeff.com", "123456",
+        user = Mockito.spy(new User("jeff", "Qwerty30", "jeff.com", "123456",
                 "jeff house"));
     }
 
@@ -59,9 +58,11 @@ public class ManageLoginsDetailsTest {
     @Test
     public void testUserChangesUsernameToTakenUsername() {
         try {
-            Mockito.when(loginDetailsManager.changeUsername(user, "Steve")).thenThrow(UsernameTakenException.class);
-        } catch (Exception exception) {
+            loginDetailsManager.changeUsername(user, "Steve");
+            fail("This should have thrown an exception");
+        } catch (UsernameTakenException e) {
             Mockito.verify(user, times(0)).setUsername("Steve");
+            assertEquals(e.getMessage(), "'Steve' already taken as a username");
         }
     }
 }
