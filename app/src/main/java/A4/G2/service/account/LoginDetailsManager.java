@@ -25,6 +25,8 @@ public class LoginDetailsManager implements ILoginDetailsManager {
     public boolean changePassword(User user, String oldPassword, String newPassword, String newPasswordRetyped) throws WeakPasswordException {
         if (!newPassword.matches(".*\\d.*")) {
             throw new WeakPasswordException("Weak password: no digits in password");
+        } else if (!newPassword.chars().anyMatch(Character::isUpperCase)) {
+            throw new WeakPasswordException("Weak password: no capital letters in password");
         }
         user.setPassword(newPassword);
         return true;
