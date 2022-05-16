@@ -13,4 +13,9 @@ public class ShippingDetailsManager implements IShippingDetailsManager {
     public String getShippingPreferences(User user) {
         return user.getShippingDetails().getPreferences();
     }
+
+    @Override
+    public void modifyShippingAddress(User user, String newAddress) {
+        return;
+    }
 }

@@ -7,4 +7,6 @@ public interface IShippingDetailsManager {
     String getShippingAddress(User user);
 
     String getShippingPreferences(User user);
+
+    void modifyShippingAddress(User user, String newAddress);
 }
