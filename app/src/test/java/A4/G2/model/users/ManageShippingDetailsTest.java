@@ -70,7 +70,7 @@ public class ManageShippingDetailsTest {
         shippingDetailsManager.modifyShippingPreferences(user, "Delivery after 7pm");
 
         Mockito.verify(user, times(1)).getShippingDetails();
-        Mockito.verify(shippingDetails, times(1)).setPreferences("10 Beach Road");
+        Mockito.verify(shippingDetails, times(1)).setPreferences("Delivery after 7pm");
     }
 
 }

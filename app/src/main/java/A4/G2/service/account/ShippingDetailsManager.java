@@ -21,6 +21,6 @@ public class ShippingDetailsManager implements IShippingDetailsManager {
 
     @Override
     public void modifyShippingPreferences(User user, String newPreferences) {
-        return;
+        user.getShippingDetails().setPreferences(newPreferences);
     }
 }
