@@ -1,5 +1,6 @@
 package A4.G2.model.users;
 
+import A4.G2.service.account.ShippingDetailsManager;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -41,6 +42,6 @@ public class ManageShippingDetailsTest {
         assertEquals("4 Jersey Shore, New Orleans", shippingDetailsManager.getShippingAddress(user));
 
         Mockito.verify(user.getShippingDetails(), times(1));
-        Mockito.verify(shippingDetails.getShippingAddress(), times(1));
+        Mockito.verify(shippingDetails.getAddress(), times(1));
     }
 }
