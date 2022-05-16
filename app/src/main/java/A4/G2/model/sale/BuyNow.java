@@ -10,6 +10,11 @@ public class BuyNow extends Sale {
         super(saleID, startingPrice, artPiece);
     }
 
+    @Override
+    public String getSaleType() {
+        return "Buy Now";
+    }
+
     public double getGst() {
         return this.getPrice() * 0.15;
     }

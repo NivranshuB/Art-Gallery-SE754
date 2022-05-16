@@ -17,6 +17,11 @@ public class Gallery {
     public void addArt(Art art) {
         arts.add(art);
     }
+
+    public void removeArt(Art art) {
+        arts.remove(art);
+    }
+
     public List<Art> getArtList() {
         return arts;
     }
@@ -24,6 +29,12 @@ public class Gallery {
     public void addArtForSale(Sale sale) {
         artsForSale.add(sale);
     }
+
+
+    public void removeArtForSale(Sale sale) {
+        artsForSale.remove(sale);
+    }
+
     public List<Sale> getArtSalesList() {
         return artsForSale;
     }

@@ -73,4 +73,9 @@ public class BuyNowTest {
 		assertEquals(painting, buyNow.getArtPiece());
 	}
 
+	@Test
+	public void testGetSaleTypeBuyNow() {
+		assertEquals("Buy Now", buyNow.getSaleType());
+	}
+
 }

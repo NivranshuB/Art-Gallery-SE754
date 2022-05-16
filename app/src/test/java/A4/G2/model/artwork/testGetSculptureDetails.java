@@ -49,4 +49,9 @@ public class testGetSculptureDetails {
 	public void testGetSculptureDimensions() {
 		assertEquals("0.5x0.5x0.5m", sculpture.getDimensions());
 	}
+
+	@Test
+	public void testGetArtTypeSculpture() {
+		assertEquals("Sculpture", sculpture.getArtType());
+	}
 }

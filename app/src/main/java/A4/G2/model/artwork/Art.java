@@ -24,6 +24,8 @@ public abstract class Art {
         this.dimensions = dimensions;
         boolean onSale = false;
     }
+
+    public abstract String getArtType();
     public String getId() {
         return this.id;
     }
