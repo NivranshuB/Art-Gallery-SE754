@@ -21,4 +21,8 @@ public class ShippingDetails {
     public void setAddress(String newAddress) {
         address = newAddress;
     }
+
+    public void setPreferences(String newPreferences) {
+        preferences = newPreferences;
+    }
 }
