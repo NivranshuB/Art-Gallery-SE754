@@ -11,4 +11,8 @@ public class Sculpture extends Art {
 
     }
 
+    @Override
+    public String getArtType() {
+        return null;
+    }
 }
