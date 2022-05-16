@@ -98,6 +98,9 @@ public class PaymentTest {
 			buyNow.buyArtPiece(user);
 			fail("This should have thrown an exception");
 		}
+		catch(UnregisteredUserPurchaseException ex) {
+			fail("This should have thrown a NoPaymentDetailsException.");
+		}
 		catch (NoPaymentDetailsException e) {
 			assertEquals(e.getMessage(),"User has no payment details.");
 		}
