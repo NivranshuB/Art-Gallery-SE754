@@ -1,6 +1,7 @@
 package A4.G2.model.users;
 
 import A4.G2.service.account.ShippingDetailsManager;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -23,22 +24,25 @@ import static org.mockito.Mockito.times;
  */
 public class ManageShippingDetailsTest {
 
-    @Test
-    public void testRetrievalOfShippingAddress() {
-        User user;
-        ShippingDetailsManager shippingDetailsManager;
-        ShippingDetails shippingDetails;
+    ShippingDetailsManager shippingDetailsManager;
 
+    User user;
+    ShippingDetails shippingDetails;
+
+    @BeforeEach
+    public void setup() {
         shippingDetailsManager = new ShippingDetailsManager();
 
-        user = Mockito.mock(User.class);
         shippingDetails = Mockito.mock(ShippingDetails.class);
-
         Mockito.when(shippingDetails.getAddress()).thenReturn("4 Jersey Shore, New Orleans");
         Mockito.when(shippingDetails.getPreferences()).thenReturn("Delivery after 5pm");
 
+        user = Mockito.mock(User.class);
         Mockito.when(user.getShippingDetails()).thenReturn(shippingDetails);
+    }
 
+    @Test
+    public void testRetrievalOfShippingAddress() {
         assertEquals("4 Jersey Shore, New Orleans", shippingDetailsManager.getShippingAddress(user));
 
         Mockito.verify(user, times(1)).getShippingDetails();
@@ -47,20 +51,6 @@ public class ManageShippingDetailsTest {
 
     @Test
     public void testRetrievalOfShippingPreferences() {
-        User user;
-        ShippingDetailsManager shippingDetailsManager;
-        ShippingDetails shippingDetails;
-
-        shippingDetailsManager = new ShippingDetailsManager();
-
-        user = Mockito.mock(User.class);
-        shippingDetails = Mockito.mock(ShippingDetails.class);
-
-        Mockito.when(shippingDetails.getAddress()).thenReturn("4 Jersey Shore, New Orleans");
-        Mockito.when(shippingDetails.getPreferences()).thenReturn("Delivery after 5pm");
-
-        Mockito.when(user.getShippingDetails()).thenReturn(shippingDetails);
-
         assertEquals("Delivery after 5pm", shippingDetailsManager.getShippingPreferences(user));
 
         Mockito.verify(user, times(1)).getShippingDetails();
