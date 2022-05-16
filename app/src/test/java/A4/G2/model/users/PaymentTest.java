@@ -103,7 +103,7 @@ public class PaymentTest {
 			buyNow.buyArtPiece(user);
 			fail("This should have thrown an exception");
 		}
-		catch(UnregisteredUserPurchaseException ex) {
+		catch(UnregisteredUserPurchaseException | UnderAgePurchaseException ex) {
 			fail("This should have thrown a NoPaymentDetailsException.");
 		}
 		catch (NoPaymentDetailsException e) {
