@@ -39,6 +39,6 @@ public class Auction extends  Sale {
 
     @Override
     public String getSaleType() {
-        return null;
+        return "Auction";
     }
 }

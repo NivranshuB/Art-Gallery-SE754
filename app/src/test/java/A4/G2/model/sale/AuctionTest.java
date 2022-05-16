@@ -104,6 +104,6 @@ public class AuctionTest {
 
 	@Test
 	public void testGetSaleTypeAuction() {
-		assertEquals("Buy Now", auction.getSaleType());
+		assertEquals("Auction", auction.getSaleType());
 	}
 }

@@ -10,7 +10,7 @@ public class BuyNow extends Sale {
 
     @Override
     public String getSaleType() {
-        return null;
+        return "Buy Now";
     }
 
     public double getGst() {
