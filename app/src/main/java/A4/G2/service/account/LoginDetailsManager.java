@@ -27,6 +27,8 @@ public class LoginDetailsManager implements ILoginDetailsManager {
             throw new WeakPasswordException("Weak password: no digits in password");
         } else if (!newPassword.chars().anyMatch(Character::isUpperCase)) {
             throw new WeakPasswordException("Weak password: no capital letters in password");
+        } else if (newPassword.length() < 6) {
+            throw new WeakPasswordException("Weak password: password less than 6 characters");
         }
         user.setPassword(newPassword);
         return true;
