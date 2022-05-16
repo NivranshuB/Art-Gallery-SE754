@@ -17,4 +17,8 @@ public class ShippingDetails {
     public String getPreferences() {
         return preferences;
     }
+
+    public void setAddress(String newAddress) {
+        address = newAddress;
+    }
 }
