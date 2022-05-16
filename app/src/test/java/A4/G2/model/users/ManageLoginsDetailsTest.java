@@ -1,11 +1,14 @@
 package A4.G2.model.users;
 
+import A4.G2.service.account.UsernameTakenException;
 import A4.G2.service.dao.UserDaoService;
 import A4.G2.service.account.LoginDetailsManager;
 import org.junit.jupiter.api.Test;
 
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.times;
 
 /**
@@ -42,5 +45,22 @@ public class ManageLoginsDetailsTest {
         }
 
         Mockito.verify(user, times(1)).setUsername("Geoff");
+    }
+
+    @Test
+    public void testUserChangesUsernameToTakenUsername() {
+        UserDaoService userDaoService = Mockito.mock(UserDaoService.class);
+        Mockito.when(userDaoService.checkIfUsernameTaken("Steve")).thenReturn(true);
+
+        LoginDetailsManager loginDetailsManager = new LoginDetailsManager(userDaoService);
+
+        User user = Mockito.spy(new User("jeff", "qwerty30", "jeff.com", "123456",
+                "jeff house"));
+
+        try {
+            Mockito.when(loginDetailsManager.changeUsername(user, "Steve")).thenThrow(UsernameTakenException.class);
+        } catch (Exception exception) {
+            Mockito.verify(user, times(0)).setUsername("Steve");
+        }
     }
 }
