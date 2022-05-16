@@ -23,6 +23,10 @@ public class LoginDetailsManager implements ILoginDetailsManager {
 
     @Override
     public boolean changePassword(User user, String oldPassword, String newPassword, String newPasswordRetyped) throws WeakPasswordException {
-        return false;
+        if (!newPassword.matches(".*\\d.*")) {
+            throw new WeakPasswordException("Weak password: no digits in password");
+        }
+        user.setPassword(newPassword);
+        return true;
     }
 }
