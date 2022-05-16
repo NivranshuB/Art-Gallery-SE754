@@ -9,6 +9,7 @@ import A4.G2.model.users.User;
 import A4.G2.service.payment.InvalidPaymentException;
 import A4.G2.service.payment.NoPaymentDetailsException;
 import A4.G2.service.payment.PaymentVerifier;
+import A4.G2.service.payment.UnregisteredUserPurchaseException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -82,6 +83,9 @@ public class PaymentTest {
 		}
 		catch (NoPaymentDetailsException e) {
 			assertEquals(e.getMessage(),"User has no payment details.");
+		}
+		catch(UnregisteredUserPurchaseException ex) {
+			fail("This should have thrown a NoPaymentDetailsException.");
 		}
 
 	}
