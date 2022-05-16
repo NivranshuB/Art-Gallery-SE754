@@ -118,7 +118,7 @@ public class AuctionTest {
 			fail("This should have thrown an exception");
 		}
 		catch(UnregisteredUserPurchaseException ex) {
-			assertEquals(ex.getMessage(),"User is not registered.");
+			assertEquals(ex.getMessage(),"User is not registered, please sign in to buy artwork.");
 		}
 		catch(NoPaymentDetailsException ex) {
 			//User should be first checked if registered before checking payments.

@@ -22,7 +22,7 @@ public class BuyNow extends Sale {
 
     public void buyArtPiece(User user) throws NoPaymentDetailsException, UnregisteredUserPurchaseException {
         if (user == null) {
-            throw new UnregisteredUserPurchaseException("User is not registered.");
+            throw new UnregisteredUserPurchaseException("User is not registered, please sign in to buy artwork.");
         }
         if (user.getPaymentDetails() == null) {
             throw new NoPaymentDetailsException("User has no payment details.");
