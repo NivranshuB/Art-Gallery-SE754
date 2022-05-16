@@ -7,6 +7,7 @@ import A4.G2.model.users.Artist;
 import A4.G2.model.users.User;
 import A4.G2.service.payment.NoPaymentDetailsException;
 import A4.G2.service.payment.UnderAgePurchaseException;
+import A4.G2.service.payment.UnregisteredUserPurchaseException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -130,5 +131,20 @@ public class AuctionTest {
 		catch(UnderAgePurchaseException ex) {
 
 		}
+	}
+	public void testUnregisteredUserAuction() {
+		User unregisteredUser = null;
+		try {
+			auction.placeBid(unregisteredUser, 80);
+			fail("This should have thrown an exception");
+		}
+		catch(UnregisteredUserPurchaseException ex) {
+			assertEquals(ex.getMessage(),"User is not registered, please sign in to buy artwork.");
+		}
+		catch(NoPaymentDetailsException ex) {
+			//User should be first checked if registered before checking payments.
+			fail("This should have thrown an UnregisteredUserPurchaseException.");
+		}
+
 	}
 }

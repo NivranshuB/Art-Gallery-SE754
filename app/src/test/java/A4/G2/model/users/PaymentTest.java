@@ -11,6 +11,7 @@ import A4.G2.service.payment.InvalidPaymentException;
 import A4.G2.service.payment.NoPaymentDetailsException;
 import A4.G2.service.payment.PaymentVerifier;
 import A4.G2.service.payment.UnderAgePurchaseException;
+import A4.G2.service.payment.UnregisteredUserPurchaseException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -81,27 +82,33 @@ public class PaymentTest {
 
 	@Test
 	public void testFailAuctionNoPayment() {
+		user.deletePaymentDetails();
 		try {
 			auction.placeBid(user,60);
+			fail("This should have thrown an exception");
 		}
 		catch (NoPaymentDetailsException e) {
 			assertEquals(e.getMessage(),"User has no payment details.");
 		}
-		catch(UnderAgePurchaseException ex) {
-			fail("User is not underage.");
+		catch(UnregisteredUserPurchaseException ex) {
+			fail("This should have thrown a NoPaymentDetailsException.");
 		}
 
 	}
 
 	@Test
 	public void testFailBuyNoPayment() {
+		user.deletePaymentDetails();
 		try {
 			buyNow.buyArtPiece(user);
+			fail("This should have thrown an exception");
+		}
+		catch(UnregisteredUserPurchaseException ex) {
+			fail("This should have thrown a NoPaymentDetailsException.");
 		}
 		catch (NoPaymentDetailsException e) {
 			assertEquals(e.getMessage(),"User has no payment details.");
 		}
-
 	}
 
 	@Test
