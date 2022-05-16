@@ -3,12 +3,14 @@ package A4.G2.model.users;
 import A4.G2.service.account.UsernameTakenException;
 import A4.G2.service.dao.UserDaoService;
 import A4.G2.service.account.LoginDetailsManager;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.times;
 
 /**
@@ -29,34 +31,33 @@ import static org.mockito.Mockito.times;
  */
 public class ManageLoginsDetailsTest {
 
-    @Test
-    public void testUserChangesUsernameToUniqueUsername() {
+    LoginDetailsManager loginDetailsManager;
+    User user;
+
+    @BeforeEach
+    public void setup() {
         UserDaoService userDaoService = Mockito.mock(UserDaoService.class);
         Mockito.when(userDaoService.checkIfUsernameTaken("Geoff")).thenReturn(false);
+        Mockito.when(userDaoService.checkIfUsernameTaken("Steve")).thenReturn(true);
 
-        LoginDetailsManager loginDetailsManager = new LoginDetailsManager(userDaoService);
+        loginDetailsManager = new LoginDetailsManager(userDaoService);
 
-        User user = Mockito.spy(new User("jeff", "qwerty30", "jeff.com", "123456",
+        user = Mockito.spy(new User("jeff", "qwerty30", "jeff.com", "123456",
                 "jeff house"));
+    }
 
+    @Test
+    public void testUserChangesUsernameToUniqueUsername() {
         try {
             loginDetailsManager.changeUsername(user, "Geoff");
         } catch (Exception exception) {
+            fail();
         }
-
         Mockito.verify(user, times(1)).setUsername("Geoff");
     }
 
     @Test
     public void testUserChangesUsernameToTakenUsername() {
-        UserDaoService userDaoService = Mockito.mock(UserDaoService.class);
-        Mockito.when(userDaoService.checkIfUsernameTaken("Steve")).thenReturn(true);
-
-        LoginDetailsManager loginDetailsManager = new LoginDetailsManager(userDaoService);
-
-        User user = Mockito.spy(new User("jeff", "qwerty30", "jeff.com", "123456",
-                "jeff house"));
-
         try {
             Mockito.when(loginDetailsManager.changeUsername(user, "Steve")).thenThrow(UsernameTakenException.class);
         } catch (Exception exception) {
