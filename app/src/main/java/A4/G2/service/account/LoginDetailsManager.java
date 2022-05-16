@@ -39,6 +39,7 @@ public class LoginDetailsManager implements ILoginDetailsManager {
             throw new WeakPasswordException("Weak password: password less than 6 characters");
         }
 
+        user.setPassword(newPassword);
         return true;
     }
 }
