@@ -8,4 +8,9 @@ public class ShippingDetailsManager implements IShippingDetailsManager {
     public String getShippingAddress(User user) {
         return user.getShippingDetails().getAddress();
     }
+
+    @Override
+    public String getShippingPreferences(User user) {
+        return "";
+    }
 }
