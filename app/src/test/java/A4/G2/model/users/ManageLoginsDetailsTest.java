@@ -65,4 +65,15 @@ public class ManageLoginsDetailsTest {
             assertEquals(e.getMessage(), "'Steve' already taken as a username");
         }
     }
+
+    @Test
+    public void testUserChangesPasswordToWeakPassword_noNumbers() {
+        try {
+            loginDetailsManager.changePassword("Qwerty30", "password", "password");
+            fail("This should have thrown an exception");
+        } catch (WeakPasswordException e) {
+            Mockito.verify(user, times(0)).setPassword("password");
+            assertEquals(e.getMessage(), "Weak password: no digits in password");
+        }
+    }
 }
