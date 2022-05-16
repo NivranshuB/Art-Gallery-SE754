@@ -77,6 +77,7 @@ public class PaymentTest {
 
 	@Test
 	public void testFailAuctionNoPayment() {
+		user.deletePaymentDetails();
 		try {
 			auction.placeBid(user,60);
 			fail("This should have thrown an exception");
