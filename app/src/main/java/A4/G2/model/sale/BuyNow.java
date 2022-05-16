@@ -3,6 +3,7 @@ package A4.G2.model.sale;
 import A4.G2.model.artwork.Art;
 import A4.G2.model.users.User;
 import A4.G2.service.payment.NoPaymentDetailsException;
+import A4.G2.service.payment.UnregisteredUserPurchaseException;
 
 public class BuyNow extends Sale {
 
@@ -19,7 +20,7 @@ public class BuyNow extends Sale {
         return this.getPrice() * 0.15;
     }
 
-    public void buyArtPiece(User user) throws NoPaymentDetailsException {
+    public void buyArtPiece(User user) throws NoPaymentDetailsException, UnregisteredUserPurchaseException {
         if (user.getPaymentDetails() == null) {
             throw new NoPaymentDetailsException("User has no payment details.");
         }
