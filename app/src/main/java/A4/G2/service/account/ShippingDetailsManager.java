@@ -11,6 +11,6 @@ public class ShippingDetailsManager implements IShippingDetailsManager {
 
     @Override
     public String getShippingPreferences(User user) {
-        return "";
+        return user.getShippingDetails().getPreferences();
     }
 }
