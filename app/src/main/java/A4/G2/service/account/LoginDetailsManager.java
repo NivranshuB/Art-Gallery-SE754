@@ -27,6 +27,8 @@ public class LoginDetailsManager implements ILoginDetailsManager {
 
         if (!oldPassword.equals(user.getPassword())) {
             throw new IncorrectPasswordException("Incorrect password: provided old password was incorrect");
+        } else if (!newPassword.equals(newPasswordRetyped)) {
+            throw new IncorrectPasswordException("Incorrect password: retyped new passwords don't match");
         }
 
         if (!newPassword.matches(".*\\d.*")) {
