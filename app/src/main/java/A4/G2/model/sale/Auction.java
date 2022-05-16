@@ -42,6 +42,9 @@ public class Auction extends  Sale {
         if (user.getPaymentDetails() == null) {
             throw new NoPaymentDetailsException("User has no payment details.");
         }
+        this.bidPerson = user;
+        this.currentBid = price;
+        this.numBids++;
     }
     @Override
     public String getSaleType() {

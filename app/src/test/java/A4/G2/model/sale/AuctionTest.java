@@ -106,4 +106,10 @@ public class AuctionTest {
 	public void testGetSaleTypeAuction() {
 		assertEquals("Auction", auction.getSaleType());
 	}
+
+	@Test
+	public void testUnregisteredUserAuction() {
+		User unregisteredUser = null;
+
+	}
 }

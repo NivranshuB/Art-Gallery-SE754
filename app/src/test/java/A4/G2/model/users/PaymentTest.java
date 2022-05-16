@@ -78,6 +78,7 @@ public class PaymentTest {
 	public void testFailAuctionNoPayment() {
 		try {
 			auction.placeBid(user,60);
+			fail("This should have thrown an exception");
 		}
 		catch (NoPaymentDetailsException e) {
 			assertEquals(e.getMessage(),"User has no payment details.");
@@ -89,11 +90,11 @@ public class PaymentTest {
 	public void testFailBuyNoPayment() {
 		try {
 			buyNow.buyArtPiece(user);
+			fail("This should have thrown an exception");
 		}
 		catch (NoPaymentDetailsException e) {
 			assertEquals(e.getMessage(),"User has no payment details.");
 		}
-
 	}
 
 	@Test
