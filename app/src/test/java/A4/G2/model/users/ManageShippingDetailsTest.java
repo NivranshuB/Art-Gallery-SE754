@@ -44,4 +44,26 @@ public class ManageShippingDetailsTest {
         Mockito.verify(user, times(1)).getShippingDetails();
         Mockito.verify(shippingDetails, times(1)).getAddress();
     }
+
+    @Test
+    public void testRetrievalOfShippingPreferences() {
+        User user;
+        ShippingDetailsManager shippingDetailsManager;
+        ShippingDetails shippingDetails;
+
+        shippingDetailsManager = new ShippingDetailsManager();
+
+        user = Mockito.mock(User.class);
+        shippingDetails = Mockito.mock(ShippingDetails.class);
+
+        Mockito.when(shippingDetails.getAddress()).thenReturn("4 Jersey Shore, New Orleans");
+        Mockito.when(shippingDetails.getPreferences()).thenReturn("Delivery after 5pm");
+
+        Mockito.when(user.getShippingDetails()).thenReturn(shippingDetails);
+
+        assertEquals("Delivery after 5pm", shippingDetailsManager.getShippingPreferences(user));
+
+        Mockito.verify(user, times(1)).getShippingDetails();
+        Mockito.verify(shippingDetails, times(1)).getPreferences();
+    }
 }
