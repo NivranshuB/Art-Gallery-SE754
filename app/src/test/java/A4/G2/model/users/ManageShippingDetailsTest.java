@@ -56,4 +56,13 @@ public class ManageShippingDetailsTest {
         Mockito.verify(user, times(1)).getShippingDetails();
         Mockito.verify(shippingDetails, times(1)).getPreferences();
     }
+
+    @Test
+    public void testModificationShippingAddress() {
+        shippingDetailsManager.modifyShippingAddress(user, "10 Beach Road");
+
+        Mockito.verify(user, times(1)).getShippingDetails();
+        Mockito.verify(shippingDetails, times(1)).setAddress("10 Beach Road");
+    }
+
 }
