@@ -1,8 +1,12 @@
 package A4.G2.model.sale;
 
+import A4.G2.helpers.DateGenerator;
+import A4.G2.model.Payment;
 import A4.G2.model.artwork.Painting;
 import A4.G2.model.users.Artist;
 import A4.G2.model.users.User;
+import A4.G2.service.payment.NoPaymentDetailsException;
+import A4.G2.service.payment.UnderAgePurchaseException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -14,6 +18,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AuctionTest {
@@ -105,5 +110,25 @@ public class AuctionTest {
 	@Test
 	public void testGetSaleTypeAuction() {
 		assertEquals("Auction", auction.getSaleType());
+	}
+
+	@Test
+	public void testBidUnder16Fails() {
+		User underAgeUser = Mockito.spy(new User("Luxman", "Luxman", "luxman.gmail.com",
+				"0222222222", "9 Narnia Land", DateGenerator.getSampleDateUnder16()));
+
+		Payment payment = new Payment("5555555555554444","Luxman","02/23","333");
+		underAgeUser.modifyPayment(payment);
+
+		try {
+			auction.placeBid(underAgeUser,80);
+			fail("User is underage and shouldn't be able to bid.");
+		}
+		 catch (NoPaymentDetailsException e) {
+			fail("User has payment details.");
+		}
+		catch(UnderAgePurchaseException ex) {
+
+		}
 	}
 }
