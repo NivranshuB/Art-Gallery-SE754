@@ -66,11 +66,12 @@ public class ManageShippingDetailsTest {
     }
 
     @Test
-    public void testChangeShippingPreferences() {
+    public void testModificationShippingPreferences() {
         shippingDetailsManager.modifyShippingPreferences(user, "Delivery after 7pm");
 
         Mockito.verify(user, times(1)).getShippingDetails();
         Mockito.verify(shippingDetails, times(1)).setPreferences("Delivery after 7pm");
     }
+
 
 }
