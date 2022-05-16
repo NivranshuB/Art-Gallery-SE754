@@ -73,8 +73,19 @@ public class ManageLoginsDetailsTest {
             loginDetailsManager.changePassword(user, "Qwerty30", "Password", "Password");
             fail("This should have thrown an exception");
         } catch (WeakPasswordException e) {
-            Mockito.verify(user, times(0)).setPassword("password");
+            Mockito.verify(user, times(0)).setPassword("Password");
             assertEquals(e.getMessage(), "Weak password: no digits in password");
+        }
+    }
+
+    @Test
+    public void testUserChangesPasswordToWeakPassword_noCapitalLetters() {
+        try {
+            loginDetailsManager.changePassword(user, "Qwerty30", "password9", "password9");
+            fail("This should have thrown an exception");
+        } catch (WeakPasswordException e) {
+            Mockito.verify(user, times(0)).setPassword("password9");
+            assertEquals(e.getMessage(), "Weak password: no capital letters in password");
         }
     }
 
