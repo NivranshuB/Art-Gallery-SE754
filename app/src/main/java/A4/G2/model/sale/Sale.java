@@ -4,6 +4,7 @@ import A4.G2.model.artwork.Art;
 
 public abstract class Sale {
     private int saleID;
+    private int timeRemaining;
     private double price;
     private double deliveryCost;
     private String deliveryTime;
@@ -33,5 +34,9 @@ public abstract class Sale {
 
     public Art getArtPiece() {
         return this.artPiece;
+    }
+
+    public int getTimeRemaining() {
+        return this.timeRemaining;
     }
 }
