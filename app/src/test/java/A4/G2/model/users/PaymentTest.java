@@ -93,6 +93,7 @@ public class PaymentTest {
 
 	@Test
 	public void testFailBuyNoPayment() {
+		user.deletePaymentDetails();
 		try {
 			buyNow.buyArtPiece(user);
 			fail("This should have thrown an exception");
