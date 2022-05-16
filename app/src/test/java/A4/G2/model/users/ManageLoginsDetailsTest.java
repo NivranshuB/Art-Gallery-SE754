@@ -109,7 +109,7 @@ public class ManageLoginsDetailsTest {
         } catch (IncorrectPasswordException | WeakPasswordException e) {
             Mockito.verify(user, times(1)).getPassword();
             Mockito.verify(user, times(0)).setPassword("Password9");
-            assertEquals(e.getMessage(), "Incorrect password: provided old password incorrect");
+            assertEquals(e.getMessage(), "Incorrect password: provided old password was incorrect");
         }
     }
 
