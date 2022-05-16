@@ -8,6 +8,11 @@ public class BuyNow extends Sale {
         super(saleID, startingPrice, artPiece);
     }
 
+    @Override
+    public String getSaleType() {
+        return null;
+    }
+
     public double getGst() {
         return this.getPrice() * 0.15;
     }
