@@ -125,13 +125,14 @@ public class AuctionTest {
 			auction.placeBid(underAgeUser,80);
 			fail("User is underage and shouldn't be able to bid.");
 		}
-		 catch (NoPaymentDetailsException e) {
-			fail("User has payment details.");
+		 catch (NoPaymentDetailsException | UnregisteredUserPurchaseException e) {
+			fail("User has payment details and is regsitered.");
 		}
 		catch(UnderAgePurchaseException ex) {
-
+			assertEquals(ex.getMessage(),"User is not old enough to buy artwork.");
 		}
 	}
+	@Test
 	public void testUnregisteredUserAuction() {
 		User unregisteredUser = null;
 		try {
@@ -141,7 +142,7 @@ public class AuctionTest {
 		catch(UnregisteredUserPurchaseException ex) {
 			assertEquals(ex.getMessage(),"User is not registered, please sign in to buy artwork.");
 		}
-		catch(NoPaymentDetailsException ex) {
+		catch(NoPaymentDetailsException | UnderAgePurchaseException ex) {
 			//User should be first checked if registered before checking payments.
 			fail("This should have thrown an UnregisteredUserPurchaseException.");
 		}

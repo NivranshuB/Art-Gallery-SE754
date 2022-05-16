@@ -61,7 +61,7 @@ public class PaymentTest {
 		Payment payment = getValidPayment();
 		assertEquals(payment.getCardNumber(),"5555555555554444");
 		assertEquals(payment.getCardHolder(),"Luxman");
-		assertEquals(payment.getExpiryDate(),"02/21");
+		assertEquals(payment.getExpiryDate(),"02/24");
 		assertEquals(payment.getCVV(),"333");
 	}
 
@@ -90,7 +90,7 @@ public class PaymentTest {
 		catch (NoPaymentDetailsException e) {
 			assertEquals(e.getMessage(),"User has no payment details.");
 		}
-		catch(UnregisteredUserPurchaseException ex) {
+		catch(UnregisteredUserPurchaseException | UnderAgePurchaseException ex) {
 			fail("This should have thrown a NoPaymentDetailsException.");
 		}
 
