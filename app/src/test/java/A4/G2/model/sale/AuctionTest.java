@@ -3,6 +3,8 @@ package A4.G2.model.sale;
 import A4.G2.model.artwork.Painting;
 import A4.G2.model.users.Artist;
 import A4.G2.model.users.User;
+import A4.G2.service.payment.NoPaymentDetailsException;
+import A4.G2.service.payment.UnregisteredUserPurchaseException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -14,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AuctionTest {
@@ -105,5 +108,22 @@ public class AuctionTest {
 	@Test
 	public void testGetSaleTypeAuction() {
 		assertEquals("Auction", auction.getSaleType());
+	}
+
+	@Test
+	public void testUnregisteredUserAuction() {
+		User unregisteredUser = null;
+		try {
+			auction.placeBid(unregisteredUser, 80);
+			fail("This should have thrown an exception");
+		}
+		catch(UnregisteredUserPurchaseException ex) {
+			assertEquals(ex.getMessage(),"User is not registered, please sign in to buy artwork.");
+		}
+		catch(NoPaymentDetailsException ex) {
+			//User should be first checked if registered before checking payments.
+			fail("This should have thrown an UnregisteredUserPurchaseException.");
+		}
+
 	}
 }
