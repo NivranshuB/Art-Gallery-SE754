@@ -52,7 +52,7 @@ public class ManageLoginsDetailsTest {
         try {
             assertTrue(loginDetailsManager.changeUsername(user, "Geoff"));
         } catch (Exception exception) {
-            fail();
+            fail("This should have not thrown an exception");
         }
         Mockito.verify(user, times(1)).setUsername("Geoff");
     }
