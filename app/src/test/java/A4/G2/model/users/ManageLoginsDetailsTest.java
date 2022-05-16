@@ -1,6 +1,7 @@
 package A4.G2.model.users;
 
 import A4.G2.service.account.UsernameTakenException;
+import A4.G2.service.account.WeakPasswordException;
 import A4.G2.service.dao.UserDaoService;
 import A4.G2.service.account.LoginDetailsManager;
 import org.junit.jupiter.api.BeforeEach;
@@ -48,7 +49,7 @@ public class ManageLoginsDetailsTest {
     @Test
     public void testUserChangesUsernameToUniqueUsername() {
         try {
-            loginDetailsManager.changeUsername(user, "Geoff");
+            assertTrue(loginDetailsManager.changeUsername(user, "Geoff"));
         } catch (Exception exception) {
             fail();
         }
@@ -69,7 +70,7 @@ public class ManageLoginsDetailsTest {
     @Test
     public void testUserChangesPasswordToWeakPassword_noNumbers() {
         try {
-            loginDetailsManager.changePassword("Qwerty30", "password", "password");
+            loginDetailsManager.changePassword(user, "Qwerty30", "password", "password");
             fail("This should have thrown an exception");
         } catch (WeakPasswordException e) {
             Mockito.verify(user, times(0)).setPassword("password");

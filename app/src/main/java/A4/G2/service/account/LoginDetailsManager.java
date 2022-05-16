@@ -20,4 +20,9 @@ public class LoginDetailsManager implements ILoginDetailsManager {
         user.setUsername(newUsername);
         return true;
     }
+
+    @Override
+    public boolean changePassword(User user, String oldPassword, String newPassword, String newPasswordRetyped) throws WeakPasswordException {
+        return false;
+    }
 }

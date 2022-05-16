@@ -38,4 +38,8 @@ public User(String userName, String password, String email, String phone, String
     public void setUsername(String newUsername) {
         userName = newUsername;
     }
+
+    public void setPassword(String newPassword) {
+        password = newPassword;
+    }
 }
