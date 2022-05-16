@@ -12,7 +12,7 @@ public class Print extends Art {
     }
     @Override
     public String getArtType() {
-        return null;
+        return "Print";
     }
 
 }
