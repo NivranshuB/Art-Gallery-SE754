@@ -70,11 +70,12 @@ public class ManageLoginsDetailsTest {
     @Test
     public void testUserChangesPasswordToWeakPassword_noNumbers() {
         try {
-            loginDetailsManager.changePassword(user, "Qwerty30", "password", "password");
+            loginDetailsManager.changePassword(user, "Qwerty30", "Password", "Password");
             fail("This should have thrown an exception");
         } catch (WeakPasswordException e) {
             Mockito.verify(user, times(0)).setPassword("password");
             assertEquals(e.getMessage(), "Weak password: no digits in password");
         }
     }
+
 }
