@@ -1,5 +1,6 @@
 package A4.G2.model.users;
 
+import A4.G2.service.account.IncorrectPasswordException;
 import A4.G2.service.account.UsernameTakenException;
 import A4.G2.service.account.WeakPasswordException;
 import A4.G2.service.dao.UserDaoService;
@@ -72,7 +73,7 @@ public class ManageLoginsDetailsTest {
         try {
             loginDetailsManager.changePassword(user, "Qwerty30", "Password", "Password");
             fail("This should have thrown an exception");
-        } catch (WeakPasswordException e) {
+        } catch (WeakPasswordException | IncorrectPasswordException e) {
             Mockito.verify(user, times(0)).setPassword("Password");
             assertEquals(e.getMessage(), "Weak password: no digits in password");
         }
@@ -83,7 +84,7 @@ public class ManageLoginsDetailsTest {
         try {
             loginDetailsManager.changePassword(user, "Qwerty30", "password9", "password9");
             fail("This should have thrown an exception");
-        } catch (WeakPasswordException e) {
+        } catch (WeakPasswordException | IncorrectPasswordException e) {
             Mockito.verify(user, times(0)).setPassword("password9");
             assertEquals(e.getMessage(), "Weak password: no capital letters in password");
         }
@@ -94,9 +95,21 @@ public class ManageLoginsDetailsTest {
         try {
             loginDetailsManager.changePassword(user, "Qwerty30", "Hi5", "Hi5");
             fail("This should have thrown an exception");
-        } catch (WeakPasswordException e) {
+        } catch (WeakPasswordException | IncorrectPasswordException e) {
             Mockito.verify(user, times(0)).setPassword("Hi5");
             assertEquals(e.getMessage(), "Weak password: password less than 6 characters");
+        }
+    }
+
+    @Test
+    public void testUserChangesPassword_oldPasswordIncorrect() {
+        try {
+            loginDetailsManager.changePassword(user, "qwerty30", "Password9", "Password9");
+            fail("This should have thrown an exception");
+        } catch (IncorrectPasswordException | WeakPasswordException e) {
+            Mockito.verify(user, times(1)).getPassword();
+            Mockito.verify(user, times(0)).setPassword("Password9");
+            assertEquals(e.getMessage(), "Incorrect password: provided old password incorrect");
         }
     }
 

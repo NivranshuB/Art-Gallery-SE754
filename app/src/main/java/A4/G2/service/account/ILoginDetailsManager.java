@@ -6,5 +6,5 @@ public interface ILoginDetailsManager {
 
     boolean changeUsername(User user, String newUsername) throws UsernameTakenException;
 
-    boolean changePassword(User user, String oldPassword, String newPassword, String newPasswordRetyped) throws WeakPasswordException;
+    boolean changePassword(User user, String oldPassword, String newPassword, String newPasswordRetyped) throws WeakPasswordException, IncorrectPasswordException;
 }

@@ -22,7 +22,8 @@ public class LoginDetailsManager implements ILoginDetailsManager {
     }
 
     @Override
-    public boolean changePassword(User user, String oldPassword, String newPassword, String newPasswordRetyped) throws WeakPasswordException {
+    public boolean changePassword(User user, String oldPassword, String newPassword, String newPasswordRetyped)
+            throws WeakPasswordException, IncorrectPasswordException {
         if (!newPassword.matches(".*\\d.*")) {
             throw new WeakPasswordException("Weak password: no digits in password");
         } else if (!newPassword.chars().anyMatch(Character::isUpperCase)) {
