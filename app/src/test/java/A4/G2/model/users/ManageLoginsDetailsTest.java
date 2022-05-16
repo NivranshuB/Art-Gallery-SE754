@@ -113,4 +113,14 @@ public class ManageLoginsDetailsTest {
         }
     }
 
+    @Test
+    public void testUserIncorrectlyRetypesNewPassword() {
+        try {
+            loginDetailsManager.changePassword(user, "Qwerty30", "Password9", "Qassword9");
+            fail("This should have thrown an exception");
+        } catch (IncorrectPasswordException | WeakPasswordException e) {
+            Mockito.verify(user, times(0)).setPassword("Password9");
+            assertEquals(e.getMessage(), "Incorrect password: retyped new passwords don't match");
+        }
+    }
 }
