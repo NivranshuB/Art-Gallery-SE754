@@ -49,4 +49,9 @@ public class testGetPrintDetails {
 	public void testGetPrintDimensions() {
 		assertEquals("1920x1080px", print.getDimensions());
 	}
+
+	@Test
+	public void testGetArtTypePrint() {
+		assertEquals("Print", print.getArtType());
+	}
 }
