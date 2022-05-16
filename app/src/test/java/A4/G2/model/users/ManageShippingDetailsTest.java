@@ -41,7 +41,7 @@ public class ManageShippingDetailsTest {
 
         assertEquals("4 Jersey Shore, New Orleans", shippingDetailsManager.getShippingAddress(user));
 
-        Mockito.verify(user.getShippingDetails(), times(1));
-        Mockito.verify(shippingDetails.getAddress(), times(1));
+        Mockito.verify(user, times(1)).getShippingDetails();
+        Mockito.verify(shippingDetails, times(1)).getAddress();
     }
 }
