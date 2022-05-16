@@ -16,6 +16,8 @@ public abstract class Sale {
         this.artPiece = artPiece;
     }
 
+    public abstract String getSaleType();
+
     public int getSaleId() {
         return this.saleID;
     }

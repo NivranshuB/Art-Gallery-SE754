@@ -101,4 +101,9 @@ public class AuctionTest {
 		Mockito.doReturn(painting).when(auction).getArtPiece();
 		assertEquals(painting, auction.getArtPiece());
 	}
+
+	@Test
+	public void testGetSaleTypeAuction() {
+		assertEquals("Auction", auction.getSaleType());
+	}
 }
