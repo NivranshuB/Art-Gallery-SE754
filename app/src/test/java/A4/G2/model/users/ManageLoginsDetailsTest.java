@@ -1,12 +1,11 @@
 package A4.G2.model.users;
 
+import A4.G2.service.dao.UserDaoService;
+import A4.G2.service.account.LoginDetailsManager;
 import org.junit.jupiter.api.Test;
 
 import org.mockito.Mockito;
 
-import java.sql.Array;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 
 /**
@@ -29,15 +28,18 @@ public class ManageLoginsDetailsTest {
 
     @Test
     public void testUserChangesUsernameToUniqueUsername() {
-        UserDaoService userDaoService = Mockito.mock(UserDaoService);
-        Mockito.when(userDaoService.checkIfUsernameTaken()).thenReturn(false);
+        UserDaoService userDaoService = Mockito.mock(UserDaoService.class);
+        Mockito.when(userDaoService.checkIfUsernameTaken("Geoff")).thenReturn(false);
 
         LoginDetailsManager loginDetailsManager = new LoginDetailsManager(userDaoService);
 
         User user = Mockito.spy(new User("jeff", "qwerty30", "jeff.com", "123456",
                 "jeff house"));
 
-        loginDetailsManager.changeUsername(user, "Geoff");
+        try {
+            loginDetailsManager.changeUsername(user, "Geoff");
+        } catch (Exception exception) {
+        }
 
         Mockito.verify(user, times(1)).setUsername("Geoff");
     }

@@ -35,5 +35,7 @@ public User(String userName, String password, String email, String phone, String
         this.payment = null;
     }
 
-
+    public void setUsername(String newUsername) {
+        userName = newUsername;
+    }
 }
