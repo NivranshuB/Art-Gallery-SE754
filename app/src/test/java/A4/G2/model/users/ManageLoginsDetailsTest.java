@@ -89,4 +89,15 @@ public class ManageLoginsDetailsTest {
         }
     }
 
+    @Test
+    public void testUserChangesPasswordToWeakPassword_lessThan6Chars() {
+        try {
+            loginDetailsManager.changePassword(user, "Qwerty30", "Hi5", "Hi5");
+            fail("This should have thrown an exception");
+        } catch (WeakPasswordException e) {
+            Mockito.verify(user, times(0)).setPassword("Hi5");
+            assertEquals(e.getMessage(), "Weak password: password less than 6 characters");
+        }
+    }
+
 }
