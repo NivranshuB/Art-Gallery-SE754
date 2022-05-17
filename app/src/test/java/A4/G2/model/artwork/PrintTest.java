@@ -1,6 +1,7 @@
 package A4.G2.model.artwork;
 
 import A4.G2.model.users.Artist;
+import A4.G2.service.LinkGenerator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -14,10 +15,12 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class testGetPrintDetails {
+public class PrintTest {
+
 	Artist artist;
 	Image image;
 	Print print;
+
 	@BeforeAll
 	public void setUp() throws IOException {
 		artist = Mockito.mock(Artist.class);
@@ -26,32 +29,10 @@ public class testGetPrintDetails {
 	}
 
 	@Test
-	public void testGetPrintArtist() {
-		assertEquals(artist, print.getArtist());
+	public void testPrintPageLinkGeneration() {
+		LinkGenerator printLink = new LinkGenerator();
+		String link = printLink.generateArtLink(print.getId());
+		assertEquals("https://www.g2gallery.com/art/"+print.getId(), link);
 	}
 
-	@Test
-	public void testGetPrintTitle() {
-		assertEquals("Art Title", print.getTitle());
-	}
-
-	@Test
-	public void testGetPrintDescription() {
-		assertEquals("Art Description", print.getDescription());
-	}
-
-	@Test
-	public void testGetPrintImage() {
-		assertEquals(image, print.getImage());
-	}
-
-	@Test
-	public void testGetPrintDimensions() {
-		assertEquals("1920x1080px", print.getDimensions());
-	}
-
-	@Test
-	public void testGetArtTypePrint() {
-		assertEquals("Print", print.getArtType());
-	}
 }

@@ -51,4 +51,9 @@ public class testGetPaintingDetails {
 		assertEquals("2x1m", painting.getDimensions());
 	}
 
+	@Test
+	public void testGetArtTypePainting() {
+		assertEquals("Painting", painting.getArtType());
+	}
+
 }
