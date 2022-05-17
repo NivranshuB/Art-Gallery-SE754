@@ -73,5 +73,14 @@ public class ManageShippingDetailsTest {
         Mockito.verify(shippingDetails, times(1)).setPreferences("Delivery after 7pm");
     }
 
+    @Test
+    public void testNewShippingAddressSaved() {
+        ShippingDetails realShippingDetails = new ShippingDetails("3 Red street", "");
+        Mockito.when(user.getShippingDetails()).thenReturn(realShippingDetails);
+
+        shippingDetailsManager.modifyShippingAddress(user, "10 West street");
+
+        assertEquals("10 West street", realShippingDetails.getAddress());
+    }
 
 }
