@@ -3,7 +3,6 @@ package A4.G2.model.artwork;
 import A4.G2.model.Gallery;
 import A4.G2.model.sale.Auction;
 import A4.G2.model.sale.BuyNow;
-import A4.G2.model.sale.Sale;
 import A4.G2.model.users.Artist;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
