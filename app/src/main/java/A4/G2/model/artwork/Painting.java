@@ -11,4 +11,9 @@ public class Painting extends Art {
 
     }
 
+    @Override
+    public String getArtType() {
+        return "Painting";
+    }
+
 }
