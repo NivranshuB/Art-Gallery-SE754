@@ -1,5 +1,6 @@
 package A4.G2.integration;
 
+import A4.G2.helpers.DateGenerator;
 import A4.G2.model.Gallery;
 import A4.G2.model.Payment;
 import A4.G2.model.artwork.Painting;
@@ -19,7 +20,7 @@ public class IntegrationTests {
 
     @Test
     public void testBuyArtInGalleryWithNoPaymentDetails() throws IOException {
-        User user = new User("username", "password", "email.gmail", "0248195812", "123 address" );
+        User user = new User("username", "password", "email.gmail", "0248195812", "123 address", DateGenerator.getSampleDateOver16());
 
         Artist artist = new Artist();
         Image image = ImageIO.read(new File("src/test/java/A4/G2/model/artwork/testImage.png"));
@@ -44,7 +45,7 @@ public class IntegrationTests {
 
     @Test
     public void testBuyArtInGalleryWithPaymentDetails() throws IOException {
-        User user = new User("username", "password", "email.gmail", "0248195812", "123 address" );
+        User user = new User("username", "password", "email.gmail", "0248195812", "123 address",DateGenerator.getSampleDateOver16() );
         Payment payment = new Payment("1234567890123456", "User User", "01/20", "123");
         user.modifyPayment(payment);
 

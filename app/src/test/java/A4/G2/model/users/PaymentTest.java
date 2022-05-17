@@ -1,5 +1,6 @@
 package A4.G2.model.users;
 
+import A4.G2.helpers.DateGenerator;
 import A4.G2.model.Payment;
 import A4.G2.model.artwork.Painting;
 import A4.G2.model.sale.Auction;
@@ -9,6 +10,7 @@ import A4.G2.model.users.User;
 import A4.G2.service.payment.InvalidPaymentException;
 import A4.G2.service.payment.NoPaymentDetailsException;
 import A4.G2.service.payment.PaymentVerifier;
+import A4.G2.service.payment.UnderAgePurchaseException;
 import A4.G2.service.payment.UnregisteredUserPurchaseException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -19,6 +21,9 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -47,7 +52,7 @@ public class PaymentTest {
 		timeRemaining = 7; // days
 		auction = Mockito.spy(new Auction(saleId, price, painting, reservePrice, timeRemaining));
 
-		user = Mockito.spy(new User("Luxman", "Luxman", "luxman.gmail.com", "0222222222", "9 Narnia Land"));
+		user = Mockito.spy(new User("Luxman", "Luxman", "luxman.gmail.com", "0222222222", "9 Narnia Land", DateGenerator.getSampleDateOver16()));
 		buyNow = Mockito.spy(new BuyNow(saleId, 100, painting));
 	}
 
@@ -56,7 +61,7 @@ public class PaymentTest {
 		Payment payment = getValidPayment();
 		assertEquals(payment.getCardNumber(),"5555555555554444");
 		assertEquals(payment.getCardHolder(),"Luxman");
-		assertEquals(payment.getExpiryDate(),"02/21");
+		assertEquals(payment.getExpiryDate(),"02/24");
 		assertEquals(payment.getCVV(),"333");
 	}
 
@@ -85,7 +90,7 @@ public class PaymentTest {
 		catch (NoPaymentDetailsException e) {
 			assertEquals(e.getMessage(),"User has no payment details.");
 		}
-		catch(UnregisteredUserPurchaseException ex) {
+		catch(UnregisteredUserPurchaseException | UnderAgePurchaseException ex) {
 			fail("This should have thrown a NoPaymentDetailsException.");
 		}
 
@@ -98,7 +103,7 @@ public class PaymentTest {
 			buyNow.buyArtPiece(user);
 			fail("This should have thrown an exception");
 		}
-		catch(UnregisteredUserPurchaseException ex) {
+		catch(UnregisteredUserPurchaseException | UnderAgePurchaseException ex) {
 			fail("This should have thrown a NoPaymentDetailsException.");
 		}
 		catch (NoPaymentDetailsException e) {
@@ -132,7 +137,7 @@ public class PaymentTest {
 	private Payment getValidPayment() {
 		String cardNumber = "5555555555554444";
 		String cardHolder = "Luxman";
-		String expiryDate = "02/21";
+		String expiryDate = "02/24";
 		String CVV = "333";
 		return new Payment(cardNumber,cardHolder,expiryDate,CVV);
 	}
@@ -142,8 +147,5 @@ public class PaymentTest {
 		user.modifyPayment(payment);
 		return user;
 	}
-
-
-
 }
 

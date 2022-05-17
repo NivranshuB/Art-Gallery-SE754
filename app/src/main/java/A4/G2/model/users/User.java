@@ -1,5 +1,6 @@
 package A4.G2.model.users;
 
+import java.util.Date;
 import java.util.UUID;
 
 import A4.G2.model.Payment;
@@ -14,14 +15,17 @@ public class User {
     private Payment payment;
     private ShippingDetails shippingDetails;
 
+    private Date dateOfBirth;
 
-public User(String userName, String password, String email, String phone, String address) {
+
+public User(String userName, String password, String email, String phone, String address,Date dateOfBirth) {
     this.userName = userName;
     this.password = password;
     this.email = email;
     this.phone = phone;
     this.address = address;
     this.id = this.id = UUID.randomUUID().toString();
+    this.dateOfBirth = dateOfBirth;
 }
 
 	public void modifyPayment(Payment payment) {
@@ -34,6 +38,10 @@ public User(String userName, String password, String email, String phone, String
 
     public void deletePaymentDetails() {
         this.payment = null;
+    }
+
+    public Date getDateOfBirth() {
+        return this.dateOfBirth;
     }
 
     public ShippingDetails getShippingDetails() { return this.shippingDetails; }

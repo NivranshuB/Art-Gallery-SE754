@@ -1,10 +1,13 @@
 package A4.G2.model.sale;
 
 
+import A4.G2.helpers.DateGenerator;
+import A4.G2.model.Payment;
 import A4.G2.model.artwork.Painting;
 import A4.G2.model.users.Artist;
 import A4.G2.model.users.User;
 import A4.G2.service.payment.NoPaymentDetailsException;
+import A4.G2.service.payment.UnderAgePurchaseException;
 import A4.G2.service.payment.UnregisteredUserPurchaseException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -92,11 +95,30 @@ public class BuyNowTest {
 		catch(UnregisteredUserPurchaseException ex) {
 			assertEquals(ex.getMessage(),"User is not registered, please sign in to buy artwork.");
 		}
-		catch(NoPaymentDetailsException ex) {
+		catch(NoPaymentDetailsException | UnderAgePurchaseException ex) {
 			//User should be first checked if registered before checking payments.
 			fail("This should have thrown an UnregisteredUserPurchaseException.");
 		}
+	}
 
+	@Test
+	public void testBidUnder16Fails() {
+		User underAgeUser = Mockito.spy(new User("Luxman", "Luxman", "luxman.gmail.com",
+				"0222222222", "9 Narnia Land", DateGenerator.getSampleDateUnder16()));
+
+		Payment payment = new Payment("5555555555554444","Luxman","02/23","333");
+		underAgeUser.modifyPayment(payment);
+
+		try {
+			buyNow.buyArtPiece(underAgeUser);
+			fail("User is underage and shouldn't be able to bid.");
+		}
+		catch (NoPaymentDetailsException | UnregisteredUserPurchaseException e) {
+			fail("User has payment details and is regsitered.");
+		}
+		catch(UnderAgePurchaseException ex) {
+			assertEquals(ex.getMessage(),"User is not old enough to buy artwork.");
+		}
 	}
 
 }
