@@ -68,5 +68,28 @@ public class IntegrationTests {
         }
     }
 
+    @Test
+    public void testBuyArtInGalleryWithNonRegisteredUser() throws IOException {
+        Artist artist = new Artist();
+        Image image = ImageIO.read(new File("src/test/java/A4/G2/model/artwork/testImage.png"));
+        Painting painting = new Painting(artist, "title", "description", image, "2x1m");
+        BuyNow buyNow = new BuyNow(1, 15.99, painting);
+
+        Gallery gallery = new Gallery();
+        gallery.addArtForSale(buyNow);
+
+        if (gallery.getArtSalesList().get(0) instanceof BuyNow) {
+            try{
+                ((BuyNow) gallery.getArtSalesList().get(0)).buyArtPiece(null);
+                fail("Expected exception not thrown");
+            } catch (Exception e) {
+                assert(e.getMessage().equals("User is not registered, please sign in to buy artwork."));
+            }
+
+        } else {
+            fail("Art not added correctly to gallery");
+        }
+    }
+
 
 }
