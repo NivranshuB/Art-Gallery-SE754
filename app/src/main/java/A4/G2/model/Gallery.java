@@ -9,9 +9,10 @@ import java.util.List;
 public class Gallery {
     private List<Art> arts = new ArrayList<>();
     private List<Sale> artsForSale = new ArrayList<>();
+    private String termsAndConditions="";
 
     public Gallery() {
-        String termsAndConditions = "";
+
     }
 
     public void addArt(Art art) {
@@ -39,5 +40,11 @@ public class Gallery {
         return artsForSale;
     }
 
+    public String getTermsAndConditions() {
+        return termsAndConditions;
+    }
 
+    public void setTermsAndConditions(String termsAndConditions) {
+        this.termsAndConditions = termsAndConditions;
+    }
 }
