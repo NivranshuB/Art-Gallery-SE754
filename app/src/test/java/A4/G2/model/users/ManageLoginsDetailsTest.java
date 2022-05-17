@@ -1,5 +1,6 @@
 package A4.G2.model.users;
 
+import A4.G2.helpers.DateGenerator;
 import A4.G2.service.account.IncorrectPasswordException;
 import A4.G2.service.account.UsernameTakenException;
 import A4.G2.service.account.WeakPasswordException;
@@ -44,7 +45,7 @@ public class ManageLoginsDetailsTest {
         loginDetailsManager = new LoginDetailsManager(userDaoService);
 
         user = Mockito.spy(new User("jeff", "Qwerty30", "jeff.com", "123456",
-                "jeff house"));
+                "jeff house", DateGenerator.getSampleDateOver16()));
     }
 
     @Test
