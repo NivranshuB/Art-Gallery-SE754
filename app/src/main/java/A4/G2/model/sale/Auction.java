@@ -48,6 +48,7 @@ public class Auction extends  Sale {
         this.currentBid = price;
         this.numBids++;
     }
+  
     @Override
     public String getSaleType() {
         return "Auction";

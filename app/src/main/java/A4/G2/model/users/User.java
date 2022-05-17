@@ -13,6 +13,7 @@ public class User {
     private String phone;
     private String address;
     private Payment payment;
+    private ShippingDetails shippingDetails;
 
     private Date dateOfBirth;
 
@@ -43,5 +44,19 @@ public User(String userName, String password, String email, String phone, String
         return this.dateOfBirth;
     }
 
+    public ShippingDetails getShippingDetails() { return this.shippingDetails; }
 
+    public void setShippingDetails(ShippingDetails newShippingDetails) { this.shippingDetails = newShippingDetails; }
+
+    public void setUsername(String newUsername) {
+        userName = newUsername;
+    }
+
+    public void setPassword(String newPassword) {
+        password = newPassword;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }
