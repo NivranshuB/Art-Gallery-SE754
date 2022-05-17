@@ -12,6 +12,7 @@ public class User {
     private String phone;
     private String address;
     private Payment payment;
+    private ShippingDetails shippingDetails;
 
 
 public User(String userName, String password, String email, String phone, String address) {
@@ -34,6 +35,10 @@ public User(String userName, String password, String email, String phone, String
     public void deletePaymentDetails() {
         this.payment = null;
     }
+
+    public ShippingDetails getShippingDetails() { return this.shippingDetails; }
+
+    public void setShippingDetails(ShippingDetails newShippingDetails) { this.shippingDetails = newShippingDetails; }
 
     public void setUsername(String newUsername) {
         userName = newUsername;
