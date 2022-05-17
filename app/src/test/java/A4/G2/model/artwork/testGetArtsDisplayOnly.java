@@ -35,7 +35,7 @@ public class testGetArtsDisplayOnly {
     }
 
     @Test
-    public void testGetImageFromoGallery(){
+    public void testGetImageFromGallery(){
         for(int i=1;i<3;i++){
             assertEquals(images[i], gallery.getArtList().get(i).getImage());
         }

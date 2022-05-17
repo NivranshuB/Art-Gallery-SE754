@@ -31,14 +31,14 @@ public class testGetArtsDetailsFromGallery {
     }
 
     @Test
-    public void testGetTitleFromoGallery(){
+    public void testGetTitleFromGallery(){
         for(int i=1;i<3;i++){
             assertEquals("Art "+Integer.toString(i+1), gallery.getArtList().get(i).getTitle());
         }
     }
 
     @Test
-    public void testGetImageFromoGallery(){
+    public void testGetImageFromGallery(){
         for(int i=1;i<3;i++){
             assertEquals(image, gallery.getArtList().get(i).getImage());
         }
