@@ -10,5 +10,9 @@ public class Print extends Art {
         super(artist, title, description, photo, dimensions);
 
     }
+    @Override
+    public String getArtType() {
+        return "Print";
+    }
 
 }
