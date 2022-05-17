@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class testGetArtsDetailsFromGallery {
     Gallery gallery;
-    Art art1, art2, art3;
     Image image;
     Artist artist;
 
