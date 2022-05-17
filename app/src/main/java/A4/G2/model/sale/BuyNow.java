@@ -11,4 +11,8 @@ public class BuyNow extends Sale {
     public double getGst() {
         return this.getPrice() * 0.15;
     }
+
+    public String getSaleType(){
+        return "Buy Now";
+    }
 }

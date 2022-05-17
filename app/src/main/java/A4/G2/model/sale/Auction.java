@@ -36,4 +36,8 @@ public class Auction extends  Sale {
     public User getCurrentBidder() {
         return this.bidPerson;
     }
+
+    public String getSaleType(){
+        return "Auction";
+    }
 }

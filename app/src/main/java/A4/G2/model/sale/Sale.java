@@ -34,4 +34,6 @@ public abstract class Sale {
     public Art getArtPiece() {
         return this.artPiece;
     }
+
+    abstract public String getSaleType();
 }
