@@ -40,4 +40,15 @@ public User(String userName, String password, String email, String phone, String
 
     public void setShippingDetails(ShippingDetails newShippingDetails) { this.shippingDetails = newShippingDetails; }
 
+    public void setUsername(String newUsername) {
+        userName = newUsername;
+    }
+
+    public void setPassword(String newPassword) {
+        password = newPassword;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }

@@ -19,7 +19,7 @@ public class BuyNow extends Sale {
     public double getGst() {
         return this.getPrice() * 0.15;
     }
-
+  
     public void buyArtPiece(User user) throws NoPaymentDetailsException, UnregisteredUserPurchaseException {
         if (user == null) {
             throw new UnregisteredUserPurchaseException("User is not registered, please sign in to buy artwork.");
