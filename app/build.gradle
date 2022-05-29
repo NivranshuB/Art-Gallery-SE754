@@ -36,6 +36,16 @@ dependencies {
     testImplementation group: 'de.monochromata.cucumber', name: 'reporting-plugin', version: '4.0.102'
     //Selenium
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.1.4'
+    //SpringBoot
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper' // to compile and render JSP pages
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    //SpringBoot + Cucumber
+    testImplementation 'io.cucumber:cucumber-spring:7.3.4'
+    // Servlet
+    implementation 'javax.servlet:jstl:1.2'
+    testImplementation 'io.cucumber:cucumber-spring:7.3.4'
 }
 
 application {
