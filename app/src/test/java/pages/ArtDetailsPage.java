@@ -18,6 +18,15 @@ public class ArtDetailsPage {
 	@FindBy(how=How.ID, using ="generatedLink")
 	private WebElement generatedLink;
 
+	@FindBy(how=How.ID, using ="buyNowButton")
+	private WebElement buyNowButton;
+
+	@FindBy(how=How.ID, using ="loginStatus")
+	private WebElement loginStatus;
+
+	@FindBy(how=How.ID, using ="loginNotification")
+	private WebElement loginNotification;
+
 	public void clickShare(){
 		this.shareButton.click();
 	}
@@ -26,6 +35,15 @@ public class ArtDetailsPage {
 		return this.generatedLink.getText();
 	}
 
+	public void clickBuyNow(){
+		this.buyNowButton.click();
+	}
 
+	public String getLoginStatus(){
+		return this.loginStatus.getText();
+	}
 
+	public String getLoginNotification(){
+		return this.loginNotification.getText();
+	}
 }
