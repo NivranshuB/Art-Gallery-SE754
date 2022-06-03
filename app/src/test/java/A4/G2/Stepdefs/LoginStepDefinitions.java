@@ -1,7 +1,7 @@
-package A4.G2.web.stepdefs;
+package A4.G2.Stepdefs;
 
-import A4.G2.web.pages.LoginPage;
-import A4.G2.web.pages.HomePage;
+import A4.G2.pages.LoginPage;
+import A4.G2.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
