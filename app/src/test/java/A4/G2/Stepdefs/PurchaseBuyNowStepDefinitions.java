@@ -15,7 +15,6 @@ import pages.ArtDetailsPage;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 
 public class PurchaseBuyNowStepDefinitions {
 	private ArtDetailsPage artDetailsPage;
@@ -70,5 +69,16 @@ public class PurchaseBuyNowStepDefinitions {
 		String notification = "Please sign up or log in.";
 		String getNotification = artDetailsPage.getLoginNotification();
 		Assertions.assertEquals(notification, getNotification);
+	}
+
+	@And("I am <age> years old")
+	public void iAmAgeYearsOld(String age) {
+		artDetailsPage.insertAge(age);
+	}
+
+	@And("Notify me that I am too young")
+	public void notifyMeThatIAmTooYoung() {
+		String notification = "You are too young to purchase art.";
+		String getNotification artDetailsPage.getAgeNotification();
 	}
 }

@@ -17,6 +17,6 @@ Feature: Purchase Buy Now
     And Notify me that I am too young
     Examples:
       |age|
-      |5  |
-      |10 |
-      |15 |
+      |"5"  |
+      |"10" |
+      |"15" |

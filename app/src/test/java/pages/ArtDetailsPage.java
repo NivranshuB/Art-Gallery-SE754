@@ -27,6 +27,12 @@ public class ArtDetailsPage {
 	@FindBy(how=How.ID, using ="loginNotification")
 	private WebElement loginNotification;
 
+	@FindBy(how=How.ID, using ="ageField")
+	private WebElement ageField;
+
+	@FindBy(how=How.ID, using ="ageNotification")
+	private WebElement ageNotification;
+
 	public void clickShare(){
 		this.shareButton.click();
 	}
@@ -46,4 +52,13 @@ public class ArtDetailsPage {
 	public String getLoginNotification(){
 		return this.loginNotification.getText();
 	}
+
+	public void insertAge(String age){
+		this.ageField.sendKeys(age);
+	}
+
+	public String getAgeNotification(){
+		return this.ageNotification.getText();
+	}
+
 }
