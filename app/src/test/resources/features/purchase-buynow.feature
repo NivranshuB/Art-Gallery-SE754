@@ -1,0 +1,12 @@
+Feature: Purchase Buy Now
+  This feature tests to ensure buyers are registered and older than 16 to allow buying.
+
+  Background:
+    Given I am on the details page for a piece of art
+
+  Scenario: User not logged in
+    When I click the Buy Now button
+    And I am not logged into an account
+    Then Deny the buying attempt
+    And Notify me to sign up or sign in
+
