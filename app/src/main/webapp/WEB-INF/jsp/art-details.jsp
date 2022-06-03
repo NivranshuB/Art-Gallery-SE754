@@ -28,7 +28,7 @@
                 if(parseInt($("#ageField").val())<16) {
                     $('#ageNotification').html("You are too young to purchase art.");
                 } else {
-                    $('#ageNotification').html("old");
+                    $('#ageNotification').html("Placeholder - old enough");
                 }
            });
         });
