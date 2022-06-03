@@ -75,7 +75,7 @@ public class AddArtController {
 
         String message = null;
         if (!buyNowPrice.isEmpty()) {
-            BuyNow buyNow = new BuyNow(UUID.randomUUID().toString(), Double.parseDouble(buyNowPrice), newArt);\
+            BuyNow buyNow = new BuyNow(UUID.randomUUID().toString(), Double.parseDouble(buyNowPrice), newArt);
             gallery.addArtForSale(buyNow);
             message = String.format("Art titled: \"%s\" successfully added with buy-now listing", title);
         } else if (!auctionStartPrice.isEmpty() && !auctionReservePrice.isEmpty() && !auctionTimeRemaining.isEmpty()) {
