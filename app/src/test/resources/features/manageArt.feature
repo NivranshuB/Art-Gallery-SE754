@@ -51,3 +51,19 @@ Feature: ManageArt
     And I enter "7" as auction time remaining field
     And I press the submit button
     Then I should see the new art displayed with buyNow
+
+  Scenario Outline: Add art with invalid inputs
+    Given I am on the add art page
+    When I enter <title> as title field
+    And I enter <description> as description field
+    And I select <artType> as art type
+    And I enter <dimensions> as dimension field
+    And I enter <artist> as artist name field
+    And I enter <image> as image field
+    And I press the submit button
+    Then I should see error message
+    Examples:
+      | title   | description    | artType | dimensions | artist   | image              |
+      | ""      | ""             | ""      | ""         | ""       | ""                 |
+      | "title" | "descriptions" | "2"     | "2x1m"     | "artist" | "invalidImage.png" |
+      | "title" | "descriptions" | "3"     | "2x1m"     | "artist" | "testImage.png"    |
