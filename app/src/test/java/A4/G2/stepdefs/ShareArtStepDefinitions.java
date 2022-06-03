@@ -1,30 +1,32 @@
-package A5.G2.stepDefinitions;
+package A4.G2.stepdefs;
 
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.ArtDetailsPage;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShareArtStepDefinitions {
-
+	private ArtDetailsPage artDetailsPage;
 	private WebDriver driver;
-	private String url;
 	@Before
 	public void setup(){
-		System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
+
+		System.setProperty("webdriver.chrome.driver", "webdrivers/win/chromedriver.exe");
 		driver = new ChromeDriver();
+		this.artDetailsPage = new ArtDetailsPage(driver);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait((long)30, TimeUnit.SECONDS);
 	}
 
 	@AfterStep
@@ -44,17 +46,18 @@ public class ShareArtStepDefinitions {
 
 	@Given("I access an art details page")
 	public void iAccessAnArtDetailsPage() {
-		this.url = driver.getCurrentUrl();
+		driver.get("http://localhost:8080/art-details");
 	}
 
 	@When("I click on the share button")
 	public void iClickOnTheShareButton() {
-		driver.findElement(By.id("shareButton")).click();
+		artDetailsPage.clickShare();
 	}
 
 	@Then("I want to generate a link of the art piece to share")
 	public void iWantToGenerateALinkOfTheArtPieceToShare() {
-		String link = driver.findElement(By.id("generatedLink")).getText();
-		assertEquals(link, url);
+		String url = driver.getCurrentUrl();
+		String link = artDetailsPage.getGeneratedLink();
+		assertEquals(url, link);
 	}
 }
