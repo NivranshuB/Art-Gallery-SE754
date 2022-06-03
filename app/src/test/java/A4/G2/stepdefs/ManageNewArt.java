@@ -103,6 +103,21 @@ public class ManageNewArt {
         addArtPage.insertBuyNowPrice(string);
     }
 
+    @And("I enter {string} as auction start price field")
+    public void iEnterAsAuctionStartPriceField(String string) {
+        addArtPage.insertAuctionStartPrice(string);
+    }
+
+    @And("I enter {string} as auction reserve price field")
+    public void iEnterAsAuctionReservePriceField(String string) {
+        addArtPage.insertAuctionReservePrice(string);
+    }
+
+    @And("I enter {string} as auction time remaining field")
+    public void iEnterAsAuctionTimeRemainingField(String string) {
+        addArtPage.insertAuctionTimeRemaining(string);
+    }
+
     @Then("I should see the new art displayed")
     public void iShouldSeeTheNewArtDisplayed() {
         assertTrue(addArtPage.getMessage().contains("Art titled: \"Title\" successfully added"));
@@ -112,5 +127,11 @@ public class ManageNewArt {
     @Then("I should see the new art displayed with buyNow")
     public void iShouldSeeTheNewArtDisplayedWithBuyNow() {
         assertTrue(addArtPage.getMessage().contains("Art titled: \"Title\" successfully added with buy-now listing"));
+    }
+
+
+    @Then("I should see the new art displayed with auction")
+    public void iShouldSeeTheNewArtDisplayedWithAuction() {
+        assertTrue(addArtPage.getMessage().contains("Art titled: \"Title\" successfully added with auction listing"));
     }
 }
