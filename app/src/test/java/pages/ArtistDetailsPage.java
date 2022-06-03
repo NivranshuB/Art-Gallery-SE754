@@ -13,10 +13,10 @@ public class ArtistDetailsPage {
 	}
 
 	@FindBy(how=How.ID, using="shareArtistButton")
-	private WebElement shareButton;
+	private WebElement shareArtistButton;
 
 	@FindBy(how=How.ID, using ="generatedArtistLink")
-	private WebElement generatedLink;
+	private WebElement generatedArtistLink;
 
 	public void clickShare(){
 		this.shareArtistButton.click();
