@@ -79,6 +79,7 @@ public class PurchaseBuyNowStepDefinitions {
 	@And("Notify me that I am too young")
 	public void notifyMeThatIAmTooYoung() {
 		String notification = "You are too young to purchase art.";
-		String getNotification artDetailsPage.getAgeNotification();
+		String getNotification = artDetailsPage.getAgeNotification();
+		Assertions.assertEquals(notification, getNotification);
 	}
 }
