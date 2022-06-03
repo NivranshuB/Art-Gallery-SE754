@@ -20,3 +20,8 @@ Feature: Purchase Buy Now
       |"5"  |
       |"10" |
       |"15" |
+
+  Scenario: User is old enough
+    Given I am "20" years old
+    When I click the Buy Now button
+    Then Allow the Buy Now attempt
