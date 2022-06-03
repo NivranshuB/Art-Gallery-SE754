@@ -1,5 +1,6 @@
 package A4.G2.stepdefs;
 
+import A4.G2.web.pages.ArtDetailsPage;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -10,7 +11,6 @@ import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.ArtDetailsPage;
 
 import java.util.concurrent.TimeUnit;
 
