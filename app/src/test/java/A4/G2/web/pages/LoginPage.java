@@ -39,9 +39,5 @@ public class LoginPage {
         this.submitButton.click();
     }
 
-    public String getMessage(){
-        return this.message.getText();
-    }
-
     public String getErrorMessage() { return this.error.getText(); }
 }

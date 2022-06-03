@@ -33,4 +33,26 @@ public class LoginStepDefinitions {
     public void i_should_see_the_login_page() {
         assertTrue(driver.getCurrentUrl().contains("login"));
     }
+
+    @Given("I visit the login page")
+    public void i_visit_the_login_page() {
+        driver.get("http://localhost:8080/login");
+    }
+    @When("I enter {string} as user name field")
+    public void i_enter_as_user_name_field(String string) {
+        loginPage.insertUserName(string);
+    }
+    @When("I enter {string} as password field")
+    public void i_enter_as_password_field(String string) {
+        loginPage.insertPassword(string);
+    }
+    @When("I press the submit button")
+    public void i_press_the_submit_button() {
+        loginPage.clickLogin();
+    }
+    @Then("I should see the incorrect credentials message")
+    public void i_should_see_the_incorrect_credentials_message() {
+        assertTrue(loginPage.getErrorMessage().contains("Invalid Credentials"));
+    }
+
 }
