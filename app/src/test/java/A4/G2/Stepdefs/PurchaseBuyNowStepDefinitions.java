@@ -82,4 +82,10 @@ public class PurchaseBuyNowStepDefinitions {
 		String getNotification = artDetailsPage.getAgeNotification();
 		Assertions.assertEquals(notification, getNotification);
 	}
+
+	@Then("Allow the Buy Now attempt")
+	public void allowTheBuyNowAttempt() {
+		driver.get("http://localhost:8080/success-page");
+		Assertions.assertEquals("http://localhost:8080/success-page", driver.getCurrentUrl());
+	}
 }
