@@ -39,6 +39,7 @@ dependencies {
     testImplementation group: 'de.monochromata.cucumber', name: 'reporting-plugin', version: '4.0.102'
     //Selenium
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.1.4'
+    testImplementation "io.github.bonigarcia:webdrivermanager:3.8.1"
     //SpringBoot
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
