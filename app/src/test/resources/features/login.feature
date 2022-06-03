@@ -18,5 +18,5 @@ Feature: Login
     Examples:
       | username        | password        |
       | "WrongUsername" | "WrongPassword" |
-      | "WrongUsername" | "password"      |
+      | "WrongUsername" | "Password123"   |
       | "user1"         | "WrongPassword" |
