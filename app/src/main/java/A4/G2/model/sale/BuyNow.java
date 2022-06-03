@@ -9,7 +9,7 @@ import A4.G2.service.payment.UnregisteredUserPurchaseException;
 
 public class BuyNow extends Sale {
 
-    public BuyNow(int saleID, double startingPrice, Art artPiece) {
+    public BuyNow(String saleID, double startingPrice, Art artPiece) {
         super(saleID, startingPrice, artPiece);
     }
 

@@ -28,10 +28,10 @@ public class testGetOnSaleArtsDetails {
         gallery = Mockito.spy(new Gallery());
         image = ImageIO.read(new File("src/test/java/A4/G2/model/artwork/testImage.png"));
         artist = Mockito.mock(Artist.class);
-        gallery.addArtForSale(Mockito.spy(new Auction(1,1.0,
+        gallery.addArtForSale(Mockito.spy(new Auction("1",1.0,
                 Mockito.spy(new Print(artist,"Art 1","",image,"")),
                 1.0,1)));
-        gallery.addArtForSale(Mockito.spy(new BuyNow(2,1.0,
+        gallery.addArtForSale(Mockito.spy(new BuyNow("2",1.0,
                 Mockito.spy(new Print(artist,"Art 2","",image,"")))));
     }
 
@@ -59,7 +59,7 @@ public class testGetOnSaleArtsDetails {
     @Test
     public void testGetSaleID(){
         for(int i=1;i<2;i++){
-            assertEquals(i+1, gallery.getArtSalesList().get(i).getSaleId());
+            assertEquals(String.valueOf(i+1), gallery.getArtSalesList().get(i).getSaleId());
         }
     }
 

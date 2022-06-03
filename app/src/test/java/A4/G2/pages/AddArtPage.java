@@ -35,6 +35,9 @@ public class AddArtPage {
     @FindBy(how = How.ID, using = "dimensions")
     private WebElement dimensions;
 
+    @FindBy(how = How.ID, using = "buyNowPrice")
+    private WebElement buyNowPrice;
+
     @FindBy(how = How.ID, using = "addArtBtn")
     private WebElement addArtButton;
 
@@ -73,6 +76,10 @@ public class AddArtPage {
 
     public void insertImage(String imageFile) {
         this.image.sendKeys(imageFile);
+    }
+
+    public void insertBuyNowPrice(String buyNowPrice) {
+        this.buyNowPrice.sendKeys(buyNowPrice);
     }
 
     public void clickSubmit() {

@@ -28,7 +28,7 @@ public class AuctionTest {
 	Image image;
 	Painting painting;
 	Auction auction;
-	int saleId;
+	String saleId;
 	double price;
 	double reservePrice;
 	int timeRemaining;
@@ -39,7 +39,7 @@ public class AuctionTest {
 		image = ImageIO.read(new File("src/test/java/A4/G2/model/artwork/testImage.png"));
 		painting = Mockito.spy(new Painting(artist, "Art Title", "Art Description", image, "2x1m"));
 
-		saleId = 2;
+		saleId ="2";
 		price = 50.00; // starting price
 		reservePrice = 200.00;
 		timeRemaining = 7; // days

@@ -3,14 +3,14 @@ package A4.G2.model.sale;
 import A4.G2.model.artwork.Art;
 
 public abstract class Sale {
-    private int saleID;
+    private String saleID;
     private int timeRemaining;
     private double price;
     private double deliveryCost;
     private String deliveryTime;
     Art artPiece;
 
-    public Sale(int saleID, double startingPrice, Art artPiece) {
+    public Sale(String saleID, double startingPrice, Art artPiece) {
         this.saleID = saleID;
         this.price = startingPrice;
         this.artPiece = artPiece;
@@ -18,7 +18,7 @@ public abstract class Sale {
 
     public abstract String getSaleType();
 
-    public int getSaleId() {
+    public String getSaleId() {
         return this.saleID;
     }
 

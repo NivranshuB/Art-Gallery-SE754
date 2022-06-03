@@ -25,7 +25,7 @@ public class IntegrationTests {
         Artist artist = new Artist();
         Image image = ImageIO.read(new File("src/test/java/A4/G2/model/artwork/testImage.png"));
         Painting painting = new Painting(artist, "title", "description", image, "2x1m");
-        BuyNow buyNow = new BuyNow(1, 15.99, painting);
+        BuyNow buyNow = new BuyNow("1", 15.99, painting);
 
         Gallery gallery = new Gallery();
         gallery.addArtForSale(buyNow);
@@ -52,7 +52,7 @@ public class IntegrationTests {
         Artist artist = new Artist();
         Image image = ImageIO.read(new File("src/test/java/A4/G2/model/artwork/testImage.png"));
         Painting painting = new Painting(artist, "title", "description", image, "2x1m");
-        BuyNow buyNow = new BuyNow(1, 15.99, painting);
+        BuyNow buyNow = new BuyNow("1", 15.99, painting);
 
         Gallery gallery = new Gallery();
         gallery.addArtForSale(buyNow);
@@ -74,7 +74,7 @@ public class IntegrationTests {
         Artist artist = new Artist();
         Image image = ImageIO.read(new File("src/test/java/A4/G2/model/artwork/testImage.png"));
         Painting painting = new Painting(artist, "title", "description", image, "2x1m");
-        BuyNow buyNow = new BuyNow(1, 15.99, painting);
+        BuyNow buyNow = new BuyNow("1", 15.99, painting);
 
         Gallery gallery = new Gallery();
         gallery.addArtForSale(buyNow);
