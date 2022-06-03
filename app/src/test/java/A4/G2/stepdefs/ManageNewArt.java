@@ -98,11 +98,19 @@ public class ManageNewArt {
         addArtPage.insertImage(string);
     }
 
+    @And("I enter {string} as buyNow price field")
+    public void iEnterAsBuyNowPriceField(String string) {
+        addArtPage.insertBuyNowPrice(string);
+    }
+
     @Then("I should see the new art displayed")
     public void iShouldSeeTheNewArtDisplayed() {
         assertTrue(addArtPage.getMessage().contains("Art titled: \"Title\" successfully added"));
     }
 
 
-
+    @Then("I should see the new art displayed with buyNow")
+    public void iShouldSeeTheNewArtDisplayedWithBuyNow() {
+        assertTrue(addArtPage.getMessage().contains("Art titled: \"Title\" successfully added with buy-now listing"));
+    }
 }

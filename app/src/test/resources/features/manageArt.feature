@@ -21,4 +21,4 @@ Feature: ManageArt
     And I enter "testImage.png" as image field
     And I enter "19.99" as buyNow price field
     And I press the submit button
-    Then I should see the new art displayed
+    Then I should see the new art displayed with buyNow
