@@ -57,7 +57,7 @@ public class LoginStepDefinitions {
 
     @Then("I should see the welcome page")
     public void i_should_see_the_welcome_page() {
-        assertTrue(homePage.getMessage().contains("Welcome user1"));
+        assertTrue(loginPage.getMessage().contains("Welcome user1"));
     }
 
 

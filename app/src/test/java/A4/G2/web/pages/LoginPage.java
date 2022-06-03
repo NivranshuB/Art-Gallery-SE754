@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.Collection;
+
 public class LoginPage {
 
     public LoginPage(WebDriver driver) {
@@ -40,4 +42,8 @@ public class LoginPage {
     }
 
     public String getErrorMessage() { return this.error.getText(); }
+
+    public String getMessage(){
+        return this.message.getText();
+    }
 }

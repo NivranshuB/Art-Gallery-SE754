@@ -7,7 +7,14 @@
 
 <body>
     <h1>G2 - Gallery Web App!</h1>
-        <label><a id="login" href="/login">Click here</a> to login to an account.</label>
+    <c:choose>
+        <c:when test="${loggedInUser.equals('')}">
+            <label><a id="login" href="/login">Click here</a> to login to an account.</label>
+        </c:when>
+        <c:otherwise>
+            <h3 id="message">Welcome ${loggedInUser.getUsername()}!</h3>
+        </c:otherwise>
+    </c:choose>
 </body>
 
 </html>
