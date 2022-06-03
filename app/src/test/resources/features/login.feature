@@ -20,3 +20,10 @@ Feature: Login
       | "WrongUsername" | "WrongPassword" |
       | "WrongUsername" | "Password123"   |
       | "user1"         | "WrongPassword" |
+
+  Scenario: Correct login
+    Given I visit the login page
+    When I enter "user1" as user name field
+    And I enter "Password123" as password field
+    And I press the submit button
+    Then I should see the welcome page
