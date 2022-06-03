@@ -1,4 +1,4 @@
-Feature: AddArt
+Feature: ManageArt
 
   Scenario: Add art with no listing
     Given I am on the art page
