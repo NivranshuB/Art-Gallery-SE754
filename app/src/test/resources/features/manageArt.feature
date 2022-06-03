@@ -64,6 +64,5 @@ Feature: ManageArt
     Then I should see error message
     Examples:
       | title   | description    | artType | dimensions | artist   | image              |
-      | ""      | ""             | ""      | ""         | ""       | ""                 |
+      | ""      | ""             | "1"     | ""         | ""       | ""                 |
       | "title" | "descriptions" | "2"     | "2x1m"     | "artist" | "invalidImage.png" |
-      | "title" | "descriptions" | "3"     | "2x1m"     | "artist" | "testImage.png"    |

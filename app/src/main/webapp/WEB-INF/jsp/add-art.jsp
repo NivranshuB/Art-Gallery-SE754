@@ -35,7 +35,7 @@
 </form>
 
 <label style="color:green" id="message">${message}</label>
-<font color="red">${errorMessage}</font>
+<label style="color:red" id="errorMessage">${errorMessage}</label>
 </body>
 
 </html>

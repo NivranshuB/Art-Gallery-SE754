@@ -9,6 +9,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Collection;
 import java.util.List;
 
 public class AddArtPage {
@@ -55,6 +56,9 @@ public class AddArtPage {
 
     @FindBy(how = How.ID, using = "message")
     private WebElement message;
+
+    @FindBy(how = How.ID, using = "errorMessage")
+    private WebElement errorMessage;
 
     public void insertTitle(String title) {
         this.title.sendKeys(title);
@@ -110,6 +114,7 @@ public class AddArtPage {
         return this.message.getText();
     }
 
-
-
+    public String getErrorMessage(){
+        return this.errorMessage.getText();
+    }
 }

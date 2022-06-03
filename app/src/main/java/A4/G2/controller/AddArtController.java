@@ -3,6 +3,7 @@ package A4.G2.controller;
 import A4.G2.model.artwork.Art;
 import A4.G2.model.sale.Auction;
 import A4.G2.model.sale.BuyNow;
+import A4.G2.service.AddArtValidator;
 import A4.G2.service.Gallery;
 import A4.G2.model.artwork.Painting;
 import A4.G2.model.artwork.Print;
@@ -49,6 +50,12 @@ public class AddArtController {
             @RequestParam String auctionReservePrice,
             @RequestParam String auctionTimeRemaining
     ) throws IOException {
+
+        AddArtValidator av = new AddArtValidator();
+        if(!av.validateArtInputs(title,description,artType,dimensions,artistName,fileOfImage)){
+            model.put("errorMessage","Invalid inputs try again");
+            return "add-art";
+        }
 
         Image image;
         image = ImageIO.read(new File("src/main/images/" + fileOfImage));
