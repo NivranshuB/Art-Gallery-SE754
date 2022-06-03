@@ -21,4 +21,10 @@ public class HomePageController {
         model.put("loggedInUser", "");
         return "home";
     }
+
+    @RequestMapping(value="/logout", method = RequestMethod.GET)
+    public String logout(ModelMap model) {
+        model.put("loggedInUser", "");
+        return "home";
+    }
 }
