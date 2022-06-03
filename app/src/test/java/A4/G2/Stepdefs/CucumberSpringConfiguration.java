@@ -1,4 +1,4 @@
-package A4.G2.Stepdefs;
+package A4.G2.stepdefs;
 import io.cucumber.java.Before;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
