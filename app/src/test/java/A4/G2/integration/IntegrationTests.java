@@ -1,7 +1,7 @@
 package A4.G2.integration;
 
 import A4.G2.helpers.DateGenerator;
-import A4.G2.model.Gallery;
+import A4.G2.service.Gallery;
 import A4.G2.model.Payment;
 import A4.G2.model.artwork.Painting;
 import A4.G2.model.sale.BuyNow;

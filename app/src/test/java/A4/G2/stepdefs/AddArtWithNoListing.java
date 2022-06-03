@@ -1,6 +1,6 @@
 package A4.G2.stepdefs;
 
-import A4.G2.pages.ArtGalleryPage;
+import A4.G2.pages.AddArtPage;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AddArtWithNoListing {
     private WebDriver driver;
-    private ArtGalleryPage artGalleryPage;
+    private AddArtPage addArtPage;
 
     @Before
     public void setup() {
@@ -38,7 +38,7 @@ public class AddArtWithNoListing {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        artGalleryPage = new ArtGalleryPage(driver);
+        addArtPage = new AddArtPage(driver);
     }
 
     @AfterStep
@@ -57,54 +57,50 @@ public class AddArtWithNoListing {
     public void tearDown() {
         driver.quit();
     }
-    @Given("I am on the art page")
-    public void iAmOnTheArtPage() {
-        driver.get("http://localhost:8080/artGallery");
-    }
 
-    @And("I press the add art button")
-    public void iPressTheAddArtButton() {
-        artGalleryPage.clickAddArt();
+    @Given("I am on the add art page")
+    public void iAmOnTheAddArtPage() {
+        driver.get("http://localhost:8080/add-art");
     }
 
     @When("I enter {string} as title field")
     public void iEnterAsTitleField(String string) {
-        artGalleryPage.insertTitle(string);
+        addArtPage.insertTitle(string);
     }
 
     @And("I enter {string} as description field")
     public void iEnterAsDescriptionField(String string) {
-        artGalleryPage.insertDescription(string);
+        addArtPage.insertDescription(string);
     }
 
     @And("I select {string} as art type")
     public void iSelectAsArtType(String string) {
-        artGalleryPage.insertArtType(string);
+        addArtPage.selectArtType(string);
     }
 
     @And("I enter {string} as dimension field")
     public void iEnterAsDimensionField(String string) {
-        artGalleryPage.insertDimension(string);
+        addArtPage.insertDimension(string);
     }
 
     @And("I enter {string} as artist name field")
     public void iEnterAsArtistNameField(String string) {
-        artGalleryPage.insertArtistName(string);
+        addArtPage.insertArtistName(string);
     }
 
     @And("I press the submit button")
     public void iPressTheSubmitButton() {
-        artGalleryPage.clickSubmit();
+        addArtPage.clickSubmit();
     }
 
-    @And("I upload test image as image")
-    public void iUploadTestImageAsImage(String pathToImage) {
-        artGalleryPage.uploadImage(pathToImage);
+    @And("I enter {string} as image field")
+    public void iEnterAsImageField(String string) {
+        addArtPage.insertImage(string);
     }
 
     @Then("I should see the new art displayed")
     public void iShouldSeeTheNewArtDisplayed() {
-        assertTrue(artGalleryPage.getMessage().contains("Art Title successfully added"));
+        assertTrue(addArtPage.getMessage().contains("Art titled: \"Title\" successfully added"));
     }
 
 

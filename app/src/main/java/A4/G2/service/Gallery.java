@@ -1,14 +1,16 @@
-package A4.G2.model;
+package A4.G2.service;
 
 import A4.G2.model.artwork.Art;
 import A4.G2.model.sale.Sale;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class Gallery {
-    private List<Art> arts = new ArrayList<>();
-    private List<Sale> artsForSale = new ArrayList<>();
+    private final List<Art> arts = new ArrayList<>();
+    private final List<Sale> artsForSale = new ArrayList<>();
     private String termsAndConditions="";
 
     public Gallery() {
