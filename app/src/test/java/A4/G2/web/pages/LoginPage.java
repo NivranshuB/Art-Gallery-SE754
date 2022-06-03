@@ -1,4 +1,4 @@
-package A4.G2.pages;
+package A4.G2.web.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
