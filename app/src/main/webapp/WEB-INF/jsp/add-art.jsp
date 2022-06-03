@@ -11,7 +11,6 @@
     <h2>Insert new art details</h2>
     Title : <input type="text" name="title" id="title"/> <br/>
     Description : <input type="text" name="description" id="description"/> <br/>
-    Dimensions: <input type="text" name="dimensions" id="dimensions"/> <br/>
     <label>
         Select type of art
         <select name="artType" id="artType">
@@ -20,6 +19,7 @@
             <option value="2">Sculpture</option>
         </select>
     </label> <br/>
+    Dimensions: <input type="text" name="dimensions" id="dimensions"/> <br/>
     Artist Name: <input type="text" name="artistName" id="artistName"/> <br/>
     Image File (e.g. testImage.png, must be found in src/main/images): <input type="text" name="fileOfImage"
                                                                               id="fileOfImage"/> <br/>
