@@ -5,7 +5,7 @@
     </head>
     <body>
         <div>Login status:</div>
-        <div id="loginStatus">Not Logged In</div>
+        <div id="loginStatus">Not logged in</div>
         <button id="shareButton">Share</button>
         <p id="generatedLink"></p>
         <button id="buyNowButton">Buy Now</div>
@@ -18,7 +18,7 @@
                $('#generatedLink').html(window.location.href);
            });
             $("#buyNowButton").click(function(){
-                if(document.getElementById('loginStatus').innerHTML=="Not Logged In") {
+                if(document.getElementById('loginStatus').innerHTML=="Not logged in") {
                     $('#loginNotification').html("Please sign up or log in.");
                 } else {
                     $('#loginNotification').html("Placeholder - success");

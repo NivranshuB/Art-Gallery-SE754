@@ -57,7 +57,7 @@ public class PurchaseBuyNowStepDefinitions {
 
 	@And("I am not logged into an account")
 	public void iAmNotLoggedIntoAnAccount() {
-		assertEquals("Not Logged In",artDetailsPage.getLoginStatus());
+		assertEquals("Not logged in",artDetailsPage.getLoginStatus());
 	}
 
 	@Then("Deny the buying attempt")
