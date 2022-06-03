@@ -26,6 +26,11 @@
     <h2>Insert BuyNow Details (optional)</h2>
     Fixed Price: $<input type="text" name="buyNowPrice" id="buyNowPrice"/><br/>
 
+    <h2>Insert Auction Details (optional)</h2>
+    Start Price: $<input type="text" name="auctionStartPrice" id="auctionStartPrice"/><br/>
+    Reserve Price: $<input type="text" name="auctionReservePrice" id="auctionReservePrice"/><br/>
+    Time Remaining: <input type="text" name="auctionTimeRemaining" id="auctionTimeRemaining"/><br/>
+
     <input type="submit" id="submitNewArtBtn"/> <br/>
 </form>
 

@@ -38,6 +38,15 @@ public class AddArtPage {
     @FindBy(how = How.ID, using = "buyNowPrice")
     private WebElement buyNowPrice;
 
+    @FindBy(how = How.ID, using = "auctionStartPrice")
+    private WebElement auctionStartPrice;
+
+    @FindBy(how = How.ID, using = "auctionReservePrice")
+    private WebElement auctionReservePrice;
+
+    @FindBy(how = How.ID, using = "auctionTimeRemaining")
+    private WebElement auctionTimeRemaining;
+
     @FindBy(how = How.ID, using = "addArtBtn")
     private WebElement addArtButton;
 
@@ -81,6 +90,17 @@ public class AddArtPage {
     public void insertBuyNowPrice(String buyNowPrice) {
         this.buyNowPrice.sendKeys(buyNowPrice);
     }
+    public void insertAuctionStartPrice(String auctionStartPrice) {
+        this.auctionStartPrice.sendKeys(auctionStartPrice);
+    }
+
+    public void insertAuctionReservePrice(String auctionReservePrice) {
+        this.auctionReservePrice.sendKeys(auctionReservePrice);
+    }
+
+    public void insertAuctionTimeRemaining(String auctionTimeRemaining) {
+        this.auctionTimeRemaining.sendKeys(auctionTimeRemaining);
+    }
 
     public void clickSubmit() {
         this.submitNewArtButton.click();
@@ -89,6 +109,7 @@ public class AddArtPage {
     public String getMessage() {
         return this.message.getText();
     }
+
 
 
 }

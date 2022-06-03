@@ -1,6 +1,7 @@
 package A4.G2.controller;
 
 import A4.G2.model.artwork.Art;
+import A4.G2.model.sale.Auction;
 import A4.G2.model.sale.BuyNow;
 import A4.G2.service.Gallery;
 import A4.G2.model.artwork.Painting;
@@ -43,7 +44,10 @@ public class AddArtController {
             @RequestParam String artType,
             @RequestParam String artistName,
             @RequestParam String fileOfImage,
-            @RequestParam String buyNowPrice
+            @RequestParam String buyNowPrice,
+            @RequestParam String auctionStartPrice,
+            @RequestParam String auctionReservePrice,
+            @RequestParam String auctionTimeRemaining
     ) throws IOException {
 
         Image image;
@@ -71,15 +75,22 @@ public class AddArtController {
 
         String message = null;
         if (!buyNowPrice.isEmpty()) {
-            BuyNow buyNow = new BuyNow(UUID.randomUUID().toString(), Double.parseDouble(buyNowPrice), newArt);
+            BuyNow buyNow = new BuyNow(UUID.randomUUID().toString(), Double.parseDouble(buyNowPrice), newArt);\
+            gallery.addArtForSale(buyNow);
             message = String.format("Art titled: \"%s\" successfully added with buy-now listing", title);
+        } else if (!auctionStartPrice.isEmpty() && !auctionReservePrice.isEmpty() && !auctionTimeRemaining.isEmpty()) {
+            Auction auction = new Auction(
+                    UUID.randomUUID().toString(),
+                    Double.parseDouble(auctionStartPrice),
+                    newArt, Double.parseDouble(auctionReservePrice),
+                    Integer.parseInt(auctionTimeRemaining)
+            );
+            gallery.addArtForSale(auction);
+            message = String.format("Art titled: \"%s\" successfully added with auction listing", title);
         } else {
             message = String.format("Art titled: \"%s\" successfully added", title);
         }
-
         model.put("message", message);
-
-        System.out.println(gallery.getArtList());
         return "add-art";
     }
 
