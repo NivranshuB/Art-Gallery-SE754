@@ -11,8 +11,8 @@ Feature: Purchase Buy Now
     And Notify me to sign up or sign in
 
   Scenario Outline: User is too young
+    Given I am <age> years old
     When I click the Buy Now button
-    And I am <age> years old
     Then Deny the buying attempt
     And Notify me that I am too young
     Examples:

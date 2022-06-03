@@ -49,6 +49,11 @@ public class PurchaseBuyNowStepDefinitions {
 		driver.get("http://localhost:8080/art-details");
 	}
 
+	@Given("I am {string} years old")
+	public void iAmAgeYearsOld(String string) {
+		artDetailsPage.insertAge(string);
+	}
+
 	@When("I click the Buy Now button")
 	public void iClickTheBuyNowButton() {
 		artDetailsPage.clickBuyNow();
@@ -69,11 +74,6 @@ public class PurchaseBuyNowStepDefinitions {
 		String notification = "Please sign up or log in.";
 		String getNotification = artDetailsPage.getLoginNotification();
 		Assertions.assertEquals(notification, getNotification);
-	}
-
-	@And("I am <age> years old")
-	public void iAmAgeYearsOld(String age) {
-		artDetailsPage.insertAge(age);
 	}
 
 	@And("Notify me that I am too young")

@@ -8,8 +8,10 @@
         <div id="loginStatus">Not logged in</div>
         <button id="shareButton">Share</button>
         <p id="generatedLink"></p>
+        <input id="ageField"></input>
         <button id="buyNowButton">Buy Now</div>
         <div id="loginNotification"></div>
+        <div id="ageNotification"></div>
     </body>
 
     <script>
@@ -23,7 +25,11 @@
                 } else {
                     $('#loginNotification').html("Placeholder - success");
                 }
-
+                if(parseInt($("#ageField").val())<16) {
+                    $('#ageNotification').html("You are too young to purchase art.");
+                } else {
+                    $('#ageNotification').html("old");
+                }
            });
         });
     </script>
