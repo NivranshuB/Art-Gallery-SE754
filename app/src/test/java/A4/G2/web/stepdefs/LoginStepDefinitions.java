@@ -1,5 +1,7 @@
 package A4.G2.web.stepdefs;
 
+import A4.G2.web.pages.LoginPage;
+import A4.G2.web.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,13 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoginStepDefinitions {
     private WebDriver driver;
     private LoginPage loginPage;
-    private WelcomePage welcomePage;
+    private HomePage homePage;
 
     @Given("Driver set up for login page")
     public void driver_set_up_for_login_page() {
         driver = Hooks.getDriver();
         loginPage = new LoginPage(driver);
-        welcomePage = new WelcomePage(driver);
+        homePage = new HomePage(driver);
     }
 
     @Given("I am on the home page")
@@ -25,7 +27,7 @@ public class LoginStepDefinitions {
     }
     @When("I press the login button")
     public void i_press_the_login_button() {
-        welcomePage.clickLoginNavButton();
+        homePage.clickLoginNavButton();
     }
     @Then("I should see the login page")
     public void i_should_see_the_login_page() {
