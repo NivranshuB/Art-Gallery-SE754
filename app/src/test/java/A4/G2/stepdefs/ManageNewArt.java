@@ -134,4 +134,9 @@ public class ManageNewArt {
     public void iShouldSeeTheNewArtDisplayedWithAuction() {
         assertTrue(addArtPage.getMessage().contains("Art titled: \"Title\" successfully added with auction listing"));
     }
+
+    @Then("I should see error message")
+    public void iShouldSeeErrorMessage() {
+        assertTrue(addArtPage.getErrorMessage().contains("Invalid inputs try again"));
+    }
 }
