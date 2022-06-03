@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class AddArtWithNoListing {
+public class ManageNewArt {
     private WebDriver driver;
     private AddArtPage addArtPage;
 
