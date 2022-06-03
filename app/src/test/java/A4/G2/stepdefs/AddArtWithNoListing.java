@@ -82,14 +82,14 @@ public class AddArtWithNoListing {
         artGalleryPage.insertArtType(string);
     }
 
-    @And("I upload test image as image")
-    public void iUploadTestImageAsImage(String pathToImage) {
-        artGalleryPage.uploadImage(pathToImage);
-    }
-
     @And("I enter {string} as dimension field")
     public void iEnterAsDimensionField(String string) {
         artGalleryPage.insertDimension(string);
+    }
+
+    @And("I enter {string} as artist name field")
+    public void iEnterAsArtistNameField(String string) {
+        artGalleryPage.insertArtistName(string);
     }
 
     @And("I press the submit button")
@@ -97,10 +97,16 @@ public class AddArtWithNoListing {
         artGalleryPage.clickSubmit();
     }
 
+    @And("I upload test image as image")
+    public void iUploadTestImageAsImage(String pathToImage) {
+        artGalleryPage.uploadImage(pathToImage);
+    }
+
     @Then("I should see the new art displayed")
     public void iShouldSeeTheNewArtDisplayed() {
         assertTrue(artGalleryPage.getMessage().contains("Art Title successfully added"));
     }
+
 
 
 }
