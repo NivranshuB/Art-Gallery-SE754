@@ -10,3 +10,13 @@ Feature: Purchase Buy Now
     Then Deny the buying attempt
     And Notify me to sign up or sign in
 
+  Scenario Outline: User is too young
+    When I click the Buy Now button
+    And I am <age> years old
+    Then Deny the buying attempt
+    And Notify me that I am too young
+    Examples:
+      |age|
+      |5  |
+      |10 |
+      |15 |
