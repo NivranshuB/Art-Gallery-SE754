@@ -1,6 +1,6 @@
 package A4.G2.controller;
 
-import A4.G2.model.Gallery;
+import A4.G2.service.Gallery;
 import A4.G2.model.users.User;
 import A4.G2.service.dao.IUserDaoService;
 import A4.G2.service.dao.UserDaoService;
