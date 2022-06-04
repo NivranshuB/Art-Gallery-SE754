@@ -69,3 +69,19 @@ Feature: ManageArt
       | title   | description    | artType | dimensions | artist   | image              |
       | ""      | ""             | "1"     | ""         | ""       | ""                 |
       | "title" | "descriptions" | "2"     | "2x1m"     | "artist" | "invalidImage.png" |
+
+  Scenario Outline: Add art with invalid BuyNow input
+    Given I am on the add art page
+    When I enter "Title" as title field
+    And I enter "Description" as description field
+    And I select "1" as art type
+    And I enter "2x1m" as dimension field
+    And I enter "artist" as artist name field
+    And I enter "testImage.png" as image field
+    And I enter <BuyNow> as buyNow price field
+    And I press the submit new art button
+    Then I should see the new art displayed with buyNow
+    Examples:
+      | BuyNow  |
+      | ""      |
+      | "Hello" |
