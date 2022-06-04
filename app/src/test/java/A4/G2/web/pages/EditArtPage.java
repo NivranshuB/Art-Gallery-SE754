@@ -20,6 +20,9 @@ public class EditArtPage {
     @FindBy(how=How.ID, using = "message")
     private WebElement message;
 
+    @FindBy(how=How.ID,using = "artDetailButton")
+    private WebElement artDetailButton;
+
 
     public void insertNewTitle(String string) {
         editTitle.sendKeys(string);
@@ -31,5 +34,9 @@ public class EditArtPage {
 
     public String getMessage() {
         return this.message.getText();
+    }
+
+    public void clickGoBackToArtDetail() {
+        artDetailButton.click();
     }
 }

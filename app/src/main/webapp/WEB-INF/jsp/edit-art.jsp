@@ -18,7 +18,7 @@
 
 
 <p id="message" style="color: green">${message}</p>
-
+<label><a id="artDetailButton" href="/art-details">Click here</a> to go back to art details</label>
 </body>
 
 
