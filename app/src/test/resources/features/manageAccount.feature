@@ -10,3 +10,14 @@ Feature: Manage Account
     Given I start on the home page
     When I press the manage account button
     Then I should see the manage account page
+
+  Scenario Outline: Change username unsuccessfully
+    Given I am currently on the manage account page
+    When I enter <username> in the new username field
+    And I press the submit username button
+    Then I should see the invalid username message
+
+    Examples:
+      | username |
+      | ""       |
+      | "user1"  |
