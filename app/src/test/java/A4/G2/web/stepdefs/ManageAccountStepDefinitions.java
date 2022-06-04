@@ -57,4 +57,9 @@ public class ManageAccountStepDefinitions {
     public void iShouldSeeTheInvalidUsernameMessage() {
         assertTrue(manageAccountPage.getUsernameErrorMessage().contains("Invalid username"));
     }
+
+    @Then("I should see {string} as current username")
+    public void iShouldSeeAsCurrentUsername(String string) {
+        assertTrue(manageAccountPage.getCurrentUsername().contains(string));
+    }
 }
