@@ -20,8 +20,7 @@ import java.util.Objects;
 @SessionAttributes("name")
 public class RemoveArtController {
 
-    @Autowired
-    Gallery gallery;
+    Gallery gallery = new Gallery();
     ModelAndView map = new ModelAndView("/remove-art");
 
     @RequestMapping(value = "/remove-art", method = RequestMethod.GET)
