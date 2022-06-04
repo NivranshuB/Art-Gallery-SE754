@@ -35,7 +35,11 @@ public class ManageAccountController {
         if (!newUsername.matches(".*\\w.*")) {
             model.put("usernameErrorMessage", "Invalid username: Username must contain at least one char");
             return "manage-account";
-        } else if (loginDetailsManager.checkUsernameTaken(newUsername)) {
+        }
+
+        try {
+            loginDetailsManager.changeUsername((User) model.get("loggedInUser"), newUsername);
+        } catch (UsernameTakenException e) {
             model.put("usernameErrorMessage", "Invalid username: Username is already taken");
             return "manage-account";
         }
