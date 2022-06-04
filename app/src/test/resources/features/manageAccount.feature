@@ -21,3 +21,9 @@ Feature: Manage Account
       | username |
       | ""       |
       | "user1"  |
+
+  Scenario: Change username successfully
+    Given I am currently on the manage account page
+    When I enter "user3" in the new username field
+    And I press the submit username button
+    Then I should see "user3" as current username
