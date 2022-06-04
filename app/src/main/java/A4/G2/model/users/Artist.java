@@ -12,6 +12,12 @@ public class Artist {
     public Artist() {
         this.id = UUID.randomUUID().toString();
     }
+    public String getArtistName() {
+        return this.name;
+    }
+    public void setArtistName(String name) {
+        this.name = name;
+    }
 
     public String getArtistId() {
         return this.id;

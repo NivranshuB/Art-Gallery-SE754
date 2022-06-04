@@ -1,6 +1,6 @@
 package A4.G2.model.artwork;
 
-import A4.G2.model.Gallery;
+import A4.G2.service.Gallery;
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 

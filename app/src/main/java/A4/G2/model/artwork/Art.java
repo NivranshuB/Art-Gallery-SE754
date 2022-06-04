@@ -26,8 +26,14 @@ public abstract class Art {
     }
 
     public abstract String getArtType();
+
     public String getId() {
         return this.id;
+    }
+
+    //For testing purposes
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Artist getArtist() {

@@ -2,7 +2,7 @@ package A4.G2.model;
 
 import A4.G2.model.artwork.Art;
 import A4.G2.model.sale.BuyNow;
-import org.junit.jupiter.api.BeforeAll;
+import A4.G2.service.Gallery;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
