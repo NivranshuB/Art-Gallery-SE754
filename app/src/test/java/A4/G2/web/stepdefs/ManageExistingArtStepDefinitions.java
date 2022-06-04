@@ -1,5 +1,6 @@
 package A4.G2.web.stepdefs;
 
+import A4.G2.web.pages.GalleryPage;
 import A4.G2.web.pages.RemoveArtPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -13,11 +14,14 @@ public class ManageExistingArtStepDefinitions {
     private WebDriver driver;
     private RemoveArtPage removeArtPage;
 
+    private GalleryPage galleryPage;
+
 
     @Given("Driver set up for remove art page")
     public void driverSetUpForRemoveArtPage() {
         driver = Hooks.getDriver();
         removeArtPage = new RemoveArtPage(driver);
+        galleryPage  = new GalleryPage(driver);
     }
 
     @Given("I am on the remove art page")
@@ -35,8 +39,13 @@ public class ManageExistingArtStepDefinitions {
     public void iClickOnTheSubmitIdToRemoveButton() {
         removeArtPage.clickSubmit();
     }
+    @When("I press the back to gallery button")
+    public void iPressTheBackToGalleryButton() {
+        removeArtPage.clickBackToGallery();
+    }
 
-    @Then("I should art successfully remove message")
+
+        @Then("I should art successfully remove message")
     public void iShouldArtSuccessfullyRemoveMessage() {
         assertTrue(removeArtPage.getMessage().contains("Art titled: \"Title\" successfully removed"));
     }
@@ -45,6 +54,12 @@ public class ManageExistingArtStepDefinitions {
     @Then("I should see remove art error")
     public void iShouldSeeRemoveArtError() {
         assertTrue(removeArtPage.getErrorMessage().contains("Invalid ID please try again"));
+    }
+
+
+    @Then("I should see the gallery page")
+    public void iShouldSeeTheGalleryPage() {
+        assertTrue(driver.getCurrentUrl().contains("art-gallery"));
     }
 }
 
