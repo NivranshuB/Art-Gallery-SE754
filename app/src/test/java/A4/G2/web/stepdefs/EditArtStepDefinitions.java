@@ -24,7 +24,7 @@ public class EditArtStepDefinitions {
     }
     @Given("I am on an edit art details page for {string}")
     public void iAmOnAnEditArtDetailsPageFor(String string) {
-        driver.get("http://localhost:8080/edit-art?id="+string);
+        driver.get("http://localhost:8080/edit-art?ID="+string);
     }
 
 

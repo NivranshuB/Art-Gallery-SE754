@@ -4,7 +4,7 @@ Feature: EditArt
     Given Driver set up for edit art page
 
   Scenario: Edit title of art
-    Given I am on an edit art details page for "id"
-    When I enter "New Title" as edit title field
+    Given I am on an edit art details page for "1"
+    When I enter "New" as edit title field
     And I click on the submit edit button
     Then I should see successfully edit message
