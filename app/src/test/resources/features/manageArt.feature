@@ -1,6 +1,9 @@
 Feature: ManageArt
 
-  Scenario: Add art with no listing
+  Background:
+    Given Driver set up for add art page
+
+  Scenario: Add art no listing
     Given I am on the add art page
     When I enter "Title" as title field
     And I enter "Description" as description field

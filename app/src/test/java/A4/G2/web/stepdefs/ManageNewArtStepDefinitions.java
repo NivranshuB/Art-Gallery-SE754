@@ -1,25 +1,23 @@
 package A4.G2.web.stepdefs;
 
 import A4.G2.web.pages.AddArtPage;
-import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ManageNewArt {
+public class ManageNewArtStepDefinitions {
     private WebDriver driver;
     private AddArtPage addArtPage;
+
+    @Given("Driver set up for add art page")
+    public void driverSetUpForAddArtPage() {
+        driver = Hooks.getDriver();
+        addArtPage = new AddArtPage(driver);
+    }
 
     @Given("I am on the add art page")
     public void iAmOnTheAddArtPage() {
@@ -77,7 +75,7 @@ public class ManageNewArt {
     }
 
     @And("I press the submit new art button")
-    public void iPressTheSubmitButton() {
+    public void iPressTheSubmitNewArtButton() {
         addArtPage.clickSubmit();
     }
 
@@ -102,4 +100,6 @@ public class ManageNewArt {
     public void iShouldSeeErrorMessage() {
         assertTrue(addArtPage.getErrorMessage().contains("Invalid inputs try again"));
     }
+
+
 }
