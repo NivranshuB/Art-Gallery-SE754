@@ -14,7 +14,20 @@ public class AddArtValidator {
 
         try {
             double d = Double.parseDouble(price);
-            return (d>0);
+            return (d > 0);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+
+    public boolean validateArtAuctionInputs(String startPrice, String reservePrice, String timeRemaining) {
+
+        try {
+            double d = Double.parseDouble(startPrice);
+            double dd = Double.parseDouble(reservePrice);
+            double ddd = Double.parseDouble(timeRemaining);
+
+            return (d > 0 && dd > 0 && ddd > 0);
         } catch (NumberFormatException nfe) {
             return false;
         }
