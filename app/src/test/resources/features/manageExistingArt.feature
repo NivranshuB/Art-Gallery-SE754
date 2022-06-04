@@ -18,3 +18,8 @@ Feature: ManageExistingArt
       | id    |
       | ""    |
       | "124" |
+
+    Scenario: Navigation to art gallery page
+      Given I am on the remove art page
+      When I press the back to gallery button
+      Then I should see the gallery page
