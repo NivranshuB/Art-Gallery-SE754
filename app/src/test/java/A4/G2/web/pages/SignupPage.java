@@ -30,6 +30,9 @@ public class SignupPage {
     @FindBy(how=How.ID, using="error")
     private WebElement error;
 
+    @FindBy(how=How.ID, using="message")
+    private WebElement message;
+
     public void insertUserName(String userName){
         this.userName.sendKeys(userName);
     }
@@ -51,4 +54,8 @@ public class SignupPage {
     }
 
     public String getErrorMessage() { return this.error.getText(); }
+
+    public String getMessage(){
+        return this.message.getText();
+    }
 }

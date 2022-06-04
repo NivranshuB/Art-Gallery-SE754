@@ -68,9 +68,13 @@ public class SignupPageController {
             return "signup";
         }
 
-        model.put("name", name);
-        model.put("password", password);
+        User newUser = new User(name, password, "placeholder_email", "placeholder_email",
+                "placeholder_address", new Date(1990, 6, 3));
 
-        return "welcome";
+        gallery.addUser(newUser);
+
+        model.put("loggedInUser", newUser);
+
+        return "home";
     }
 }
