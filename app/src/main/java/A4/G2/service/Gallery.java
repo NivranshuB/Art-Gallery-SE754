@@ -12,6 +12,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -47,17 +48,6 @@ public class Gallery {
         users.add(newUser);
     }
 
-    public User loginUser(String username, String password) {
-        for (User u : users) {
-            if (u.getUsername().equals(username)) {
-                if (u.getPassword().equals(password)) {
-                    return u;
-                }
-            }
-        }
-        return null;
-    }
-
     public void removeArtForSale(Sale sale) {
         artsForSale.remove(sale);
     }
@@ -68,6 +58,10 @@ public class Gallery {
 
     public String getTermsAndConditions() {
         return termsAndConditions;
+    }
+
+    public List<User> getUserList() {
+        return users;
     }
 
     public void setTermsAndConditions(String termsAndConditions) {
@@ -83,6 +77,14 @@ public class Gallery {
             Painting initialArt = new Painting(artist, "Title", "Description", image, "2x1m");
             initialArt.setId("1");
             addArt(initialArt);
+
+            //Initialisation for login and signup testing
+            User user1 = new User("user1", "Password123", "user1@gmail.com", "4737054",
+                    "7 Parkers Ave, Mexico", new Date(1990, 6, 3));
+            addUser(user1);
+            setTermsAndConditions("I agree to abide by the rules of copyright and not sell duplicate prints" +
+                    " of arts listed on this application");
+
             this.isInitiated = true;
         }
 
