@@ -20,8 +20,12 @@ Art currently displayed in the gallery : <br/>
     <input type="submit"  id="submitItToBeRemove">
 </form>
 
+<label><a id="backToGallery" href="/art-gallery">Click here</a> to return to the art gallery.</label>
+
 <label style="color:green" id="message">${message}</label>
 <label style="color:red" id="errorMessage">${errorMessage}</label>
+
+
 </body>
 
 </html>

@@ -19,6 +19,9 @@ public class RemoveArtPage {
     @FindBy(how = How.ID, using = "submitItToBeRemove")
     private WebElement submitButton;
 
+    @FindBy(how = How.ID, using = "backToGallery")
+    private WebElement backToGalleryButton;
+
     @FindBy(how = How.ID, using = "message")
     private WebElement message;
 
@@ -40,5 +43,9 @@ public class RemoveArtPage {
 
     public String getErrorMessage() {
         return this.errorMessage.getText();
+    }
+
+    public void clickBackToGallery() {
+        backToGalleryButton.click();
     }
 }
