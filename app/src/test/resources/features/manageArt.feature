@@ -83,5 +83,23 @@ Feature: ManageArt
     Then I should see error message
     Examples:
       | BuyNow  |
-      |"-1"     |
+      | "-1"    |
       | "Hello" |
+
+  Scenario Outline: Add art with invalid Auction inputs
+    Given I am on the add art page
+    When I enter "Title" as title field
+    And I enter "Description" as description field
+    And I select "1" as art type
+    And I enter "2x1m" as dimension field
+    And I enter "artist" as artist name field
+    And I enter "testImage.png" as image field
+    And I enter <auctionStart> as auction start price field
+    And I enter <auctionReserve> as auction reserve price field
+    And I enter <auctionTimeRemaining> as auction time remaining field
+    And I press the submit new art button
+    Then I should see error message
+    Examples:
+      | auctionStart | auctionReserve | auctionTimeRemaining |
+      | "A"          | "B"            | "C"                  |
+      | "-1"         | "-1"           | "-1"                 |
