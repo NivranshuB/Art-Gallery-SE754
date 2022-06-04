@@ -45,8 +45,8 @@ public class ManageExistingArtStepDefinitions {
     }
 
 
-        @Then("I should art successfully remove message")
-    public void iShouldArtSuccessfullyRemoveMessage() {
+        @Then("I should see art successfully remove message")
+    public void iShouldSeeArtSuccessfullyRemoveMessage() {
         assertTrue(removeArtPage.getMessage().contains("Art titled: \"Title\" successfully removed"));
     }
 
