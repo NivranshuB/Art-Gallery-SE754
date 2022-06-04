@@ -62,4 +62,23 @@ public class ManageAccountStepDefinitions {
     public void iShouldSeeAsCurrentUsername(String string) {
         assertTrue(manageAccountPage.getCurrentUsername().contains(string));
     }
+
+    @When("I enter {string} as current password field")
+    public void i_enter_as_current_password_field(String string) {
+        manageAccountPage.insertCurrentPassword(string);
+    }
+    @When("I enter {string} as new password field")
+    public void i_enter_as_new_password_field(String string) {
+        manageAccountPage.inserNewPassword(string);
+    }
+    @When("I enter {string} as retyped new password field")
+    public void i_enter_as_retyped_new_password_field(String string) {
+        manageAccountPage.insertRetypedNewPassword(string);
+    }
+    @Then("I should see the invalid password message")
+    public void i_should_see_the_invalid_password_message() {
+        assertTrue(manageAccountPage.getPasswordErrorMessage().contains("Invalid password"));
+    }
+
+
 }
