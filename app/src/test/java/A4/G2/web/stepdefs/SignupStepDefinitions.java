@@ -68,4 +68,8 @@ public class SignupStepDefinitions {
         assertTrue(signupPage.getErrorMessage().contains("Invalid Credentials"));
     }
 
+    @Then("I should see the welcome page for the created account")
+    public void iShouldSeeTheWelcomePageForTheCreatedAccount() {
+        assertTrue(signupPage.getMessage().contains("Welcome user2"));
+    }
 }
