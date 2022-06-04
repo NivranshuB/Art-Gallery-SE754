@@ -53,4 +53,14 @@ public class EditArtStepDefinitions {
     public void iShouldSeeTheArtDetailPage() {
         assertTrue(driver.getCurrentUrl().contains("art-details"));
     }
+
+    @When("I enter {string} as edit description field")
+    public void iEnterAsEditDescriptionField(String String) {
+        editArtPage.insertNewDescription(string);
+    }
+
+    @And("I enter {string} as edit dimensions field")
+    public void iEnterAsEditDimensionsField(String string) {
+        editArtPage.insertNewDimensions(string);
+    }
 }
