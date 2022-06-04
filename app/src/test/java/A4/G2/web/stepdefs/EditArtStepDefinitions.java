@@ -55,7 +55,7 @@ public class EditArtStepDefinitions {
     }
 
     @When("I enter {string} as edit description field")
-    public void iEnterAsEditDescriptionField(String String) {
+    public void iEnterAsEditDescriptionField(String string) {
         editArtPage.insertNewDescription(string);
     }
 

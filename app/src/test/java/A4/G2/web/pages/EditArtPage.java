@@ -15,12 +15,18 @@ public class EditArtPage {
 
     @FindBy(how = How.ID, using = "editTitle")
     private WebElement editTitle;
+
+    @FindBy(how = How.ID, using = "editDescription")
+    private WebElement editDescription;
+
+    @FindBy(how = How.ID, using = "editDimensions")
+    private WebElement editDimensions;
     @FindBy(how = How.ID, using = "editSubmit")
     private WebElement editSubmitBtn;
-    @FindBy(how=How.ID, using = "message")
+    @FindBy(how = How.ID, using = "message")
     private WebElement message;
 
-    @FindBy(how=How.ID,using = "artDetailButton")
+    @FindBy(how = How.ID, using = "artDetailButton")
     private WebElement artDetailButton;
 
 
@@ -38,5 +44,13 @@ public class EditArtPage {
 
     public void clickGoBackToArtDetail() {
         artDetailButton.click();
+    }
+
+    public void insertNewDescription(String string) {
+        editDescription.sendKeys(string);
+    }
+
+    public void insertNewDimensions(String string) {
+        editDimensions.sendKeys(string);
     }
 }
