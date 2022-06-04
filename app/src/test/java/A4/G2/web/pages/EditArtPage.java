@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.Collection;
+
 
 public class EditArtPage {
 
@@ -29,8 +31,12 @@ public class EditArtPage {
     @FindBy(how = How.ID, using = "artDetailButton")
     private WebElement artDetailButton;
 
+    @FindBy(how=How.ID, using = "errorMessage")
+    private WebElement errorMessage;
+
 
     public void insertNewTitle(String string) {
+        editTitle.clear();
         editTitle.sendKeys(string);
     }
 
@@ -47,10 +53,16 @@ public class EditArtPage {
     }
 
     public void insertNewDescription(String string) {
+        editDescription.clear();
         editDescription.sendKeys(string);
     }
 
     public void insertNewDimensions(String string) {
+        editDimensions.clear();
         editDimensions.sendKeys(string);
+    }
+
+    public String getErrorMessage() {
+        return this.errorMessage.getText();
     }
 }

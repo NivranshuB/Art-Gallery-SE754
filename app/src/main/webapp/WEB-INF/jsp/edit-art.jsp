@@ -18,6 +18,7 @@
 
 
 <p id="message" style="color: green">${message}</p>
+<p id="errorMessage" style="color: red">${errorMessage}</p>
 <label><a id="artDetailButton" href="/art-details">Click here</a> to go back to art details</label>
 </body>
 

@@ -49,13 +49,21 @@ public class EditArtController {
                 foundArt = art;
             }
         }
-        if (foundArt != null) {
+        if (foundArt != null && !editTitle.isEmpty() && !editDescription.isEmpty() && !editDimensions.isEmpty() ) {
             foundArt.setTitle(editTitle);
             foundArt.setDescription(editDescription);
             foundArt.setDimensions(editDimensions);
+            model.put("editTitle", foundArt.getTitle());
+            model.put("editDescription", foundArt.getDescription());
+            model.put("editDimensions", foundArt.getDimensions());
             model.put("message", "Art successfully edited");
             return "/edit-art";
+        } else if (foundArt != null) {
+            model.put("editTitle", foundArt.getTitle());
+            model.put("editDescription", foundArt.getDescription());
+            model.put("editDimensions", foundArt.getDimensions());
         }
+        model.put("errorMessage","Invalid inputs please try again");
         return "/edit-art";
 
     }
