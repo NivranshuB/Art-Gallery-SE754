@@ -1,4 +1,4 @@
-package A4.G2.pages;
+package A4.G2.web.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;

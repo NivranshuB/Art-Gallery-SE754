@@ -48,6 +48,8 @@ public User(String userName, String password, String email, String phone, String
 
     public void setShippingDetails(ShippingDetails newShippingDetails) { this.shippingDetails = newShippingDetails; }
 
+    public String getUsername() { return userName; }
+
     public void setUsername(String newUsername) {
         userName = newUsername;
     }

@@ -43,7 +43,7 @@ dependencies {
     //SpringBoot
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper' // to compile and render JSP pages
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper' // to compile and render JSP A4.G2.web.pages
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     //SpringBoot + Cucumber
     testImplementation 'io.cucumber:cucumber-spring:7.3.4'
@@ -70,7 +70,7 @@ task cucumber() {
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = ['--plugin', 'pretty',
                     '--plugin', 'de.monochromata.cucumber.report.PrettyReports:target/cucumber',
-                    '--glue', 'A4.G2.stepdefs', // package of the step definitions (java files)
+                    '--glue', 'A4.G2.web', // package of the step definitions (java files)
                     'src/test/resources/features'] // where the features file are located (feature files)
         }
     }

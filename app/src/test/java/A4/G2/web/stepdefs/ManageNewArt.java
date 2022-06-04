@@ -1,6 +1,6 @@
-package A4.G2.stepdefs;
+package A4.G2.web.stepdefs;
 
-import A4.G2.pages.AddArtPage;
+import A4.G2.web.pages.AddArtPage;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -20,43 +20,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ManageNewArt {
     private WebDriver driver;
     private AddArtPage addArtPage;
-
-    @Before
-    public void setup() {
-        //System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        if (System.getenv("headless") != null && System.getenv("headless").equals("true")) {
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--headless");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--window-size=1920,1200");
-            options.addArguments("--ignore-certificate-errors");
-            options.addArguments("--disable-extensions");
-        }
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        addArtPage = new AddArtPage(driver);
-    }
-
-    @AfterStep
-    public void afterEachStep() {
-        // to make the test at human speed
-        if (System.getenv("headless") == null || !System.getenv("headless").equals("true")) {
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @After
-    public void tearDown() {
-        driver.quit();
-    }
 
     @Given("I am on the add art page")
     public void iAmOnTheAddArtPage() {
@@ -88,11 +51,6 @@ public class ManageNewArt {
         addArtPage.insertArtistName(string);
     }
 
-    @And("I press the submit button")
-    public void iPressTheSubmitButton() {
-        addArtPage.clickSubmit();
-    }
-
     @And("I enter {string} as image field")
     public void iEnterAsImageField(String string) {
         addArtPage.insertImage(string);
@@ -116,6 +74,11 @@ public class ManageNewArt {
     @And("I enter {string} as auction time remaining field")
     public void iEnterAsAuctionTimeRemainingField(String string) {
         addArtPage.insertAuctionTimeRemaining(string);
+    }
+
+    @And("I press the submit new art button")
+    public void iPressTheSubmitButton() {
+        addArtPage.clickSubmit();
     }
 
     @Then("I should see the new art displayed")

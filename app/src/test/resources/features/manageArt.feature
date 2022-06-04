@@ -8,7 +8,7 @@ Feature: ManageArt
     And I enter "2x1m" as dimension field
     And I enter "artist" as artist name field
     And I enter "testImage.png" as image field
-    And I press the submit button
+    And I press the submit new art button
     Then I should see the new art displayed
 
   Scenario: Add art with buy-now
@@ -20,7 +20,7 @@ Feature: ManageArt
     And I enter "artist" as artist name field
     And I enter "testImage.png" as image field
     And I enter "19.99" as buyNow price field
-    And I press the submit button
+    And I press the submit new art button
     Then I should see the new art displayed with buyNow
 
   Scenario: Add art with Auction
@@ -34,7 +34,7 @@ Feature: ManageArt
     And I enter "19.99" as auction start price field
     And I enter "50" as auction reserve price field
     And I enter "7" as auction time remaining field
-    And I press the submit button
+    And I press the submit new art button
     Then I should see the new art displayed with auction
 
   Scenario: Add art with both Buy Now and Auction
@@ -49,7 +49,7 @@ Feature: ManageArt
     And I enter "19.99" as auction start price field
     And I enter "50" as auction reserve price field
     And I enter "7" as auction time remaining field
-    And I press the submit button
+    And I press the submit new art button
     Then I should see the new art displayed with buyNow
 
   Scenario Outline: Add art with invalid inputs
@@ -60,7 +60,7 @@ Feature: ManageArt
     And I enter <dimensions> as dimension field
     And I enter <artist> as artist name field
     And I enter <image> as image field
-    And I press the submit button
+    And I press the submit new art button
     Then I should see error message
     Examples:
       | title   | description    | artType | dimensions | artist   | image              |
