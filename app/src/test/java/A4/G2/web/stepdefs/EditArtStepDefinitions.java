@@ -44,4 +44,13 @@ public class EditArtStepDefinitions {
     }
 
 
+    @When("I click go back to art detail page")
+    public void iClickGoBackToArtDetailPage() {
+        editArtPage.clickGoBackToArtDetail();
+    }
+
+    @Then("I should see the art detail page")
+    public void iShouldSeeTheArtDetailPage() {
+        assertTrue(driver.getCurrentUrl().contains("art-details"));
+    }
 }
