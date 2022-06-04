@@ -1,9 +1,10 @@
 package A4.G2.service.account;
 
-import A4.G2.model.Gallery;
+import A4.G2.service.Gallery;
 import A4.G2.model.users.User;
 import A4.G2.service.account.ILoginDetailsManager;
 import A4.G2.service.dao.UserDaoService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 

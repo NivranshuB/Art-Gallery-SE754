@@ -12,6 +12,8 @@
     <form method="post">
         Enter Username : <input type="text" name="name" id="name"/>
         <br><br>
+        <i>Password must contain a digit, a capital letter and at least 6 chars</i>
+        <br>
         Enter Password : <input type="text" name="password" id="password"/>
         <br><br>
         Retype Password : <input type="text" name="retypedPassword" id="retypedPassword"/>

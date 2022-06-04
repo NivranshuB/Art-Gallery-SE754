@@ -1,7 +1,7 @@
 package A4.G2.model.users;
 
 import A4.G2.helpers.DateGenerator;
-import A4.G2.model.Gallery;
+import A4.G2.service.Gallery;
 import A4.G2.service.account.IncorrectPasswordException;
 import A4.G2.service.account.UsernameTakenException;
 import A4.G2.service.account.WeakPasswordException;
@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,9 @@ import static org.mockito.Mockito.times;
  *   password
  */
 public class ManageLoginsDetailsTest {
+
+    @Autowired
+    Gallery gallery;
 
     LoginDetailsManager loginDetailsManager;
     User user1;
