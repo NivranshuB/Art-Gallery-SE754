@@ -1,6 +1,7 @@
 package A4.G2.web.stepdefs;
 
 import A4.G2.web.pages.HomePage;
+import A4.G2.web.pages.ManageAccountPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
