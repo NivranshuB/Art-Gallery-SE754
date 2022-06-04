@@ -9,6 +9,13 @@ Feature: EditArt
     And I click on the submit edit button
     Then I should see successfully edit message
 
+  Scenario: Edit description and dimensions of art
+    Given I am on an edit art details page for "1"
+    When I enter "New" as edit description field
+    And I enter "New" as edit dimensions field
+    And I click on the submit edit button
+    Then I should see successfully edit message
+
    Scenario: Navigate to art-detail page
      Given I am on an edit art details page for "1"
      When I click go back to art detail page
