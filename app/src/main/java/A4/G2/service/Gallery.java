@@ -1,10 +1,16 @@
 package A4.G2.service;
 
 import A4.G2.model.artwork.Art;
+import A4.G2.model.artwork.Painting;
 import A4.G2.model.sale.Sale;
+import A4.G2.model.users.Artist;
 import A4.G2.model.users.User;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +20,8 @@ public class Gallery {
     private final List<Sale> artsForSale = new ArrayList<>();
     private List<User> users = new ArrayList<>();
     private String termsAndConditions = "";
+
+    private Boolean isInitiated = false;
 
     public Gallery() {
 
@@ -64,5 +72,19 @@ public class Gallery {
 
     public void setTermsAndConditions(String termsAndConditions) {
         this.termsAndConditions = termsAndConditions;
+    }
+
+
+    public void initiate() throws IOException {
+        if (!this.isInitiated) {
+            Artist artist = new Artist();
+            artist.setArtistName("Frank");
+            Image image = ImageIO.read(new File("src/main/images/testImage.png"));
+            Painting initialArt = new Painting(artist, "Title", "Description", image, "2x1m");
+            initialArt.setId("1");
+            addArt(initialArt);
+            this.isInitiated = true;
+        }
+
     }
 }
