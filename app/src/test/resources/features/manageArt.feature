@@ -80,7 +80,7 @@ Feature: ManageArt
     And I enter "testImage.png" as image field
     And I enter <BuyNow> as buyNow price field
     And I press the submit new art button
-    Then I should see the new art displayed with buyNow
+    Then I should see error message
     Examples:
       | BuyNow  |
       | ""      |
