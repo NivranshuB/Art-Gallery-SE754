@@ -63,4 +63,9 @@ public class EditArtStepDefinitions {
     public void iEnterAsEditDimensionsField(String string) {
         editArtPage.insertNewDimensions(string);
     }
+
+    @Then("I should see error editing art message")
+    public void iShouldSeeErrorEditingArtMessage() {
+        assertTrue(editArtPage.getErrorMessage().contains("Invalid inputs please try again"));
+    }
 }
