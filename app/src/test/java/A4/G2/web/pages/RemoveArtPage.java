@@ -37,4 +37,8 @@ public class RemoveArtPage {
     public void clickSubmit() {
         submitButton.click();
     }
+
+    public String getErrorMessage() {
+        return this.errorMessage.getText();
+    }
 }

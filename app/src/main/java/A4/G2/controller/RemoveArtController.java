@@ -30,7 +30,6 @@ public class RemoveArtController {
         gallery.initiate();
 
         List<Art> artList = gallery.getArtList();
-        ModelAndView map = new ModelAndView("/remove-art");
         map.addObject("list", artList);
         return map;
     }
@@ -42,17 +41,19 @@ public class RemoveArtController {
     ) {
         Art artToRemove = null;
         List<Art> artList = gallery.getArtList();
-        System.out.println(artList);
         for (Art art : artList) {
             if (Objects.equals(art.getId(), idToRemove)) {
-                System.out.println(art.getId() + idToRemove);
                 artToRemove = art;
             }
         }
         if (artToRemove != null){
             gallery.removeArt(artToRemove);
+            map.addObject("list", gallery.getArtList());
             String message = String.format("Art titled: \"%s\" successfully removed", artToRemove.getTitle());
             model.put("message", message);
+        } else {
+            map.addObject("list", gallery.getArtList());
+            model.put("errorMessage", "Invalid ID please try again");
         }
         return map;
     }

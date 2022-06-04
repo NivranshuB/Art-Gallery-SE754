@@ -1,6 +1,5 @@
 package A4.G2.web.stepdefs;
 
-import A4.G2.web.pages.AddArtPage;
 import A4.G2.web.pages.RemoveArtPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -13,6 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ManageExistingArtStepDefinitions {
     private WebDriver driver;
     private RemoveArtPage removeArtPage;
+
+
     @Given("Driver set up for remove art page")
     public void driverSetUpForRemoveArtPage() {
         driver = Hooks.getDriver();
@@ -23,6 +24,7 @@ public class ManageExistingArtStepDefinitions {
     public void iAmOnTheRemoveArtPage() {
         driver.get("http://localhost:8080/remove-art");
     }
+
 
     @When("I enter {string} as remove id field")
     public void iEnterAsRemoveIdField(String string) {
@@ -40,5 +42,9 @@ public class ManageExistingArtStepDefinitions {
     }
 
 
+    @Then("I should see remove art error")
+    public void iShouldSeeRemoveArtError() {
+        assertTrue(removeArtPage.getErrorMessage().contains("Invalid ID please try again"));
+    }
 }
 
