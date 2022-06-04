@@ -83,5 +83,5 @@ Feature: ManageArt
     Then I should see error message
     Examples:
       | BuyNow  |
-      | ""      |
+      |"-1"     |
       | "Hello" |

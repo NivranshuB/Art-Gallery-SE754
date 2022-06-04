@@ -8,8 +8,15 @@ public class AddArtValidator {
         if (title.isEmpty() || descriptions.isEmpty() || artType.isEmpty() || dimensions.isEmpty() || artist.isEmpty() || image.isEmpty()) {
             return false;
         } else return Files.exists(Path.of("src/main/images/" + image));
-
-
     }
 
+    public boolean validateArtBuyNowInputs(String price) {
+
+        try {
+            double d = Double.parseDouble(price);
+            return (d>0);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
 }

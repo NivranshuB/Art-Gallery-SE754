@@ -55,6 +55,9 @@ public class AddArtController {
         if(!av.validateArtInputs(title,description,artType,dimensions,artistName,fileOfImage)){
             model.put("errorMessage","Invalid inputs try again");
             return "add-art";
+        } else if(!buyNowPrice.isEmpty() && !av.validateArtBuyNowInputs(buyNowPrice)){
+            model.put("errorMessage","Invalid inputs try again");
+            return "add-art";
         }
 
         Image image;
