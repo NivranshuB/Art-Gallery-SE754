@@ -11,4 +11,44 @@ public class SignupPage {
     public SignupPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
+
+    @FindBy(how= How.ID, using ="name")
+    private WebElement userName;
+
+    @FindBy(how=How.ID, using="password")
+    private WebElement password;
+
+    @FindBy(how=How.ID, using="retypedPassword")
+    private WebElement retypedPassword;
+
+    @FindBy(how=How.NAME, using="checkbox")
+    private WebElement termsAccepted;
+
+    @FindBy(how=How.ID, using="submitbtn")
+    private WebElement submitButton;
+
+    @FindBy(how=How.ID, using="error")
+    private WebElement error;
+
+    public void insertUserName(String userName){
+        this.userName.sendKeys(userName);
+    }
+
+    public void insertPassword(String password){
+        this.password.sendKeys(password);
+    }
+
+    public void insertRetypedPassword(String password){
+        this.retypedPassword.sendKeys(password);
+    }
+
+    public void clickSignup(){
+        this.submitButton.click();
+    }
+
+    public void clickConditions() {
+        this.termsAccepted.click();
+    }
+
+    public String getErrorMessage() { return this.error.getText(); }
 }

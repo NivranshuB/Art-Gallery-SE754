@@ -1,20 +1,63 @@
 package A4.G2.service.account;
 
+import A4.G2.model.Gallery;
 import A4.G2.model.users.User;
 import A4.G2.service.account.ILoginDetailsManager;
 import A4.G2.service.dao.UserDaoService;
 
+import java.util.List;
+
 public class LoginDetailsManager implements ILoginDetailsManager {
 
-    UserDaoService userDaoService;
+    Gallery gallery;
 
-    public LoginDetailsManager(UserDaoService userDaoService) {
-        this.userDaoService = userDaoService;
+    public LoginDetailsManager(Gallery gallery) {
+        this.gallery = gallery;
+    }
+
+    @Override
+    public User loginUser(String username, String password) {
+        List<User> users = gallery.getUserList();
+        for (User u : users) {
+            if (u.getUsername().equals(username)) {
+                if (u.getPassword().equals(password)) {
+                    return u;
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean checkUsernameTaken(String newUsername) {
+        List<User> users = gallery.getUserList();
+        for (User u : users) {
+            if (u.getUsername().equals(newUsername)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int checkPasswordSecure(String newPassword, String retypedPassword) {
+        if (newPassword.length() < 6) {
+            return -1;
+        } else if (!newPassword.matches(".*[A-Z].*")) {
+            return -2;
+        } else if (!newPassword.matches(".*[0-9].*")) {
+            return -3;
+        }
+
+        if (!retypedPassword.equals(newPassword)) {
+            return 0;
+        }
+        return 1;
     }
 
     @Override
     public boolean changeUsername(User user, String newUsername) throws UsernameTakenException {
-        if (userDaoService.checkIfUsernameTaken(newUsername)) {
+        if (this.checkUsernameTaken(newUsername)) {
             throw new UsernameTakenException("'" + newUsername + "' already taken as a username");
         }
         user.setUsername(newUsername);

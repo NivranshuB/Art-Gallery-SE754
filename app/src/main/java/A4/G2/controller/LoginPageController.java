@@ -2,6 +2,8 @@ package A4.G2.controller;
 
 import A4.G2.model.Gallery;
 import A4.G2.model.users.User;
+import A4.G2.service.account.ILoginDetailsManager;
+import A4.G2.service.account.LoginDetailsManager;
 import A4.G2.service.dao.IUserDaoService;
 import A4.G2.service.dao.UserDaoService;
 import org.springframework.stereotype.Controller;
@@ -26,11 +28,13 @@ public class LoginPageController {
 	public String showWelcomePage(ModelMap model, @RequestParam String name, @RequestParam String password){
 
 		Gallery gallery = new Gallery();
-		User user1 = new User("user1", "Password123", "user1@gmail.com", "4737054", 
+		User user1 = new User("user1", "Password123", "user1@gmail.com", "4737054",
 				"7 Parkers Ave, Mexico", new Date(1990, 6, 3));
 		gallery.addUser(user1);
 
-		User loginUser = gallery.loginUser(name, password);
+		ILoginDetailsManager loginDetailsManager = new LoginDetailsManager(gallery);
+
+		User loginUser = loginDetailsManager.loginUser(name, password);
 
 		if (loginUser == null) {
 			model.put("errorMessage", "Invalid Credentials: Username or Password incorrect");

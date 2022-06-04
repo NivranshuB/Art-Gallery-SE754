@@ -35,17 +35,6 @@ public class Gallery {
 
     public void addUser(User newUser) { users.add(newUser); }
 
-    public User loginUser(String username, String password) {
-        for (User u : users) {
-            if (u.getUsername().equals(username)) {
-                if (u.getPassword().equals(password)) {
-                    return u;
-                }
-            }
-        }
-        return null;
-    }
-
     public void removeArtForSale(Sale sale) {
         artsForSale.remove(sale);
     }
@@ -56,6 +45,10 @@ public class Gallery {
 
     public String getTermsAndConditions() {
         return termsAndConditions;
+    }
+
+    public List<User> getUserList() {
+        return users;
     }
 
     public void setTermsAndConditions(String termsAndConditions) {
