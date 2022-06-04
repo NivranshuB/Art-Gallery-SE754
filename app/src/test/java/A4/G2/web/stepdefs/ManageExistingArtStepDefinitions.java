@@ -29,9 +29,16 @@ public class ManageExistingArtStepDefinitions {
         removeArtPage.insertIdToRemove(string);
     }
 
+    @And("I click on the Submit Id to Remove button")
+    public void iClickOnTheSubmitIdToRemoveButton() {
+        removeArtPage.clickSubmit();
+    }
+
     @Then("I should art successfully remove message")
     public void iShouldArtSuccessfullyRemoveMessage() {
         assertTrue(removeArtPage.getMessage().contains("Art titled: \"Title\" successfully removed"));
     }
+
+
 }
 
