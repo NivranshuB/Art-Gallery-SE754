@@ -2,6 +2,7 @@ package A4.G2.web.stepdefs;
 
 import A4.G2.web.pages.HomePage;
 import A4.G2.web.pages.ManageAccountPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -38,5 +39,22 @@ public class ManageAccountStepDefinitions {
     @Then("I should see the manage account page")
     public void i_should_see_the_manage_account_page() {
         assertTrue(driver.getCurrentUrl().contains("manage-account"));
+    }
+
+    @Given("I am currently on the manage account page")
+    public void iAmCurrentlyOnTheManageAccountPage() {
+        driver.get("http://localhost:8080/manage-account");
+    }
+    @When("I enter {string} in the new username field")
+    public void i_enter_in_the_new_username_field(String string) {
+        manageAccountPage.insertNewUsername(string);
+    }
+    @And("I press the submit username button")
+    public void iPressTheSubmitUsernameButton() {
+        manageAccountPage.clickSubmitUsernameButton();
+    }
+    @Then("I should see the invalid username message")
+    public void iShouldSeeTheInvalidUsernameMessage() {
+        assertTrue(manageAccountPage.getUsernameErrorMessage().contains("Invalid username"));
     }
 }
