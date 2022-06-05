@@ -46,4 +46,10 @@ public class ArtGalleryPage {
             Assert.assertTrue(sales.getText().contains(price.toString()));
         }
     }
+
+    public void checkArtworksImage(List<String> images){
+        for(String image:images){
+            Assert.assertTrue(arts.getText().contains(image));
+        }
+    }
 }
