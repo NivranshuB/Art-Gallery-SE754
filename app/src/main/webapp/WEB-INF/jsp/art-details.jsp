@@ -12,6 +12,7 @@
         <input id="ageField"></input>
         <p></p>
         <button id="buyNowButton">Buy Now</div>
+        <button id="bidButton">Bid</div>
         <div id="loginNotification"></div>
         <div id="ageNotification"></div>
     </body>
@@ -21,7 +22,7 @@
             $("#shareButton").click(function(){
                $('#generatedLink').html(window.location.href);
            });
-            $("#buyNowButton").click(function(){
+            $("#buyNowButton, #bidButton").click(function(){
                 if(document.getElementById('loginStatus').innerHTML=="Not logged in") {
                     $('#loginNotification').html("Please sign up or log in.");
                 } else {
