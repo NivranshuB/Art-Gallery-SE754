@@ -59,7 +59,7 @@
                 <br><br>
                 Card holder : <input type="text" name="cardHolder" id="cardHolder"/>
                 <br><br>
-                CVC : <input type="text" name="cvv" id="cvv"/>
+                CVV : <input type="text" name="cvv" id="cvv"/>
                 <br><br>
                 Expiry year : <input type="text" name="year" id="year"/>
                 <br><br>

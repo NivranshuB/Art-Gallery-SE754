@@ -147,7 +147,7 @@ public class ManageAccountPage {
     private WebElement currentCardHolder;
 
     @FindBy(how=How.ID, using="currentCvv")
-    private WebElement currentCvc;
+    private WebElement currentCvv;
 
     @FindBy(how=How.ID, using="currentYear")
     private WebElement currentYear;
@@ -182,4 +182,21 @@ public class ManageAccountPage {
     public String getPaymentErrorMessage() {
         return this.paymentError.getText();
     }
+
+    public String getCurrentCardNumber() {
+        return this.currentCardNumber.getText();
+    }
+
+    public String getCurrentCardHolder() {
+        return this.currentCardHolder.getText();
+    }
+
+    public String getCurrentCVV() {
+        return this.currentCvv.getText();
+    }
+
+    public String getCurrentYear() {
+        return this.currentYear.getText();
+    }
+
 }

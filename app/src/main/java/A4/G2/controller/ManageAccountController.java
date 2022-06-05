@@ -1,5 +1,6 @@
 package A4.G2.controller;
 
+import A4.G2.model.Payment;
 import A4.G2.model.users.ShippingDetails;
 import A4.G2.model.users.User;
 import A4.G2.service.Gallery;
@@ -124,7 +125,13 @@ public class ManageAccountController {
             PaymentVerifier.verifyPayment(cardNumber, cardHolder, year, cvv);
         } catch (InvalidPaymentException e) {
             model.put("paymentErrorMessage", "Invalid payment details provided");
+            return "manage-account";
         }
+
+        User loggedInUser = (User) model.get("loggedInUser");
+
+        Payment newPaymentDetails = new Payment(cardNumber, cardHolder, year, cvv);
+        loggedInUser.modifyPayment(newPaymentDetails);
 
         return "manage-account";
     }
