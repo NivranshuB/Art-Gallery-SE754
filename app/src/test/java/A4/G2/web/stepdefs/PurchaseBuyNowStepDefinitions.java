@@ -1,4 +1,4 @@
-package A4.G2.stepdefs;
+package A4.G2.web.stepdefs;
 
 import A4.G2.web.pages.ArtDetailsPage;
 import io.cucumber.java.After;

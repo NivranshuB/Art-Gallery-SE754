@@ -4,11 +4,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
-        <div>Login status:</div>
-        <div id="loginStatus">Not logged in</div>
+        <p id="loginStatus">${loginStatus}</p>
+        <button id="logIn" onclick={logIn}>Log In</button>
         <button id="shareButton">Share</button>
         <p id="generatedLink"></p>
+        <p>Age:</p>
         <input id="ageField"></input>
+        <p></p>
         <button id="buyNowButton">Buy Now</div>
         <div id="loginNotification"></div>
         <div id="ageNotification"></div>
@@ -30,6 +32,21 @@
                 } else {
                     $('#ageNotification').html("Placeholder - old enough");
                 }
+           });
+           $('#logIn').on('click', function(e){
+               e.preventDefault();
+               var url = this.getAttribute('href');
+               $.ajax({
+                 url: url,
+                 type: 'POST',
+                 dataType: "html",
+                 success: function(response) {
+                   $('#loginStatus').html(response);
+                 },
+                 error: function(res) {
+                   alert("error");
+                 }
+               });
            });
         });
     </script>
