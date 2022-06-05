@@ -23,3 +23,9 @@ Feature: Filter Artwork
     When I select the painting filter option
     And I press the filter by art type button
     Then I should see all the painting art pieces
+
+  Scenario:
+    Given I am currently on the art gallery page
+    When I select the print filter option
+    And I press the filter by art type button
+    Then I should see all the print art pieces
