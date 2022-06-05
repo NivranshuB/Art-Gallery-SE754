@@ -101,4 +101,13 @@ public class ManageAccountStepDefinitions {
     public void iShouldSeeTheNewAddressAsMyShippingAddress() {
         assertTrue(manageAccountPage.getShippingAddress().contains("8, Rollers Avenue, Paper town"));
     }
+
+    @When("I enter {string} in shipping preference field")
+    public void iEnterInShippingPreferenceField(String string) {
+        manageAccountPage.insertNewShippingPreference(string);
+    }
+    @Then("I should see the new preference as my shipping preference")
+    public void iShouldSeeTheNewPreferenceAsMyShippingPreference() {
+        assertTrue(manageAccountPage.getShippingPreference().contains("Only available on weekends"));
+    }
 }
