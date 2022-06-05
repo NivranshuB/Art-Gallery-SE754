@@ -120,4 +120,25 @@ public class ManageAccountStepDefinitions {
         assertTrue(!manageAccountPage.getShippingAddress().contains("90, Farmer Street, Beach Villa"));
         assertTrue(!manageAccountPage.getShippingPreference().contains("Delivery after 5pm"));
     }
+
+    @When("I enter {string} in the card number field")
+    public void iEnterInTheCardNumberField(String string) {
+        manageAccountPage.insertNewCardNumber(string);
+    }
+    @And("I enter {string} in the card holder field")
+    public void iEnterInTheCardHolderField(String string) {
+        manageAccountPage.insertNewCardHolder(string);
+    }
+    @And("I enter {string} in the cvv field")
+    public void iEnterInTheCvvField(String string) {
+        manageAccountPage.insertNewCVV(string);
+    }
+    @And("I enter {string} in the expiry year field")
+    public void iEnterInTheExpiryYearField(String string) {
+        manageAccountPage.insertNewCVV(string);
+    }
+    @Then("I should see invalid payment credentials")
+    public void iShouldSeeInvalidPaymentCredentials() {
+        assertTrue(manageAccountPage.getPaymentErrorMessage().contains("Invalid payment details"));
+    }
 }
