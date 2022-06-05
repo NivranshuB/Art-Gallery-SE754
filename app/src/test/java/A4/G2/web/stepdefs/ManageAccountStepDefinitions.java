@@ -146,4 +146,11 @@ public class ManageAccountStepDefinitions {
         assertTrue(manageAccountPage.getPaymentErrorMessage().contains("Invalid payment details"));
     }
 
+    @Then("I should see new payment credentials")
+    public void iShouldSeeNewPaymentCredentials() {
+        assertTrue(manageAccountPage.getCurrentCardNumber().contains("0123456789111111"));
+        assertTrue(manageAccountPage.getCurrentCardHolder().contains("Antonio Cruise"));
+        assertTrue(manageAccountPage.getCurrentCVV().contains("120"));
+        assertTrue(manageAccountPage.getCurrentYear().contains("10/26"));
+    }
 }
