@@ -65,4 +65,14 @@ public class FilterArtworkStepDefinitions {
         List<String> titles = Arrays.asList("Title", "Art 1", "Art 4", "Art 5");
         artGalleryPage.checkAllPaintingArtDisplayed(titles);
     }
+
+    @When("I select the print filter option")
+    public void iSelectThePrintFilterOption() {
+        artGalleryPage.selectPrintFilterOption();
+    }
+    @Then("I should see all the print art pieces")
+    public void iShouldSeeAllThePrintArtPieces() {
+        List<String> titles = Arrays.asList("");
+        artGalleryPage.checkAllPrintArtDisplayed(titles);
+    }
 }
