@@ -34,4 +34,15 @@ public class ArtGalleryDefinitions {
                 "src/test/java/A4/G2/model/artwork/testImage3.png");
         this.artGalleryPage.checkArtworks(titles, images);
     }
+
+    @Then("I should see title, photo, and sale type of all the artworks on sale")
+    public void i_should_see_details_of_artworks_on_sale() throws Throwable{
+        List<String> titles = Arrays.asList("Art 1", "Art 2");
+        List<String> images = Arrays.asList("src/test/java/A4/G2/model/artwork/testImage1.png",
+                "src/test/java/A4/G2/model/artwork/testImage2.png");
+        List<String> ids = Arrays.asList("1", "2");
+        List<String> saleTypes = Arrays.asList("Auction", "Buy Now");
+        List<Double> prices = Arrays.asList(1.0, 2.0);
+        this.artGalleryPage.checkArtworksOnSale(titles, images, saleTypes, prices);
+    }
 }
