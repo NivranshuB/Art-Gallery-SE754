@@ -80,7 +80,7 @@ public class ManageAccountController {
     }
 
     @RequestMapping(value="/manage-account/shipping", method = RequestMethod.POST)
-    public String changeAccountPassword(ModelMap model, @RequestParam String address, @RequestParam String preferences)
+    public String changeShippingDetails(ModelMap model, @RequestParam String address, @RequestParam String preferences)
             throws IOException {
 
         gallery.initiate();
@@ -93,6 +93,21 @@ public class ManageAccountController {
         if (preferences.matches(".*\\w.*")) {
             shippingDetailsManager.modifyShippingPreferences((User) model.get("loggedInUser"), preferences);
         }
+
+        return "manage-account";
+    }
+
+    @RequestMapping(value="/manage-account/shipping/delete", method = RequestMethod.GET)
+    public String deleteShippingDetails(ModelMap model)
+            throws IOException {
+
+        gallery.initiate();
+        IShippingDetailsManager shippingDetailsManager = new ShippingDetailsManager();
+
+        User loggedInUser = (User) model.get("loggedInUser");
+
+        shippingDetailsManager.modifyShippingAddress(loggedInUser, "");
+        shippingDetailsManager.modifyShippingPreferences(loggedInUser, "");
 
         return "manage-account";
     }

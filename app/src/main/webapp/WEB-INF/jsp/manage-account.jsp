@@ -43,11 +43,11 @@
             </form>
         </div>
         <div style="border:1px solid black; width: 25%; padding: 1%; display: inline-block; margin-left: 4%">
-            <label id="currentAddress">Current Shipping address : ${loggedInUser.getShippingDetails().getAddress()}<label/>
+            Current Shipping address : <label id="currentAddress">${loggedInUser.getShippingDetails().getAddress()}<label/>
             <br><br>
-            <label id="currentPreferences">Current Shipping preferences : ${loggedInUser.getShippingDetails().getPreferences()}<label/>
+            Current Shipping preferences : <label id="currentPreferences">${loggedInUser.getShippingDetails().getPreferences()}<label/>
             <br><br>
-            <button id="deleteShippingbtn">Delete</button>
+            <label><a id="deleteShippingbtn" href="/manage-account/shipping/delete">Delete</a></label>
         </div>
     </div>
 </body>

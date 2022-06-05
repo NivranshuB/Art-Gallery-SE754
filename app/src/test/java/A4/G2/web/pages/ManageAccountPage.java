@@ -121,5 +121,9 @@ public class ManageAccountPage {
         return this.currentPreferences.getText();
     }
 
+    public void clickDeleteShippingDetailsButton() {
+        this.deleteShippingButton.click();
+    }
+
 
 }

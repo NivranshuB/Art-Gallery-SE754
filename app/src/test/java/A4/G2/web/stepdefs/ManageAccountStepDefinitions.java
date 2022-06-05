@@ -117,7 +117,7 @@ public class ManageAccountStepDefinitions {
     }
     @Then("Shipping details should be cleared in the page")
     public void shippingDetailsShouldBeClearedInThePage() {
-        assertTrue(manageAccountPage.getShippingAddress().equals(""));
-        assertTrue(manageAccountPage.getShippingPreference().equals(""));
+        assertTrue(!manageAccountPage.getShippingAddress().contains("90, Farmer Street, Beach Villa"));
+        assertTrue(!manageAccountPage.getShippingPreference().contains("Delivery after 5pm"));
     }
 }
