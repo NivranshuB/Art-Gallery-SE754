@@ -5,7 +5,7 @@
     </head>
     <body>
         <p id="loginStatus">${loginStatus}</p>
-        <button id="loginButton" onclick={logIn}>Log In</button>
+        <button id="loginButton">Log In</button>
         <button id="shareButton">Share</button>
         <p id="generatedLink"></p>
         <p>Age:</p>
@@ -34,7 +34,7 @@
                     $('#ageNotification').html("Placeholder - old enough");
                 }
            });
-           $('#logIn').on('click', function(e){
+           $('#loginButton').on('click', function(e){
                e.preventDefault();
                var url = this.getAttribute('href');
                $.ajax({
