@@ -80,6 +80,10 @@ public class Gallery {
             initialArt.setId("1");
             addArt(initialArt);
 
+            addArt(new Painting(artist, "Art 1", "", null, ""));
+            addArt(new Print(artist, "Art 2", "", null, ""));
+            addArt(new Sculpture(artist, "Art 3", "", null, ""));
+
             //Initialisation for login and signup testing
             User user1 = new User("user1", "Password123", "user1@gmail.com", "4737054",
                     "7 Parkers Ave, Mexico", new Date(1990, 6, 3));

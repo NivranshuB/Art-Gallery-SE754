@@ -10,9 +10,9 @@ import org.openqa.selenium.support.PageFactory;
 import java.awt.*;
 import java.util.List;
 
-public class VirtualGalleryPage {
+public class ArtGalleryPage {
 
-    public VirtualGalleryPage(WebDriver driver) {
+    public ArtGalleryPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
