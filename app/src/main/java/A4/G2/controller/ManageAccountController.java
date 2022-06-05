@@ -136,6 +136,20 @@ public class ManageAccountController {
         return "manage-account";
     }
 
+    @RequestMapping(value="/manage-account/payment/delete", method = RequestMethod.GET)
+    public String deletePaymentDetails(ModelMap model)
+            throws IOException {
+
+        gallery.initiate();
+
+        User loggedInUser = (User) model.get("loggedInUser");
+
+        loggedInUser.deletePaymentDetails();
+
+        return "manage-account";
+    }
+
+
 
     /**
      * Test endpoint to fake a user log in. Used for UI testing of the ManageAccount feature

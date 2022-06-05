@@ -199,4 +199,8 @@ public class ManageAccountPage {
         return this.currentYear.getText();
     }
 
+    public void clickDeletePaymentDetailsButton() {
+        this.deletePaymentButton.click();
+    }
+
 }

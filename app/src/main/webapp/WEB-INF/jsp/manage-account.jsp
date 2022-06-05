@@ -75,7 +75,7 @@
             <br><br>
             <label id="currentYear">Expiry year : ${loggedInUser.getPaymentDetails().getExpiryDate()}<label/>
             <br><br>
-            <button id="deletePaymentbtn">Delete</button>
+            <label><a id="deletePaymentbtn" href="/manage-account/payment/delete">Delete</a></label>
         </div>
     </div>
 </body>
