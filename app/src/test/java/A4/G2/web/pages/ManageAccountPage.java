@@ -25,6 +25,22 @@ public class ManageAccountPage {
     @FindBy(how=How.ID, using="submitUsernamebtn")
     private WebElement submitUsernameButton;
 
+    //Change password component
+    @FindBy(how=How.ID, using="currentPassword")
+    private WebElement currentPassword;
+
+    @FindBy(how=How.ID, using="newPassword")
+    private WebElement newPassword;
+
+    @FindBy(how=How.ID, using="retypedPassword")
+    private WebElement retypedPassword;
+
+    @FindBy(how=How.ID, using="passwordError")
+    private WebElement passwordError;
+
+    @FindBy(how=How.ID, using="submitPasswordbtn")
+    private WebElement submitPasswordButton;
+
     public void insertNewUsername(String userName){
         this.newUsername.sendKeys(userName);
     }
@@ -36,4 +52,25 @@ public class ManageAccountPage {
     }
 
     public String getUsernameErrorMessage() { return this.usernameError.getText(); }
+
+
+    public void insertCurrentPassword(String currentPassword) {
+        this.currentPassword.sendKeys(currentPassword);
+    }
+
+    public void insertNewPassword(String newPassword) {
+        this.newPassword.sendKeys(newPassword);
+    }
+
+    public void insertRetypedNewPassword(String retypedNewPassword) {
+        this.retypedPassword.sendKeys(retypedNewPassword);
+    }
+
+    public void clickSubmitPasswordButton() {
+        this.submitPasswordButton.click();
+    }
+
+    public String getPasswordErrorMessage() {
+        return this.passwordError.getText();
+    }
 }

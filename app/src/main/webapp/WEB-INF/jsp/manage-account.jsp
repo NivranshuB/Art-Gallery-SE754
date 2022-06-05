@@ -18,6 +18,19 @@
                 <input type="submit" id="submitUsernamebtn"/>
         </div>
     </form>
+    <br><br>
+    <form method="post" action="/manage-account/password">
+        <div style="border:1px solid black; width: 25%; padding: 1%">
+            <h4 id="passwordError" style="color: red">${passwordErrorMessage}</h4>
+            Current Password : <input type="password" name="currentPassword" id="currentPassword"/>
+            <br><br>
+            New Password : <input type="text" name="newPassword" id="newPassword"/>
+            <br><br>
+            Retype New Password : <input type="text" name="retypedPassword" id="retypedPassword"/>
+            <br><br>
+            <input type="submit" id="submitPasswordbtn"/>
+        </div>
+    </form>
 </body>
 
 </html>

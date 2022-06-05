@@ -26,13 +26,14 @@ Feature: Manage Account
     Given I am currently on the manage account page
     When I enter "user3" in the new username field
     And I press the submit username button
-    Then I should see "user3" as current username
+    Then I should see the new current username
 
   Scenario Outline: Change password unsuccessfully
     Given I am currently on the manage account page
     When I enter <currentPassword> as current password field
     And I enter <password> as new password field
     And I enter <retypedPassword> as retyped new password field
+    And I press the submit password button
     Then I should see the invalid password message
 
     Examples:

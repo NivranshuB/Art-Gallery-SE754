@@ -89,4 +89,9 @@ public class Gallery {
         }
 
     }
+
+    public void galleryReinitiate() throws IOException {
+        this.isInitiated = false;
+        initiate();
+    }
 }
