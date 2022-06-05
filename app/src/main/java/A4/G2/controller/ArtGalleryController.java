@@ -56,15 +56,21 @@ public class ArtGalleryController {
         gallery.initiate();
 
         List<Sale> sales = gallery.getArtSalesList();
-
         IFilterArtService filterArtService = new FilterArtService();
 
-        List<Sale> buyNowList = filterArtService.getBuyNowItems(sales);
+        if (saleTypeOption.equals("Buy now")) {
+            List<Sale> buyNowList = filterArtService.getBuyNowItems(sales);
+            model.put("saleType", "Buy now");
+            model.put("saleList", buyNowList);
+            return "sale-type";
+        } else if (saleTypeOption.equals("Auction")) {
+            List<Sale> auctionList = filterArtService.getAuctionItems(sales);
+            model.put("saleType", "Auction");
+            model.put("saleList", auctionList);
+            return "sale-type";
+        }
 
-        model.put("saleType", "Buy now");
-        model.put("saleList", buyNowList);
-
-        return "sale-type";
+        return "art-gallery";
     }
 
     @RequestMapping(value = "/art-gallery/sale-type", method = RequestMethod.GET)
@@ -76,6 +82,7 @@ public class ArtGalleryController {
     @RequestMapping(value = "/art-gallery/populate-testing", method = RequestMethod.GET)
     public String populateArtGalleryForTesting() throws IOException {
         gallery.initiate();
+        gallery.galleryReinitiate();
 
         Artist artist = new Artist();
         Image image = new BufferedImage(7, 7, 7);

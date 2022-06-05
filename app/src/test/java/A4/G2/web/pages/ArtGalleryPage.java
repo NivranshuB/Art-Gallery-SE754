@@ -78,4 +78,14 @@ public class ArtGalleryPage {
             assertTrue(sales.getText().contains(title));
         }
     }
+
+    public void selectAuctionFilterOption() {
+        this.auctionRadioButton.click();
+    }
+
+    public void checkAllAuctionPiecesDisplayed(List<String> buyNowTitles) {
+        for (String title:buyNowTitles) {
+            assertTrue(sales.getText().contains(title));
+        }
+    }
 }

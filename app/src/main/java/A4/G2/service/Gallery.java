@@ -115,6 +115,14 @@ public class Gallery {
 
     public void galleryReinitiate() throws IOException {
         this.isInitiated = false;
+        galleryReset();
         initiate();
+    }
+
+    public void galleryReset() {
+        arts.removeAll(arts);
+        artsForSale.removeAll(artsForSale);
+        users.removeAll(users);
+        termsAndConditions = "";
     }
 }

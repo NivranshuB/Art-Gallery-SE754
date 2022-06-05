@@ -48,7 +48,7 @@ public class FilterArtworkStepDefinitions {
     }
     @Then("I should see all the art pieces on auction")
     public void iShouldSeeAllTheArtPiecesOnAuction() {
-        List<String> titles = Arrays.asList("");
+        List<String> titles = Arrays.asList("Art 1", "Art 5", "Art 7", "Art 9");
         artGalleryPage.checkAllAuctionPiecesDisplayed(titles);
     }
 }
