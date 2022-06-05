@@ -68,3 +68,10 @@ Feature: Manage Account
     Given I am currently on the manage account page
     When I press delete button in the shipping details section
     Then Shipping details should be cleared in the page
+
+  Scenario: Change payment details - unsuccessfully
+    Given I am currently on the manage account page
+    When I enter "0123456789101112" in the card number field
+    And I enter "420" in the cvv field
+    And I enter "12320" in the expiry year field
+    Then I should see invalid credentials
