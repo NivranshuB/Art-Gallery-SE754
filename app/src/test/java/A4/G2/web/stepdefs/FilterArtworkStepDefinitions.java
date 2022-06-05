@@ -98,13 +98,13 @@ public class FilterArtworkStepDefinitions {
         artGalleryPage.selectBuyNowFilterOption();
         artGalleryPage.clickFilterSaleButton();
     }
-    @When("I set the minimum price to {double}")
-    public void i_set_the_minimum_price_to(double d) {
-        saleTypePage.insertMinimumPrice(d);
+    @When("I set the minimum price to {int}")
+    public void i_set_the_minimum_price_to(int i) {
+        saleTypePage.insertMinimumPrice(i);
     }
-    @When("I set the maximum price to {double}")
-    public void i_set_the_maximum_price_to(double d) {
-        saleTypePage.insertMaximumPrice(d);
+    @When("I set the maximum price to {int}")
+    public void i_set_the_maximum_price_to(int i) {
+        saleTypePage.insertMaximumPrice(i);
     }
     @And("I press the filter by price button")
     public void iPressTheFilterByPriceButton() {

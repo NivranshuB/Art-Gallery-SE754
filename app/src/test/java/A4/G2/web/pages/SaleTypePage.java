@@ -28,12 +28,12 @@ public class SaleTypePage {
     @FindBy(how=How.ID, using="submitPriceBtn")
     private WebElement submitPriceButton;
 
-    public void insertMinimumPrice(double d) {
-        this.minPrice.sendKeys(d + "");
+    public void insertMinimumPrice(int i) {
+        this.minPrice.sendKeys(i + "");
     }
 
-    public void insertMaximumPrice(double d) {
-        this.maxPrice.sendKeys(d + "");
+    public void insertMaximumPrice(int i) {
+        this.maxPrice.sendKeys(i + "");
     }
 
     public void clickFilterByPriceButton() {

@@ -38,21 +38,19 @@ Feature: Filter Artwork
 
   Scenario: Filter all sale items below a certain price
     Given I am currently on the buy now art gallery page
-    When I set the minimum price to 0.0
-    And I set the maximum price to 100.0
+    When I set the maximum price to 100
     And I press the filter by price button
     Then I should see all the art pieces with a buy now lower than the max price
 
   Scenario: Filter all sale items above a certain price
     Given I am currently on the buy now art gallery page
-    When I set the minimum price to 100.0
-    And I set the maximum price to 1000.0
+    When I set the minimum price to 100
     And I press the filter by price button
     Then I should see all the art pieces with a buy now greater than the min price
 
   Scenario: Filter all sale items within a price range
     Given I am currently on the buy now art gallery page
-    When I set the minimum price to 100.0
-    And I set the maximum price to 200.0
+    When I set the minimum price to 100
+    And I set the maximum price to 200
     And I press the filter by price button
     Then I should see all the art pieces with a buy now between the min and the max price
