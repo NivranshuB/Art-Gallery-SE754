@@ -113,5 +113,13 @@ public class ManageAccountPage {
         return this.currentAddress.getText();
     }
 
+    public void insertNewShippingPreference(String string) {
+        this.preferences.sendKeys(string);
+    }
+
+    public String getShippingPreference() {
+        return this.currentPreferences.getText();
+    }
+
 
 }

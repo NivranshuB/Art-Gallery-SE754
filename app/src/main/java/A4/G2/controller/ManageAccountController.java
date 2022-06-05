@@ -90,6 +90,10 @@ public class ManageAccountController {
             shippingDetailsManager.modifyShippingAddress((User) model.get("loggedInUser"), address);
         }
 
+        if (preferences.matches(".*\\w.*")) {
+            shippingDetailsManager.modifyShippingPreferences((User) model.get("loggedInUser"), preferences);
+        }
+
         return "manage-account";
     }
 
