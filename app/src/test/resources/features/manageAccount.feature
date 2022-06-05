@@ -57,3 +57,9 @@ Feature: Manage Account
     When I enter "8, Rollers Avenue, Paper town" in shipping address field
     And I press the submit shipping details button
     Then I should see the new address as my shipping address
+
+  Scenario: Change shipping preferences
+    Given I am currently on the manage account page
+    When I enter "Only available on weekends" in shipping preference field
+    And I press the submit shipping details button
+    Then I should see the new preference as my shipping preference
