@@ -44,7 +44,7 @@ Feature: Filter Artwork
     Then I should see all the art pieces with a buy now in this range
 
     Examples:
-      | min | max     |
-      | 0   | 100     |
-      | 100 | 1000000 |
-      | 100 | 200     |
+      | min   | max       |
+      | 0.0   | 100.0     |
+      | 100.0 | 1000000.0 |
+      | 100.0 | 200.0     |

@@ -1,6 +1,7 @@
 package A4.G2.web.stepdefs;
 
 import A4.G2.web.pages.ArtGalleryPage;
+import A4.G2.web.pages.SaleTypePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,11 +14,13 @@ import java.util.List;
 public class FilterArtworkStepDefinitions {
     private WebDriver driver;
     private ArtGalleryPage artGalleryPage;
+    private SaleTypePage saleTypePage;
 
     @Given("Driver set up for art gallery page")
     public void driverSetUpForArtGalleryPage() {
         driver = Hooks.getDriver();
         artGalleryPage = new ArtGalleryPage(driver);
+        saleTypePage = new SaleTypePage(driver);
     }
     @And("Gallery populated with test artwork")
     public void galleryPopulatedWithTestArtwork() {
@@ -84,5 +87,28 @@ public class FilterArtworkStepDefinitions {
     public void iShouldSeeAllTheSculptureArtPieces() {
         List<String> titles = Arrays.asList("Art 3", "Art 8", "Art 9");
         artGalleryPage.checkAllSculptureArtDisplayed(titles);
+    }
+
+    @Given("I am currently on the buy now art gallery page")
+    public void iAmCurrentlyOnTheBuyNowArtGalleryPage() {
+        driver.get("http://localhost:8080/art-gallery");
+        artGalleryPage.selectBuyNowFilterOption();
+        artGalleryPage.clickFilterSaleButton();
+    }
+    @When("I set the minimum price to {double}")
+    public void i_set_the_minimum_price_to(double d) {
+        saleTypePage.insertMinimumPrice(d);
+    }
+    @When("I set the maximum price to {double}")
+    public void i_set_the_maximum_price_to(double d) {
+        saleTypePage.insertMaximumPrice(d);
+    }
+    @And("I press the filter by price button")
+    public void iPressTheFilterByPriceButton() {
+        saleTypePage.clickFilterByPriceButton();
+    }
+    @Then("I should see all the art pieces with a buy now in this range")
+    public void iShouldSeeAllTheArtPiecesWithABuyNowInThisRange() {
+        List<String> titles = Arrays.asList("");
     }
 }
