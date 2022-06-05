@@ -4,6 +4,7 @@ Feature: Filter Artwork
 
   Background:
     Given Driver set up for art gallery page
+    And Gallery populated with test artwork
 
   Scenario:
     Given I am currently on the art gallery page

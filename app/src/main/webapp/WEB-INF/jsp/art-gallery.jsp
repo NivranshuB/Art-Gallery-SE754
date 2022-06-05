@@ -7,14 +7,19 @@
 
 <body>
     <h1>Art gallery</h1>
-
+    <form method="post" action="art-gallery/sale-type">
+        Filter by Sale type:
+        <input type="radio" name="saleTypeOption" id="buynow" value="Buy now">Buy now
+        <input type="radio" name="saleTypeOption" id="auction" value="Auction">Auction
+        <input type="submit" id="filterBySaleBtn">
+    </form>
     Art currently displayed in the gallery : <br/>
     <div id="arts">
         <c:forEach items="${lists}" var="entry">
             ------------------------------------------------------------------------
-            <h5>"src/test/java/A4/G2/model/artwork/testImage${entry.title.split(" ")[1]}.png"</h5>
-            <h5>${entry.title}</h5>
-            <h5>${entry.getArtType()}</h5>
+            <h5>Image: "src/test/java/A4/G2/model/artwork/testImage${entry.title.split(" ")[1]}.png"</h5>
+            <h5>Title: ${entry.title}</h5>
+            <h5>Art type: ${entry.getArtType()}</h5>
             ------------------------------------------------------------------------
         </c:forEach>
     </div>
@@ -24,10 +29,9 @@
         <c:forEach items="${saleLists}" var="entry">
             ------------------------------------------------------------------------
             <h5>"src/test/java/A4/G2/model/artwork/testImage${entry.artPiece.title.split(" ")[1]}.png"</h5>
-            <h5>${entry.artPiece.title}</h5>
-            <h5>${entry.getSaleType()}</h5>
-            <h5>${entry.artPiece.getArtType()}</h5>
-            <h5>${entry.price}</h5>
+            <h5>Title: ${entry.artPiece.title}</h5>
+            <h5>Sale type: ${entry.getSaleType()}</h5>
+            <h5>Price: $${entry.price}</h5>
             ------------------------------------------------------------------------
         </c:forEach>
     </div>
@@ -36,7 +40,7 @@
     <div id="display">
         <c:forEach items="${imageLists}" var="entry">
             ------------------------------------------------------------------------
-            <h5>"src/test/java/A4/G2/model/artwork/testImage${entry.title.split(" ")[1]}.png"</h5>
+            <h5>Image: "src/test/java/A4/G2/model/artwork/testImage${entry.title.split(" ")[1]}.png"</h5>
             ------------------------------------------------------------------------
         </c:forEach>
     </div>

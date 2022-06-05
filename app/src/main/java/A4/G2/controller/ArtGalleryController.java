@@ -1,8 +1,16 @@
 package A4.G2.controller;
 
 import A4.G2.model.artwork.Art;
+import A4.G2.model.artwork.Painting;
+import A4.G2.model.artwork.Print;
+import A4.G2.model.artwork.Sculpture;
+import A4.G2.model.sale.Auction;
+import A4.G2.model.sale.BuyNow;
 import A4.G2.model.sale.Sale;
+import A4.G2.model.users.Artist;
+import A4.G2.service.FilterArtService;
 import A4.G2.service.Gallery;
+import A4.G2.service.IFilterArtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
@@ -41,4 +51,66 @@ public class ArtGalleryController {
         return map;
     }
 
+    @RequestMapping(value = "/art-gallery/sale-type", method = RequestMethod.POST)
+    public String filterBySaleType(ModelMap model, @RequestParam String saleTypeOption) throws IOException {
+        gallery.initiate();
+
+        List<Sale> sales = gallery.getArtSalesList();
+
+        IFilterArtService filterArtService = new FilterArtService();
+
+        List<Sale> buyNowList = filterArtService.getBuyNowItems(sales);
+
+        model.put("saleType", "Buy now");
+        model.put("saleList", buyNowList);
+
+        return "sale-type";
+    }
+
+    @RequestMapping(value = "/art-gallery/sale-type", method = RequestMethod.GET)
+    public String artBySaleTypePage(ModelMap model) throws IOException {
+        return "sale-type";
+    }
+
+
+    @RequestMapping(value = "/art-gallery/populate-testing", method = RequestMethod.GET)
+    public String populateArtGalleryForTesting() throws IOException {
+        gallery.initiate();
+
+        Artist artist = new Artist();
+        Image image = new BufferedImage(7, 7, 7);
+
+        Art painting1 = new Painting(artist, "Art 4", "Desc...", image, "40x60");
+        Art painting2 = new Painting(artist, "Art 5", "Desc...", image, "40x60");
+
+        Art print1 = new Print(artist, "Art 6", "Desc...", image, "40x60");
+        Art print2 = new Print(artist, "Art 7", "Desc...", image, "40x60");
+
+        Art sculpture1 = new Sculpture(artist, "Art 8", "Desc...", image, "40x60");
+        Art sculpture2 = new Sculpture(artist, "Art 9", "Desc...", image, "40x60");
+
+        Sale sale1 = new BuyNow("3", 10, painting1);
+        Sale sale2 = new BuyNow("4",150, sculpture1);
+        Sale sale3 = new BuyNow("5", 250, print1);
+
+        Sale sale4 = new Auction("6", 10, painting2, 25.00, 3000);
+        Sale sale5 = new Auction("7", 10, print2, 25.00, 4000);
+        Sale sale6 = new Auction("8", 10, sculpture2, 25.00, 8000);
+
+        gallery.addArt(painting1);
+        gallery.addArt(painting2);
+        gallery.addArt(print1);
+        gallery.addArt(print2);
+        gallery.addArt(sculpture1);
+        gallery.addArt(sculpture2);
+
+        gallery.addArtForSale(sale1);
+        gallery.addArtForSale(sale2);
+        gallery.addArtForSale(sale3);
+        gallery.addArtForSale(sale4);
+        gallery.addArtForSale(sale5);
+        gallery.addArtForSale(sale6);
+
+        return "sale-type";
+    }
 }

@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import java.awt.*;
 import java.util.List;
 
+import static org.junit.Assert.assertTrue;
+
 public class ArtGalleryPage {
 
     public ArtGalleryPage(WebDriver driver) {
@@ -24,32 +26,56 @@ public class ArtGalleryPage {
 
     public void checkArtworks(List<String> titles, List<String> images){
         for(String title:titles){
-            Assert.assertTrue(arts.getText().contains(title));
+            assertTrue(arts.getText().contains(title));
         }
         for(String image:images){
-            Assert.assertTrue(arts.getText().contains(image));
+            assertTrue(arts.getText().contains(image));
         }
     }
 
     public void checkArtworksOnSale(List<String> titles, List<String> images,
                                     List<String> saleTypes, List<Double> prices){
         for(String title:titles){
-            Assert.assertTrue(sales.getText().contains(title));
+            assertTrue(sales.getText().contains(title));
         }
         for(String image:images){
-            Assert.assertTrue(sales.getText().contains(image));
+            assertTrue(sales.getText().contains(image));
         }
         for(String saleType:saleTypes){
-            Assert.assertTrue(sales.getText().contains(saleType));
+            assertTrue(sales.getText().contains(saleType));
         }
         for(Double price:prices){
-            Assert.assertTrue(sales.getText().contains(price.toString()));
+            assertTrue(sales.getText().contains(price.toString()));
         }
     }
 
     public void checkArtworksImage(List<String> images){
         for(String image:images){
-            Assert.assertTrue(arts.getText().contains(image));
+            assertTrue(arts.getText().contains(image));
+        }
+    }
+
+    //Filter artwork functionality
+    @FindBy(how=How.ID, using="buynow")
+    private WebElement buynowRadioButton;
+
+    @FindBy(how=How.ID, using="auction")
+    private WebElement auctionRadioButton;
+
+    @FindBy(how=How.ID, using="filterBySaleBtn")
+    private WebElement filterBySaleButton;
+
+    public void selectBuyNowFilterOption() {
+        this.buynowRadioButton.click();
+    }
+
+    public void clickFilterSaleButton() {
+        this.filterBySaleButton.click();
+    }
+
+    public void checkAllBuyNowPiecesDisplayed(List<String> buyNowTitles) {
+        for (String title:buyNowTitles) {
+            assertTrue(sales.getText().contains(title));
         }
     }
 }
