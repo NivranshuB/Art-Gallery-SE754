@@ -110,7 +110,43 @@ public class ArtGalleryController {
         return "art-type";
     }
 
+    @RequestMapping(value = "/art-gallery/sale-type/price", method = RequestMethod.POST)
+    public String filterByPriceRange(ModelMap model, @RequestParam String min, @RequestParam String max) throws IOException {
+        gallery.initiate();
 
+        List<Sale> sales = gallery.getArtSalesList();
+        IFilterArtService filterArtService = new FilterArtService();
+
+        if (min.length() < 1 || min.matches("[a-zA-Z]+")) {
+            min = "0.0";
+        }
+        if (max.length() < 1 || max.matches("[a-zA-Z]+")) {
+            max = "1000.0";
+        }
+
+        double minPrice = Double.valueOf(min);
+        if (Double.compare(minPrice, 0.0) < 0) {
+            minPrice = 0.0;
+        }
+        double maxPrice = Double.valueOf(max);
+        if (Double.compare(maxPrice, 1000.0) > 0) {
+            maxPrice = 1000.0;
+        }
+
+        List<Sale> inRangeList = filterArtService.getPriceBetween(sales, minPrice, maxPrice);
+        model.put("saleList", inRangeList);
+        return "price";
+
+    }
+
+    @RequestMapping(value = "/art-gallery/sale-type/price", method = RequestMethod.GET)
+    public String artByPriceRange(ModelMap model) throws IOException {
+        return "price";
+    }
+
+    /**
+     * Test endpoint to add art pieces to gallery.
+     */
     @RequestMapping(value = "/art-gallery/populate-testing", method = RequestMethod.GET)
     public String populateArtGalleryForTesting() throws IOException {
         gallery.initiate();
@@ -150,6 +186,6 @@ public class ArtGalleryController {
         gallery.addArtForSale(sale5);
         gallery.addArtForSale(sale6);
 
-        return "sale-type";
+        return "populate";
     }
 }

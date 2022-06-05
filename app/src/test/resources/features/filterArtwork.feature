@@ -6,53 +6,53 @@ Feature: Filter Artwork
     Given Driver set up for art gallery page
     And Gallery populated with test artwork
 
-  Scenario:
+  Scenario: Filter all buy now sale items
     Given I am currently on the art gallery page
     When I select the buy now filter option
     And I press the filter by sale type button
     Then I should see all the art pieces with a buy now
 
-  Scenario:
+  Scenario: Filter all auction sale items
     Given I am currently on the art gallery page
     When I select the auction filter option
     And I press the filter by sale type button
     Then I should see all the art pieces on auction
 
-  Scenario:
+  Scenario: Filter all painting type art items
     Given I am currently on the art gallery page
     When I select the painting filter option
     And I press the filter by art type button
     Then I should see all the painting art pieces
 
-  Scenario:
+  Scenario: Filter all print type art items
     Given I am currently on the art gallery page
     When I select the print filter option
     And I press the filter by art type button
     Then I should see all the print art pieces
 
-  Scenario:
+  Scenario: Filter all sculpture type art items
     Given I am currently on the art gallery page
     When I select the sculpture filter option
     And I press the filter by art type button
     Then I should see all the sculpture art pieces
 
-  Scenario:
+  Scenario: Filter all sale items below a certain price
     Given I am currently on the buy now art gallery page
     When I set the minimum price to 0.0
     And I set the maximum price to 100.0
     And I press the filter by price button
-    Then I should see all the art pieces with a buy now in this range
+    Then I should see all the art pieces with a buy now lower than the max price
 
-  Scenario:
+  Scenario: Filter all sale items above a certain price
     Given I am currently on the buy now art gallery page
     When I set the minimum price to 100.0
     And I set the maximum price to 1000.0
     And I press the filter by price button
-    Then I should see all the art pieces with a buy now in this range
+    Then I should see all the art pieces with a buy now greater than the min price
 
-  Scenario:
+  Scenario: Filter all sale items within a price range
     Given I am currently on the buy now art gallery page
     When I set the minimum price to 100.0
     And I set the maximum price to 200.0
     And I press the filter by price button
-    Then I should see all the art pieces with a buy now in this range
+    Then I should see all the art pieces with a buy now between the min and the max price

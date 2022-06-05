@@ -1,6 +1,7 @@
 package A4.G2.web.stepdefs;
 
 import A4.G2.web.pages.ArtGalleryPage;
+import A4.G2.web.pages.PricePage;
 import A4.G2.web.pages.SaleTypePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -15,12 +16,14 @@ public class FilterArtworkStepDefinitions {
     private WebDriver driver;
     private ArtGalleryPage artGalleryPage;
     private SaleTypePage saleTypePage;
+    private PricePage priceRangePage;
 
     @Given("Driver set up for art gallery page")
     public void driverSetUpForArtGalleryPage() {
         driver = Hooks.getDriver();
         artGalleryPage = new ArtGalleryPage(driver);
         saleTypePage = new SaleTypePage(driver);
+        priceRangePage = new PricePage(driver);
     }
     @And("Gallery populated with test artwork")
     public void galleryPopulatedWithTestArtwork() {
@@ -107,8 +110,22 @@ public class FilterArtworkStepDefinitions {
     public void iPressTheFilterByPriceButton() {
         saleTypePage.clickFilterByPriceButton();
     }
-    @Then("I should see all the art pieces with a buy now in this range")
-    public void iShouldSeeAllTheArtPiecesWithABuyNowInThisRange() {
-        List<String> titles = Arrays.asList("");
+
+    @Then("I should see all the art pieces with a buy now lower than the max price")
+    public void iShouldSeeAllTheArtPiecesWithABuyNowLowerThanTheMaxPrice() {
+        List<String> titles = Arrays.asList("Art 2", "Art 4");
+        priceRangePage.checkAllInPriceRangeDisplayed(titles);
+    }
+
+    @Then("I should see all the art pieces with a buy now greater than the min price")
+    public void iShouldSeeAllTheArtPiecesWithABuyNowGreaterThanTheMinPrice() {
+        List<String> titles = Arrays.asList("Art 6", "Art 8");
+        priceRangePage.checkAllInPriceRangeDisplayed(titles);
+    }
+
+    @Then("I should see all the art pieces with a buy now between the min and the max price")
+    public void iShouldSeeAllTheArtPiecesWithABuyNowBetweenTheMinAndTheMaxPrice() {
+        List<String> titles = Arrays.asList("Art 8");
+        priceRangePage.checkAllInPriceRangeDisplayed(titles);
     }
 }

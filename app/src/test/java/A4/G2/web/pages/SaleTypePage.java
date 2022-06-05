@@ -6,11 +6,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
+
 public class SaleTypePage {
 
     public SaleTypePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
+
+    @FindBy(how=How.ID, using="sales")
+    private WebElement sales;
 
     @FindBy(how= How.ID, using ="min")
     private WebElement minPrice;
@@ -31,5 +38,11 @@ public class SaleTypePage {
 
     public void clickFilterByPriceButton() {
         this.submitPriceButton.click();
+    }
+
+    public void checkAllInPriceRangeDisplayed(List<String> titles) {
+        for (String title:titles) {
+            assertTrue(sales.getText().contains(title));
+        }
     }
 }
