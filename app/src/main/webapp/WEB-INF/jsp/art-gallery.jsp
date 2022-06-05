@@ -12,8 +12,20 @@
     <div id="arts">
         <c:forEach items="${lists}" var="entry">
             ------------------------------------------------------------------------
-            <h5 id="image">"src/test/java/A4/G2/model/artwork/testImage${entry.title.split(" ")[1]}.png"</h5>
-            <h5 id="title">${entry.title}</h5>
+            <h5>"src/test/java/A4/G2/model/artwork/testImage${entry.title.split(" ")[1]}.png"</h5>
+            <h5>${entry.title}</h5>
+            ------------------------------------------------------------------------
+        </c:forEach>
+    </div>
+
+    Art currently displayed on sale : <br/>
+    <div id="sales">
+        <c:forEach items="${saleLists}" var="entry">
+            ------------------------------------------------------------------------
+            <h5>"src/test/java/A4/G2/model/artwork/testImage${entry.artPiece.title.split(" ")[1]}.png"</h5>
+            <h5>${entry.artPiece.title}</h5>
+            <h5>${entry.getSaleType()}</h5>
+            <h5>${entry.price}</h5>
             ------------------------------------------------------------------------
         </c:forEach>
     </div>
