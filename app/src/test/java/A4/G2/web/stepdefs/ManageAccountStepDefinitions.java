@@ -88,4 +88,17 @@ public class ManageAccountStepDefinitions {
     public void iShouldSeeThePasswordChangedMessage() {
         assertTrue(manageAccountPage.getPasswordSuccessMessage().contains("Password changed successfully"));
     }
+
+    @When("I enter {string} in shipping address field")
+    public void iEnterInShippingAddressField(String string) {
+        manageAccountPage.insertNewShippingAddress(string);
+    }
+    @And("I press the submit shipping details button")
+    public void iPressTheSubmitShippingDetailsButton() {
+        manageAccountPage.clickSubmitShippingButton();
+    }
+    @Then("I should see the new address as my shipping address")
+    public void iShouldSeeTheNewAddressAsMyShippingAddress() {
+        assertTrue(manageAccountPage.getShippingAddress().contains("8, Rollers Avenue, Paper town"));
+    }
 }
