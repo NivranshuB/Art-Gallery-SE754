@@ -86,3 +86,8 @@ Feature: Manage Account
     And I enter "10/26" in the expiry year field
     And I press the submit payment details button
     Then I should see new payment credentials
+
+  Scenario: Delete payment details
+    Given I am currently on the manage account page
+    When I press the delete button in the payment details section
+    Then Payment details should be cleared in the page
