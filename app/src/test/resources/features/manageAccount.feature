@@ -63,3 +63,8 @@ Feature: Manage Account
     When I enter "Only available on weekends" in shipping preference field
     And I press the submit shipping details button
     Then I should see the new preference as my shipping preference
+
+  Scenario: Delete shipping details
+    Given I am currently on the manage account page
+    When I press delete button in the shipping details section
+    Then Shipping details should be cleared in the page
