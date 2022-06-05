@@ -16,18 +16,13 @@ Feature: Bid on Artwork
     When I click the Bid button
     Then Allow the Bid attempt
 
-  Scenario Outline: User is too young
-    Given I am <age> years
+  Scenario: User is too young
+    Given I am "8" years
     When I click the Bid button
     Then Deny the Bid attempt
     And Tell me that I am too young
-    Examples:
-      |age|
-      |"7"  |
-      |"12" |
-      |"15" |
 
   Scenario: User is old enough
-    Given I am "23" years old
+    Given I am "23" years
     When I click the Bid button
     Then Allow the Bid attempt

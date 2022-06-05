@@ -31,6 +31,7 @@ public class BidArtStepDefinitions {
 
     @Given("I am {string} years")
     public void iAmAgeYearsOld(String string) {
+        driver.get("http://localhost:8080/art-details");
         artDetailsPage.insertAge(string);
     }
 
@@ -71,6 +72,7 @@ public class BidArtStepDefinitions {
 
     @Given("I am logged in")
     public void iAmLoggedIntoAnAccount() {
+        driver.get("http://localhost:8080/art-details");
         artDetailsPage.clickLogin();
     }
 }
