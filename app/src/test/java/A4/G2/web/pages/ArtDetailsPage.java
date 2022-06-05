@@ -21,7 +21,7 @@ public class ArtDetailsPage {
 	@FindBy(how=How.ID, using ="generatedLink")
 	private WebElement generatedLink;
 
-	@FindBy(how=How.ID, using = "generatedLink")
+	@FindBy(how=How.ID, using = "purchaseNotification")
 	private WebElement purchaseNotification;
 
 	@FindBy(how=How.ID, using ="buyNowButton")
