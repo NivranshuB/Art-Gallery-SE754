@@ -84,4 +84,8 @@ public class ManageAccountStepDefinitions {
         assertTrue(manageAccountPage.getPasswordErrorMessage().contains("Invalid password"));
     }
 
+    @Then("I should see the password changed message")
+    public void iShouldSeeThePasswordChangedMessage() {
+        assertTrue(manageAccountPage.getPasswordSuccessMessage().contains("Password changed successfully"));
+    }
 }
