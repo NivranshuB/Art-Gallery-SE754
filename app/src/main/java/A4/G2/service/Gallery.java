@@ -19,9 +19,7 @@ public class Gallery {
     private String termsAndConditions = "";
 
     public Gallery() {
-        arts.add(new Painting(null, "Art 1", "", null, ""));
-        arts.add(new Print(null, "Art 2", "", null, ""));
-        arts.add(new Sculpture(null, "Art 3", "", null, ""));
+
     }
 
     public void addArt(Art art) {
