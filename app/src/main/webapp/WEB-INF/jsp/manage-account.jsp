@@ -50,7 +50,7 @@
             <label><a id="deleteShippingbtn" href="/manage-account/shipping/delete">Delete</a></label>
         </div>
     </div>
-    <br><br>
+    <br>
     <div>
         <div style="border:1px solid black; width: 25%; padding: 1%; display: inline-block">
             <h4 id="paymentError" style="color: red">${paymentErrorMessage}</h4>
