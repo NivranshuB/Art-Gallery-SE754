@@ -83,8 +83,8 @@ public class PurchaseBuyNowStepDefinitions {
 
 	@Then("Allow the Buy Now attempt")
 	public void allowTheBuyNowAttempt() {
-		driver.get("http://localhost:8080/success-page");
-		Assertions.assertEquals("http://localhost:8080/success-page", driver.getCurrentUrl());
+		driver.get("http://localhost:8080/shipping");
+		Assertions.assertEquals("http://localhost:8080/shipping", driver.getCurrentUrl());
 	}
 
 	@Given("I am logged into an account")

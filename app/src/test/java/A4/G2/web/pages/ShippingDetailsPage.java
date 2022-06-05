@@ -26,8 +26,8 @@ public class ShippingDetailsPage {
         return this.address.getText();
     }
 
-    public void insertAddress(String age){
-        this.address.sendKeys(age);
+    public void insertAddress(String address){
+        this.address.sendKeys(address);
     }
 
 

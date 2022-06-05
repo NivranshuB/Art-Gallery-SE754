@@ -37,12 +37,13 @@ public class ShippingDetailsStepDefinitions {
 
     @Then("I want to enter my shipping details.")
     public void iWantToEnterMyShippingDetails() {
-        driver.get("http://localhost:8080/shipping");
+        shippingDetailsPage.insertAddress("92 Narnia Land, London, England");
     }
 
-    @Given("I have entered my shipping details")
+    @Given("I have clicked the buy now of an artwork")
     public void iHaveEnteredMyShippingDetails() {
-        shippingDetailsPage.insertAddress("92 Narnia Land, London, England");
+        driver.get("http://localhost:8080/shipping");
+
     }
 
     @When("I click on the submit button")
@@ -59,7 +60,7 @@ public class ShippingDetailsStepDefinitions {
 
     @Given("That I'm on the art details page")
     public void thatIMOnTheArtDetailsPage() {
-        driver.get("http://localhost:8080/artist-details");
+        driver.get("http://localhost:8080/art-details");
         this.artDetailsPage.clickLogin();
         this.artDetailsPage.insertAge("21");
     }

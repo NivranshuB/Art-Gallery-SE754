@@ -29,8 +29,9 @@
                 }
                 if(parseInt($("#ageField").val())<16) {
                     $('#ageNotification').html("You are too young to purchase art.");
-                } else {
+                } else if(parseInt($("#ageField").val())>16))  {
                     $('#ageNotification').html("Placeholder - old enough");
+                    location.href = "/shipping"
                 }
            });
            $('#loginButton').on('click', function(e){

@@ -8,7 +8,10 @@ Feature: Shipping Details
     When When I click buy now on a artwork
     Then I want to be able to enter my shipping details
 
-    Scenario: Notification for successful purchase
-      Given I have entered my shipping details
-      When I click on the submit button
-      Then I want a confirmation of my purchase.
+
+  Scenario: Notification for successful purchase
+    Given I have clicked the buy now of an artwork
+    When I click on the submit button
+    Then I want a confirmation of my purchase.
+
+
