@@ -36,15 +36,23 @@ Feature: Filter Artwork
     And I press the filter by art type button
     Then I should see all the sculpture art pieces
 
-  Scenario Outline:
+  Scenario:
     Given I am currently on the buy now art gallery page
-    When I set the minimum price to <min>
-    And I set the maximum price to <max>
+    When I set the minimum price to 0.0
+    And I set the maximum price to 100.0
     And I press the filter by price button
     Then I should see all the art pieces with a buy now in this range
 
-    Examples:
-      | min   | max       |
-      | 0.0   | 100.0     |
-      | 100.0 | 1000000.0 |
-      | 100.0 | 200.0     |
+  Scenario:
+    Given I am currently on the buy now art gallery page
+    When I set the minimum price to 100.0
+    And I set the maximum price to 1000.0
+    And I press the filter by price button
+    Then I should see all the art pieces with a buy now in this range
+
+  Scenario:
+    Given I am currently on the buy now art gallery page
+    When I set the minimum price to 100.0
+    And I set the maximum price to 200.0
+    And I press the filter by price button
+    Then I should see all the art pieces with a buy now in this range
