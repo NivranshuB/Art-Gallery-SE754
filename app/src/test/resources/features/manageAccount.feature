@@ -51,3 +51,9 @@ Feature: Manage Account
       And I enter "Pa55word" as retyped new password field
       And I press the submit password button
       Then I should see the password changed message
+
+  Scenario: Change shipping address
+    Given I am currently on the manage account page
+    When I enter "8, Rollers Avenue, Paper town" in shipping address field
+    And I press the submit shipping details button
+    Then I should see the new address as my shipping address
