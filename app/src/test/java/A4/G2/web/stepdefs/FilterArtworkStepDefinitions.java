@@ -51,4 +51,18 @@ public class FilterArtworkStepDefinitions {
         List<String> titles = Arrays.asList("Art 1", "Art 5", "Art 7", "Art 9");
         artGalleryPage.checkAllAuctionPiecesDisplayed(titles);
     }
+
+    @When("I select the painting filter option")
+    public void iSelectThePaintingFilterOption() {
+        artGalleryPage.selectPaintingFilterOption();
+    }
+    @And("I press the filter by art type button")
+    public void iPressTheFilterByArtTypeButton() {
+        artGalleryPage.clickFilterArtOption();
+    }
+    @Then("I should see all the painting art pieces")
+    public void iShouldSeeAllThePaintingArtPieces() {
+        List<String> titles = Arrays.asList("");
+        artGalleryPage.checkAllPaintingArtDisplayed();
+    }
 }
