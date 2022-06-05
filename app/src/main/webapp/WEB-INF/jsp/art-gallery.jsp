@@ -8,14 +8,14 @@
 <body>
     <h1>Art gallery</h1>
     <form method="post" action="art-gallery/sale-type">
-        Filter by Sale type:
-        <input type="radio" name="saleTypeOption" id="buynow" value="Buy now">Buy now
+        <i>Filter by Sale type:</i>
+        <input type="radio" name="saleTypeOption" id="buynow" value="Buy now" checked="checked">Buy now
         <input type="radio" name="saleTypeOption" id="auction" value="Auction">Auction
         <input type="submit" id="filterBySaleBtn">
     </form>
     <form method="post" action="art-gallery/art-type">
-        Filter by Sale type:
-        <input type="radio" name="artTypeOption" id="painting" value="Painting">Painting
+        <i>Filter by Art type:</i>
+        <input type="radio" name="artTypeOption" id="painting" value="Painting" checked="checked">Painting
         <input type="radio" name="artTypeOption" id="print" value="Print">Print
         <input type="radio" name="artTypeOption" id="Sculpture" value="Sculpture">Print
         <input type="submit" id="filterByArtBtn">
