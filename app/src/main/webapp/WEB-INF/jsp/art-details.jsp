@@ -5,7 +5,7 @@
     </head>
     <body>
         <p id="loginStatus">${loginStatus}</p>
-        <button id="logIn" onclick={logIn}>Log In</button>
+        <button id="loginButton" onclick={logIn}>Log In</button>
         <button id="shareButton">Share</button>
         <p id="generatedLink"></p>
         <p>Age:</p>

@@ -15,8 +15,6 @@ import java.util.Date;
 public class ArtDetailsController {
 	@RequestMapping(value="/art-details", method = RequestMethod.GET)
 	public String showArtDetailsPage(ModelMap model) {
-		User user = new User("placeholder_name", "placeholder_password", "placeholder_email", "placeholder_email",
-				"placeholder_address", new Date(1990, 6, 3));
 		model.put("loginStatus", "Not logged in");
 		return "art-details";
 	}
