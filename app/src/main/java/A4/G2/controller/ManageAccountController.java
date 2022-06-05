@@ -77,6 +77,7 @@ public class ManageAccountController {
             return "manage-account";
         }
 
+        model.put("passwordSuccessMessage", "Password changed successfully");
         return "manage-account";
     }
 

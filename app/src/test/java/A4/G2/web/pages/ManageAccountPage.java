@@ -38,6 +38,9 @@ public class ManageAccountPage {
     @FindBy(how=How.ID, using="passwordError")
     private WebElement passwordError;
 
+    @FindBy(how=How.ID, using="passwordSuccess")
+    private WebElement passwordSuccess;
+
     @FindBy(how=How.ID, using="submitPasswordbtn")
     private WebElement submitPasswordButton;
 
@@ -73,4 +76,6 @@ public class ManageAccountPage {
     public String getPasswordErrorMessage() {
         return this.passwordError.getText();
     }
+
+    public String getPasswordSuccessMessage() { return this.passwordSuccess.getText(); }
 }

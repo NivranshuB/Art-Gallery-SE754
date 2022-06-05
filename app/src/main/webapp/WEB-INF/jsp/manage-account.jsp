@@ -22,6 +22,7 @@
     <form method="post" action="/manage-account/password">
         <div style="border:1px solid black; width: 25%; padding: 1%">
             <h4 id="passwordError" style="color: red">${passwordErrorMessage}</h4>
+            <h4 id="passwordSuccess" style="color: forestgreen">${passwordSuccessMessage}</h4>
             Current Password : <input type="password" name="currentPassword" id="currentPassword"/>
             <br><br>
             New Password : <input type="text" name="newPassword" id="newPassword"/>
