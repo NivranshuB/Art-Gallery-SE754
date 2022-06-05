@@ -110,4 +110,14 @@ public class ManageAccountStepDefinitions {
     public void iShouldSeeTheNewPreferenceAsMyShippingPreference() {
         assertTrue(manageAccountPage.getShippingPreference().contains("Only available on weekends"));
     }
+
+    @When("I press delete button in the shipping details section")
+    public void iPressDeleteButtonInTheShippingDetailsSection() {
+        manageAccountPage.clickDeleteShippingDetailsButton();
+    }
+    @Then("Shipping details should be cleared in the page")
+    public void shippingDetailsShouldBeClearedInThePage() {
+        assertTrue(manageAccountPage.getShippingAddress().equals(""));
+        assertTrue(manageAccountPage.getShippingPreference().equals(""));
+    }
 }
