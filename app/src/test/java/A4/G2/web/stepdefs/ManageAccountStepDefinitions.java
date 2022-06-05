@@ -153,4 +153,16 @@ public class ManageAccountStepDefinitions {
         assertTrue(manageAccountPage.getCurrentCVV().contains("120"));
         assertTrue(manageAccountPage.getCurrentYear().contains("10/26"));
     }
+
+    @When("I press the delete button in the payment details section")
+    public void iPressTheDeleteButtonInThePaymentDetailsSection() {
+        manageAccountPage.clickDeletePaymentDetailsButton();
+    }
+    @Then("Payment details should be cleared in the page")
+    public void paymentDetailsShouldBeClearedInThePage() {
+        assertTrue(!manageAccountPage.getCurrentCardNumber().contains("1234432156788765"));
+        assertTrue(!manageAccountPage.getCurrentCardHolder().contains("Pablo Manolas"));
+        assertTrue(!manageAccountPage.getCurrentCVV().contains("12/24"));
+        assertTrue(!manageAccountPage.getCurrentYear().contains("234"));
+    }
 }
