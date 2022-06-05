@@ -78,6 +78,25 @@ public class ArtGalleryController {
         return "sale-type";
     }
 
+    @RequestMapping(value = "/art-gallery/art-type", method = RequestMethod.POST)
+    public String filterByArtType(ModelMap model, @RequestParam String artTypeOption) throws IOException {
+        gallery.initiate();
+
+        List<Art> arts = gallery.getArtList();
+        IFilterArtService filterArtService = new FilterArtService();
+
+        List<Art> paintingList = filterArtService.getArtPiecesByArtType(arts, "painting");
+
+        model.put("artType", "Painting");
+        model.put("artList", paintingList);
+        return "art-type";
+    }
+
+    @RequestMapping(value = "/art-gallery/art-type", method = RequestMethod.GET)
+    public String artByArtTypePage(ModelMap model) throws IOException {
+        return "art-type";
+    }
+
 
     @RequestMapping(value = "/art-gallery/populate-testing", method = RequestMethod.GET)
     public String populateArtGalleryForTesting() throws IOException {

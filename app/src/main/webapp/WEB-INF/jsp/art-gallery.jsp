@@ -13,6 +13,13 @@
         <input type="radio" name="saleTypeOption" id="auction" value="Auction">Auction
         <input type="submit" id="filterBySaleBtn">
     </form>
+    <form method="post" action="art-gallery/art-type">
+        Filter by Sale type:
+        <input type="radio" name="artTypeOption" id="painting" value="Painting">Painting
+        <input type="radio" name="artTypeOption" id="print" value="Print">Print
+        <input type="radio" name="artTypeOption" id="Sculpture" value="Sculpture">Print
+        <input type="submit" id="filterByArtBtn">
+    </form>
     Art currently displayed in the gallery : <br/>
     <div id="arts">
         <c:forEach items="${lists}" var="entry">

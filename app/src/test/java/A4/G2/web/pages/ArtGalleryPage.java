@@ -55,7 +55,7 @@ public class ArtGalleryPage {
         }
     }
 
-    //Filter artwork functionality
+    //Filter artwork by sale type functionality
     @FindBy(how=How.ID, using="buynow")
     private WebElement buynowRadioButton;
 
@@ -84,6 +84,43 @@ public class ArtGalleryPage {
     }
 
     public void checkAllAuctionPiecesDisplayed(List<String> buyNowTitles) {
+        for (String title:buyNowTitles) {
+            assertTrue(sales.getText().contains(title));
+        }
+    }
+
+    //Filter artwork by art type functionality
+    @FindBy(how=How.ID, using="painting")
+    private WebElement paintingRadioButton;
+
+    @FindBy(how=How.ID, using="print")
+    private WebElement printRadioButton;
+
+    @FindBy(how=How.ID, using="sculpture")
+    private WebElement sculptureRadioButton;
+
+    @FindBy(how=How.ID, using="filterByArtBtn")
+    private WebElement filterByArtButton;
+
+    public void selectPaintingFilterOption() {
+        this.paintingRadioButton.click();
+    }
+
+    public void clickFilterArtOption() {
+        this.filterByArtButton.click();
+    }
+
+    public void checkAllPaintingArtDisplayed(List<String> paintingTitles) {
+        for (String title:paintingTitles) {
+            assertTrue(arts.getText().contains(title));
+        }
+    }
+
+    public void selectPrintFilterOption() {
+        this.printRadioButton.click();
+    }
+
+    public void checkAllPrintPiecesDisplayed(List<String> buyNowTitles) {
         for (String title:buyNowTitles) {
             assertTrue(sales.getText().contains(title));
         }
