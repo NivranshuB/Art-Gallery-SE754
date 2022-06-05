@@ -21,9 +21,6 @@ public class ArtDetailsPage {
 	@FindBy(how=How.ID, using ="generatedLink")
 	private WebElement generatedLink;
 
-	@FindBy(how=How.ID, using = "purchaseNotification")
-	private WebElement purchaseNotification;
-
 	@FindBy(how=How.ID, using ="buyNowButton")
 	private WebElement buyNowButton;
 
@@ -50,8 +47,6 @@ public class ArtDetailsPage {
 	public String getGeneratedLink(){
 		return this.generatedLink.getText();
 	}
-
-	public boolean purchaseConfirmationNotification() {return this.purchaseNotification.isDisplayed();}
 
 	public void clickBuyNow(){
 		this.buyNowButton.click();
