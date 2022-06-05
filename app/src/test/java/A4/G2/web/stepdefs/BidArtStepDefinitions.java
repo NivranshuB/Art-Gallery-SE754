@@ -18,35 +18,18 @@ import static org.junit.Assert.assertEquals;
 public class BidArtStepDefinitions {
     private ArtDetailsPage artDetailsPage;
     private WebDriver driver;
-    @Before
+    @Given("I am presently on the details page for a piece of art")
     public void setup(){
         driver = Hooks.getDriver();
         this.artDetailsPage = new ArtDetailsPage(driver);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait((long)30, TimeUnit.SECONDS);
     }
 
-    @AfterStep
-    public void afterEachStep(){
-        // to make the test at human speed
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @After
-    public void tearDown() {
-        driver.close();
-    }
-
-    @Given("I am on the details page for a piece of art")
-    public void iAmOnTheDetailsPageForAPieceOfArt() {
+    @Given("I want to buy an artwork")
+    public void iBuyArtwork(){
         driver.get("http://localhost:8080/art-details");
     }
 
-    @Given("I am {string} years old")
+    @Given("I am {string} years")
     public void iAmAgeYearsOld(String string) {
         artDetailsPage.insertAge(string);
     }
@@ -56,24 +39,24 @@ public class BidArtStepDefinitions {
         artDetailsPage.clickBid();
     }
 
-    @And("I am not logged into an account")
+    @And("I am not logged in")
     public void iAmNotLoggedIntoAnAccount() {
         assertEquals("Not logged in",artDetailsPage.getLoginStatus());
     }
 
-    @Then("Deny the bid attempt")
+    @Then("Deny the Bid attempt")
     public void denyTheBiddingAttempt() {
         assertEquals(driver.getCurrentUrl(),"http://localhost:8080/art-details");
     }
 
-    @And("Notify me to sign up or sign in")
+    @And("Tell me to sign up or sign in")
     public void notifyMeToSignUpOrSignIn() {
         String notification = "Please sign up or log in.";
         String getNotification = artDetailsPage.getLoginNotification();
         Assertions.assertEquals(notification, getNotification);
     }
 
-    @And("Notify me that I am too young")
+    @And("Tell me that I am too young")
     public void notifyMeThatIAmTooYoung() {
         String notification = "You are too young to purchase art.";
         String getNotification = artDetailsPage.getAgeNotification();
@@ -86,7 +69,7 @@ public class BidArtStepDefinitions {
         Assertions.assertEquals("http://localhost:8080/success-page", driver.getCurrentUrl());
     }
 
-    @Given("I am logged into an account")
+    @Given("I am logged in")
     public void iAmLoggedIntoAnAccount() {
         artDetailsPage.clickLogin();
     }
