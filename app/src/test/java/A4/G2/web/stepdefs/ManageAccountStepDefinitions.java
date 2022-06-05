@@ -17,27 +17,27 @@ public class ManageAccountStepDefinitions {
     private HomePage homePage;
 
     @Given("Driver set up for manage account page")
-    public void driver_set_up_for_manage_account_page() {
+    public void driverSetUpForManageAccountPage() {
         driver = Hooks.getDriver();
         manageAccountPage = new ManageAccountPage(driver);
         homePage = new HomePage(driver);
     }
     @Given("User is logged in")
-    public void user_is_logged_in() {
+    public void userIsLoggedIn() {
         driver.get("http://localhost:8080/manage-account/testing");
         driver.get("http://localhost:8080");
     }
 
     @Given("I start on the home page")
-    public void i_start_on_the_home_page() {
+    public void iStartOnTheHomePage() {
         driver.get("http://localhost:8080/home");
     }
     @When("I press the manage account button")
-    public void i_press_the_manage_account_button() {
+    public void iPressTheManageAccountButton() {
         homePage.clickManageAccountButton();
     }
     @Then("I should see the manage account page")
-    public void i_should_see_the_manage_account_page() {
+    public void iShouldSeeTheManageAccountPage() {
         assertTrue(driver.getCurrentUrl().contains("manage-account"));
     }
 
@@ -46,7 +46,7 @@ public class ManageAccountStepDefinitions {
         driver.get("http://localhost:8080/manage-account");
     }
     @When("I enter {string} in the new username field")
-    public void i_enter_in_the_new_username_field(String string) {
+    public void iEnterInTheNewUsernameField(String string) {
         manageAccountPage.insertNewUsername(string);
     }
     @And("I press the submit username button")
@@ -64,15 +64,15 @@ public class ManageAccountStepDefinitions {
     }
 
     @When("I enter {string} as current password field")
-    public void i_enter_as_current_password_field(String string) {
+    public void iEnterAsCurrentPasswordField(String string) {
         manageAccountPage.insertCurrentPassword(string);
     }
     @When("I enter {string} as new password field")
-    public void i_enter_as_new_password_field(String string) {
+    public void iEnterAsNewPasswordField(String string) {
         manageAccountPage.insertNewPassword(string);
     }
     @When("I enter {string} as retyped new password field")
-    public void i_enter_as_retyped_new_password_field(String string) {
+    public void iEnterAsRetypedNewPasswordField(String string) {
         manageAccountPage.insertRetypedNewPassword(string);
     }
     @And("I press the submit password button")
@@ -80,7 +80,7 @@ public class ManageAccountStepDefinitions {
         manageAccountPage.clickSubmitPasswordButton();
     }
     @Then("I should see the invalid password message")
-    public void i_should_see_the_invalid_password_message() {
+    public void iShouldSeeTheInvalidPasswordMessage() {
         assertTrue(manageAccountPage.getPasswordErrorMessage().contains("Invalid password"));
     }
 
