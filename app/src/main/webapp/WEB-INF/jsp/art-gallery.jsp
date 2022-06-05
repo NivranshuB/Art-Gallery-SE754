@@ -14,6 +14,7 @@
             ------------------------------------------------------------------------
             <h5>"src/test/java/A4/G2/model/artwork/testImage${entry.title.split(" ")[1]}.png"</h5>
             <h5>${entry.title}</h5>
+            <h5>${entry.getArtType()}</h5>
             ------------------------------------------------------------------------
         </c:forEach>
     </div>
@@ -25,6 +26,7 @@
             <h5>"src/test/java/A4/G2/model/artwork/testImage${entry.artPiece.title.split(" ")[1]}.png"</h5>
             <h5>${entry.artPiece.title}</h5>
             <h5>${entry.getSaleType()}</h5>
+            <h5>${entry.artPiece.getArtType()}</h5>
             <h5>${entry.price}</h5>
             ------------------------------------------------------------------------
         </c:forEach>

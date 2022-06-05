@@ -15,7 +15,7 @@ public class ArtGalleryDefinitions {
     private ArtGalleryPage artGalleryPage;
 
     @Given("Driver set up for virtual gallery page")
-    public void driver_set_up_for_login_page() {
+    public void driver_set_up_for_virtual_gallery_page() {
         driver = Hooks.getDriver();
         artGalleryPage = new ArtGalleryPage(driver);
     }
