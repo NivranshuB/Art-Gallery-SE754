@@ -33,7 +33,7 @@
         </div>
     </form>
     <div>
-        <div style="border:1px solid black; width: 25%; padding: 1%; display: inline-block">\
+        <div style="border:1px solid black; width: 25%; padding: 1%; display: inline-block">
             <form method="post" action="/manage-account/shipping">
                 Shipping address : <input type="text" name="address" id="address"/>
                 <br><br>
@@ -48,6 +48,34 @@
             Current Shipping preferences : <label id="currentPreferences">${loggedInUser.getShippingDetails().getPreferences()}<label/>
             <br><br>
             <label><a id="deleteShippingbtn" href="/manage-account/shipping/delete">Delete</a></label>
+        </div>
+    </div>
+    <br><br>
+    <div>
+        <div style="border:1px solid black; width: 25%; padding: 1%; display: inline-block">
+            <h4 id="paymentError" style="color: red">${paymentErrorMessage}</h4>
+            <form method="post" action="/manage-account/payment">
+                Card number : <input type="text" name="cardNumber" id="cardNumber"/>
+                <br><br>
+                Card holder : <input type="text" name="cardHolder" id="cardHolder"/>
+                <br><br>
+                CVC : <input type="text" name="cvv" id="cvv"/>
+                <br><br>
+                Expiry year : <input type="text" name="year" id="year"/>
+                <br><br>
+                <input type="submit" id="submitPaymentbtn"/>
+            </form>
+        </div>
+        <div style="border:1px solid black; width: 25%; padding: 1%; display: inline-block; margin-left: 4%">
+            <label id="currentCardNumber">Current Card number : ${loggedInUser.getPaymentDetails().getCardNumber()}<label/>
+            <br><br>
+            <label id="currentCardHolder">Current Card holder : ${loggedInUser.getPaymentDetails().getCardHolder()}<label/>
+            <br><br>
+            <label id="currentCvv">CVV : ${loggedInUser.getPaymentDetails().getCVV()}<label/>
+            <br><br>
+            <label id="currentYear">Expiry year : ${loggedInUser.getPaymentDetails().getExpiryDate()}<label/>
+            <br><br>
+            <button id="deletePaymentbtn">Delete</button>
         </div>
     </div>
 </body>

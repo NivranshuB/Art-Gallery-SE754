@@ -1,5 +1,6 @@
 package A4.G2.service;
 
+import A4.G2.model.Payment;
 import A4.G2.model.artwork.Art;
 import A4.G2.model.artwork.Painting;
 import A4.G2.model.sale.Sale;
@@ -89,8 +90,10 @@ public class Gallery {
             //Initialisation for manage account testing
             ShippingDetails shippingDetails = new ShippingDetails("90, Farmer Street, Beach Villa",
                     "Delivery after 5pm");
-            user1.setShippingDetails(shippingDetails);
+            Payment payment = new Payment("1234432156788765", "Pablo Manolas", "12/24", "234");
 
+            user1.setShippingDetails(shippingDetails);
+            user1.modifyPayment(payment);
             this.isInitiated = true;
         }
 

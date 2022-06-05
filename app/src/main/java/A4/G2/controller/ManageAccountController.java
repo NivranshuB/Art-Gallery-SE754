@@ -4,6 +4,8 @@ import A4.G2.model.users.ShippingDetails;
 import A4.G2.model.users.User;
 import A4.G2.service.Gallery;
 import A4.G2.service.account.*;
+import A4.G2.service.payment.InvalidPaymentException;
+import A4.G2.service.payment.PaymentVerifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -108,6 +110,21 @@ public class ManageAccountController {
 
         shippingDetailsManager.modifyShippingAddress(loggedInUser, "");
         shippingDetailsManager.modifyShippingPreferences(loggedInUser, "");
+
+        return "manage-account";
+    }
+
+    @RequestMapping(value="/manage-account/payment", method = RequestMethod.POST)
+    public String changePaymentDetails(ModelMap model, @RequestParam String cardNumber, @RequestParam String cardHolder,
+                                        @RequestParam String cvv, @RequestParam String year) throws IOException {
+
+        gallery.initiate();
+
+        try {
+            PaymentVerifier.verifyPayment(cardNumber, cardHolder, year, cvv);
+        } catch (InvalidPaymentException e) {
+            model.put("paymentErrorMessage", "Invalid payment details provided");
+        }
 
         return "manage-account";
     }

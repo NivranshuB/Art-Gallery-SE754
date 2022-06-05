@@ -126,4 +126,60 @@ public class ManageAccountPage {
     }
 
 
+
+    //Change payment details component
+    @FindBy(how=How.ID, using="cardNumber")
+    private WebElement cardNumber;
+
+    @FindBy(how=How.ID, using="cardHolder")
+    private WebElement cardHolder;
+
+    @FindBy(how=How.ID, using="cvv")
+    private WebElement cvv;
+
+    @FindBy(how=How.ID, using="year")
+    private WebElement year;
+
+    @FindBy(how=How.ID, using="currentCardNumber")
+    private WebElement currentCardNumber;
+
+    @FindBy(how=How.ID, using="currentCardHolder")
+    private WebElement currentCardHolder;
+
+    @FindBy(how=How.ID, using="currentCvv")
+    private WebElement currentCvc;
+
+    @FindBy(how=How.ID, using="currentYear")
+    private WebElement currentYear;
+
+    @FindBy(how=How.ID, using="paymentError")
+    private WebElement paymentError;
+
+    @FindBy(how=How.ID, using="submitPaymentbtn")
+    private WebElement submitPaymentButton;
+
+    @FindBy(how=How.ID, using="deletePaymentbtn")
+    private WebElement deletePaymentButton;
+
+    public void insertNewCardNumber(String string) {
+        this.cardNumber.sendKeys(string);
+    }
+
+    public void insertNewCardHolder(String string) {
+        this.cardHolder.sendKeys(string);
+    }
+
+    public void insertNewCVV(String string) {
+        this.cvv.sendKeys(string);
+    }
+
+    public void insertNewYear(String string) {
+        this.year.sendKeys(string);
+    }
+
+    public void clickSubmitPaymentButton() { this.submitPaymentButton.click(); }
+
+    public String getPaymentErrorMessage() {
+        return this.paymentError.getText();
+    }
 }
