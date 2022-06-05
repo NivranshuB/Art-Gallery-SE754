@@ -21,9 +21,7 @@ public class PurchaseBuyNowStepDefinitions {
 	private WebDriver driver;
 	@Before
 	public void setup(){
-
-		System.setProperty("webdriver.chrome.driver", "webdrivers/win/chromedriver.exe");
-		driver = new ChromeDriver();
+		driver = Hooks.getDriver();
 		this.artDetailsPage = new ArtDetailsPage(driver);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait((long)30, TimeUnit.SECONDS);
