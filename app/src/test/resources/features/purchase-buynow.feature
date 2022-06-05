@@ -10,6 +10,11 @@ Feature: Purchase Buy Now
     Then Deny the buying attempt
     And Notify me to sign up or sign in
 
+  Scenario: User logged in
+    Given I am logged into an account
+    When I click the Buy Now button
+    Then Allow the Buy Now attempt
+
   Scenario Outline: User is too young
     Given I am <age> years old
     When I click the Buy Now button
