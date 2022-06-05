@@ -72,7 +72,16 @@ public class FilterArtworkStepDefinitions {
     }
     @Then("I should see all the print art pieces")
     public void iShouldSeeAllThePrintArtPieces() {
-        List<String> titles = Arrays.asList("");
+        List<String> titles = Arrays.asList("Art 2", "Art 6", "Art 7");
         artGalleryPage.checkAllPrintArtDisplayed(titles);
+    }
+
+    @When("I select the sculpture filter option")
+    public void iSelectTheSculptureFilterOption() {
+        artGalleryPage.selectSculptureFilterOption();
+    }
+    @Then("I should see all the sculpture art pieces")
+    public void iShouldSeeAllTheSculptureArtPieces() {
+        artGalleryPage.checkAllSculptureArtDisplayed();
     }
 }
