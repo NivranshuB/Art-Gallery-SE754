@@ -43,3 +43,11 @@ Feature: Manage Account
       | "Password123"      | "password6" | "password6"     |
       | "Password123"      | "Pass1"     | "Pass1"         |
       | "Password123"      | "Pa55word"  | "Password"      |
+
+    Scenario: Change password successfully
+      Given I am currently on the manage account page
+      When I enter "Password123" as current password field
+      And I enter "Pa55word" as new password field
+      And I enter "Pa55word" as retyped new password field
+      And I press the submit password button
+      Then I should see the password changed message
