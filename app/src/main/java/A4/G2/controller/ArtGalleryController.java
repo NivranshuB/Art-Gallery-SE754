@@ -95,6 +95,11 @@ public class ArtGalleryController {
             model.put("artType", "Print");
             model.put("artList", printList);
             return "art-type";
+        } else if (artTypeOption.equals("Sculpture")) {
+            List<Art> sculptureList = filterArtService.getArtPiecesByArtType(arts, "sculpture");
+            model.put("artType", "Sculpture");
+            model.put("artList", sculptureList);
+            return "art-type";
         }
 
         return "art-gallery";

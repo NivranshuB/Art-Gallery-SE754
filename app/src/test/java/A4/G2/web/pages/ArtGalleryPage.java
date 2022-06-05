@@ -125,4 +125,14 @@ public class ArtGalleryPage {
             assertTrue(arts.getText().contains(title));
         }
     }
+
+    public void selectSculptureFilterOption() {
+        this.sculptureRadioButton.click();
+    }
+
+    public void checkAllSculptureArtDisplayed(List<String> sculptureTitles) {
+        for (String title:sculptureTitles) {
+            assertTrue(arts.getText().contains(title));
+        }
+    }
 }
