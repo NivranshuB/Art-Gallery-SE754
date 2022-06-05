@@ -77,3 +77,12 @@ Feature: Manage Account
     And I enter "12320" in the expiry year field
     And I press the submit payment details button
     Then I should see invalid payment credentials
+
+  Scenario: Change payment details - successfully
+    Given I am currently on the manage account page
+    When I enter "0123456789111111" in the card number field
+    And I enter "Antonio Cruise" in the card holder field
+    And I enter "120" in the cvv field
+    And I enter "10/26" in the expiry year field
+    And I press the submit payment details button
+    Then I should see new payment credentials
