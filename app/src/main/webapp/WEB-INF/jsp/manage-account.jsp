@@ -21,9 +21,10 @@
     <br><br>
     <form method="post" action="/manage-account/password">
         <div style="border:1px solid black; width: 25%; padding: 1%">
+            <i>Password must contain a digit, a capital letter and at least 6 chars</i>
             <h4 id="passwordError" style="color: red">${passwordErrorMessage}</h4>
             <h4 id="passwordSuccess" style="color: forestgreen">${passwordSuccessMessage}</h4>
-            Current Password : <input type="password" name="currentPassword" id="currentPassword"/>
+            Current Password : <input type="text" name="currentPassword" id="currentPassword"/>
             <br><br>
             New Password : <input type="text" name="newPassword" id="newPassword"/>
             <br><br>
