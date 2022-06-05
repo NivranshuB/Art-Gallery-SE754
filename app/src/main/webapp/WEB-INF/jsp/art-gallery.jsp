@@ -17,7 +17,7 @@
         <i>Filter by Art type:</i>
         <input type="radio" name="artTypeOption" id="painting" value="Painting" checked="checked">Painting
         <input type="radio" name="artTypeOption" id="print" value="Print">Print
-        <input type="radio" name="artTypeOption" id="Sculpture" value="Sculpture">Print
+        <input type="radio" name="artTypeOption" id="Sculpture" value="Sculpture">Sculpture
         <input type="submit" id="filterByArtBtn">
     </form>
     Art currently displayed in the gallery : <br/>

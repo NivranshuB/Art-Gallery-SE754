@@ -85,11 +85,19 @@ public class ArtGalleryController {
         List<Art> arts = gallery.getArtList();
         IFilterArtService filterArtService = new FilterArtService();
 
-        List<Art> paintingList = filterArtService.getArtPiecesByArtType(arts, "painting");
+        if (artTypeOption.equals("Painting")) {
+            List<Art> paintingList = filterArtService.getArtPiecesByArtType(arts, "painting");
+            model.put("artType", "Painting");
+            model.put("artList", paintingList);
+            return "art-type";
+        } else if (artTypeOption.equals("Print")) {
+            List<Art> printList = filterArtService.getArtPiecesByArtType(arts, "print");
+            model.put("artType", "Print");
+            model.put("artList", printList);
+            return "art-type";
+        }
 
-        model.put("artType", "Painting");
-        model.put("artList", paintingList);
-        return "art-type";
+        return "art-gallery";
     }
 
     @RequestMapping(value = "/art-gallery/art-type", method = RequestMethod.GET)

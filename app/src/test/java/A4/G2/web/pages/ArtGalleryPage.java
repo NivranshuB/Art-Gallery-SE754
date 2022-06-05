@@ -120,9 +120,9 @@ public class ArtGalleryPage {
         this.printRadioButton.click();
     }
 
-    public void checkAllPrintPiecesDisplayed(List<String> buyNowTitles) {
-        for (String title:buyNowTitles) {
-            assertTrue(sales.getText().contains(title));
+    public void checkAllPrintArtDisplayed(List<String> printTitles) {
+        for (String title:printTitles) {
+            assertTrue(arts.getText().contains(title));
         }
     }
 }
