@@ -35,7 +35,7 @@ public class PurchaseNotificationStepDefinitions {
     public void iWantToSeePurchaseNotification() {
         driver.get("http://localhost:8080/success-page");
         this.successPage = new SuccessPage(driver);
-        boolean notification = this.successPage.purchaseConfirmationNotification();
-        assertEquals(true,notification);
+        String notification = this.successPage.purchaseConfirmationNotification();
+        assertEquals("Purchase Successful!",notification);
     }
 }

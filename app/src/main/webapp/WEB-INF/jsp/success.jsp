@@ -5,7 +5,7 @@
 </head>
 
 <body>
-
+<p="purchaseNotification">Purchase Successful!</p>
 </body>
 
 </html>

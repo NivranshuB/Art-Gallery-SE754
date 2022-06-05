@@ -15,5 +15,5 @@ public class SuccessPage {
     @FindBy(how= How.ID, using = "purchaseNotification")
     private WebElement purchaseNotification;
 
-    public boolean purchaseConfirmationNotification() {return this.purchaseNotification.isDisplayed();}
+    public String purchaseConfirmationNotification() {return this.purchaseNotification.getText();}
 }
