@@ -135,10 +135,15 @@ public class ManageAccountStepDefinitions {
     }
     @And("I enter {string} in the expiry year field")
     public void iEnterInTheExpiryYearField(String string) {
-        manageAccountPage.insertNewCVV(string);
+        manageAccountPage.insertNewYear(string);
+    }
+    @And("I press the submit payment details button")
+    public void iPressTheSubmitPaymentDetailsButton() {
+        manageAccountPage.clickSubmitPaymentButton();
     }
     @Then("I should see invalid payment credentials")
     public void iShouldSeeInvalidPaymentCredentials() {
         assertTrue(manageAccountPage.getPaymentErrorMessage().contains("Invalid payment details"));
     }
+
 }

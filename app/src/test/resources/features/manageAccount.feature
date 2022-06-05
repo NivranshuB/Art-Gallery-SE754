@@ -71,8 +71,9 @@ Feature: Manage Account
 
   Scenario: Change payment details - unsuccessfully
     Given I am currently on the manage account page
-    When I enter "0123456789101112" in the card number field
+    When I enter "0123456789" in the card number field
     And I enter "Carlos Vela" in the card holder field
     And I enter "420" in the cvv field
     And I enter "12320" in the expiry year field
+    And I press the submit payment details button
     Then I should see invalid payment credentials
