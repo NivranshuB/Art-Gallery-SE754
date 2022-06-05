@@ -54,3 +54,11 @@ Feature: Filter Artwork
     And I set the maximum price to 200
     And I press the filter by price button
     Then I should see all the art pieces with a buy now between the min and the max price
+
+  Scenario: Filter auction items with less than a certain time remaining
+    Given I am currently on the auction art gallery page
+    When I select the lower than option
+    And I set the hour to 1
+    And I set the minutes to 0
+    And I press the filter by time button
+    Then I should see all the art pieces on auction with less than 1 hour remaining
