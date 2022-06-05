@@ -15,7 +15,7 @@ public class Auction extends  Sale {
     private int timeRemaining;
     private double currentBid;
 
-    public Auction(int saleID, double startingPrice, Art artPiece, double reservePrice, int timeRemain) {
+    public Auction(String saleID, double startingPrice, Art artPiece, double reservePrice, int timeRemain) {
         super(saleID, startingPrice, artPiece);
         this.reservePrice = reservePrice;
         this.timeRemaining = timeRemain;

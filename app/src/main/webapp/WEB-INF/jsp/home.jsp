@@ -10,6 +10,8 @@
     <c:choose>
         <c:when test="${loggedInUser.equals('')}">
             <label><a id="login" href="/login">Click here</a> to login to an account.</label>
+            <br>
+            <label><a id="signup" href="/signup">Click here</a> to sign up for an account.</label>
         </c:when>
         <c:otherwise>
             <label><a id="logout" href="/logout">Click here</a> to logout of your account.</label>

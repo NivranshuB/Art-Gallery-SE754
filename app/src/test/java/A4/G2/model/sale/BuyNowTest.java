@@ -29,7 +29,7 @@ public class BuyNowTest {
 	Image image;
 	Painting painting;
 	BuyNow buyNow;
-	int saleId;
+	String saleId;
 	double price;
 
 	@BeforeAll
@@ -38,7 +38,7 @@ public class BuyNowTest {
 		image = ImageIO.read(new File("src/test/java/A4/G2/model/artwork/testImage.png"));
 		painting = Mockito.spy(new Painting(artist, "Art Title", "Art Description", image, "2x1m"));
 
-		saleId = 1;
+		saleId = "1";
 		price = 111.11;
 		buyNow = Mockito.spy(new BuyNow(saleId, price, painting));
 	}
