@@ -6,8 +6,9 @@
 </head>
 
 <body>
-<h1>Art gallery</h1> - ${saleType} items
-<br><br>
+<label><a id="gallery" href="/art-gallery">Click here</a> to go back to all art pieces</label>
+<br>
+<h1>Art gallery - ${saleType} items</h1>
 <div id="sales">
     <c:forEach items="${saleList}" var="entry">
         ------------------------------------------------------------------------
