@@ -45,4 +45,13 @@ public class ArtGalleryDefinitions {
         List<Double> prices = Arrays.asList(1.0, 2.0);
         this.artGalleryPage.checkArtworksOnSale(titles, images, saleTypes, prices);
     }
+
+    @Then("I should see photo only of all the artworks")
+    public void i_should_see_photo_only_of_artworks() throws Throwable{
+        List<String> images = Arrays.asList("src/test/java/A4/G2/model/artwork/testImage.png",
+                "src/test/java/A4/G2/model/artwork/testImage1.png",
+                "src/test/java/A4/G2/model/artwork/testImage2.png",
+                "src/test/java/A4/G2/model/artwork/testImage3.png");
+        this.artGalleryPage.checkArtworksImage(images);
+    }
 }
