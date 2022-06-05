@@ -22,15 +22,15 @@ public class ArtGalleryController {
 
     @Autowired
     Gallery gallery;
-    ModelAndView map = new ModelAndView("/art-gallery");
 
     @RequestMapping(value = "/art-gallery", method = RequestMethod.GET)
     public ModelAndView showAddArtPage(ModelMap model) throws IOException {
         //add an artwork to gallery
         gallery.initiate();
 
-        List<Art> artList = gallery.getArtList();
-        map.addObject("list", artList);
+        List<Art> arts = gallery.getArtList();
+        ModelAndView map = new ModelAndView("/art-gallery");
+        map.addObject("lists", arts);
         return map;
     }
 
