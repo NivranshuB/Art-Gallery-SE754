@@ -1,6 +1,6 @@
 package A4.G2.web.stepdefs;
 
-import A4.G2.web.pages.GalleryPage;
+import A4.G2.web.pages.ArtGalleryPage;
 import A4.G2.web.pages.RemoveArtPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -14,14 +14,14 @@ public class ManageExistingArtStepDefinitions {
     private WebDriver driver;
     private RemoveArtPage removeArtPage;
 
-    private GalleryPage galleryPage;
+    private ArtGalleryPage galleryPage;
 
 
     @Given("Driver set up for remove art page")
     public void driverSetUpForRemoveArtPage() {
         driver = Hooks.getDriver();
         removeArtPage = new RemoveArtPage(driver);
-        galleryPage  = new GalleryPage(driver);
+        galleryPage  = new ArtGalleryPage(driver);
     }
 
     @Given("I am on the remove art page")
@@ -45,8 +45,8 @@ public class ManageExistingArtStepDefinitions {
     }
 
 
-        @Then("I should art successfully remove message")
-    public void iShouldArtSuccessfullyRemoveMessage() {
+        @Then("I should see art successfully remove message")
+    public void iShouldSeeArtSuccessfullyRemoveMessage() {
         assertTrue(removeArtPage.getMessage().contains("Art titled: \"Title\" successfully removed"));
     }
 
