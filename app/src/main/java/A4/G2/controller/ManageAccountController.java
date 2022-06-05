@@ -1,11 +1,9 @@
 package A4.G2.controller;
 
+import A4.G2.model.users.ShippingDetails;
 import A4.G2.model.users.User;
 import A4.G2.service.Gallery;
-import A4.G2.service.account.IncorrectPasswordException;
-import A4.G2.service.account.LoginDetailsManager;
-import A4.G2.service.account.UsernameTakenException;
-import A4.G2.service.account.WeakPasswordException;
+import A4.G2.service.account.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -32,7 +30,7 @@ public class ManageAccountController {
     @RequestMapping(value="/manage-account/username", method = RequestMethod.POST)
     public String changeAccountUsername(ModelMap model, @RequestParam String newUsername) throws IOException {
         gallery.initiate();
-        LoginDetailsManager loginDetailsManager = new LoginDetailsManager(gallery);
+        ILoginDetailsManager loginDetailsManager = new LoginDetailsManager(gallery);
 
         if (!newUsername.matches(".*\\w.*")) {
             model.put("usernameErrorMessage", "Invalid username: Username must contain at least one char");
@@ -53,7 +51,7 @@ public class ManageAccountController {
     public String changeAccountPassword(ModelMap model, @RequestParam String currentPassword, @RequestParam String newPassword,
                                         @RequestParam String retypedPassword) throws IOException {
         gallery.initiate();
-        LoginDetailsManager loginDetailsManager = new LoginDetailsManager(gallery);
+        ILoginDetailsManager loginDetailsManager = new LoginDetailsManager(gallery);
 
         try {
             loginDetailsManager.changePassword((User) model.get("loggedInUser"), currentPassword, newPassword,
@@ -81,6 +79,20 @@ public class ManageAccountController {
         return "manage-account";
     }
 
+    @RequestMapping(value="/manage-account/shipping", method = RequestMethod.POST)
+    public String changeAccountPassword(ModelMap model, @RequestParam String address, @RequestParam String preferences)
+            throws IOException {
+
+        gallery.initiate();
+        IShippingDetailsManager shippingDetailsManager = new ShippingDetailsManager();
+
+        if (address.matches(".*\\w.*")) {
+            shippingDetailsManager.modifyShippingAddress((User) model.get("loggedInUser"), address);
+        }
+
+        return "manage-account";
+    }
+
 
     /**
      * Test endpoint to fake a user log in. Used for UI testing of the ManageAccount feature
@@ -91,7 +103,8 @@ public class ManageAccountController {
         LoginDetailsManager loginDetailsManager = new LoginDetailsManager(gallery);
 
         User user1 = loginDetailsManager.loginUser("user1", "Password123");
-                model.put("loggedInUser", user1);
+        model.put("loggedInUser", user1);
+
         return "manage-account";
     }
 }

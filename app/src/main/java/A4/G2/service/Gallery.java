@@ -4,6 +4,7 @@ import A4.G2.model.artwork.Art;
 import A4.G2.model.artwork.Painting;
 import A4.G2.model.sale.Sale;
 import A4.G2.model.users.Artist;
+import A4.G2.model.users.ShippingDetails;
 import A4.G2.model.users.User;
 import org.springframework.stereotype.Service;
 
@@ -84,6 +85,11 @@ public class Gallery {
             addUser(user1);
             setTermsAndConditions("I agree to abide by the rules of copyright and not sell duplicate prints" +
                     " of arts listed on this application");
+
+            //Initialisation for manage account testing
+            ShippingDetails shippingDetails = new ShippingDetails("90, Farmer Street, Beach Villa",
+                    "Delivery after 5pm");
+            user1.setShippingDetails(shippingDetails);
 
             this.isInitiated = true;
         }

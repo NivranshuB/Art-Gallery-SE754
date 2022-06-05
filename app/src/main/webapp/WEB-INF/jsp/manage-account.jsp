@@ -18,7 +18,6 @@
                 <input type="submit" id="submitUsernamebtn"/>
         </div>
     </form>
-    <br><br>
     <form method="post" action="/manage-account/password">
         <div style="border:1px solid black; width: 25%; padding: 1%">
             <i>Password must contain a digit, a capital letter and at least 6 chars</i>
@@ -33,6 +32,24 @@
             <input type="submit" id="submitPasswordbtn"/>
         </div>
     </form>
+    <div>
+        <div style="border:1px solid black; width: 25%; padding: 1%; display: inline-block">\
+            <form method="post" action="/manage-account/shipping">
+                Shipping address : <input type="text" name="address" id="address"/>
+                <br><br>
+                Shipping preferences : <input type="text" name="preferences" id="preferences"/>
+                <br><br>
+                <input type="submit" id="submitShippingbtn"/>
+            </form>
+        </div>
+        <div style="border:1px solid black; width: 25%; padding: 1%; display: inline-block; margin-left: 4%">
+            <label id="currentAddress">Current Shipping address : ${loggedInUser.getShippingDetails().getAddress()}<label/>
+            <br><br>
+            <label id="currentPreferences">Current Shipping preferences : ${loggedInUser.getShippingDetails().getPreferences()}<label/>
+            <br><br>
+            <button id="deleteShippingbtn">Delete</button>
+        </div>
+    </div>
 </body>
 
 </html>

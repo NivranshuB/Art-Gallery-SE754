@@ -25,6 +25,20 @@ public class ManageAccountPage {
     @FindBy(how=How.ID, using="submitUsernamebtn")
     private WebElement submitUsernameButton;
 
+    public void insertNewUsername(String userName){
+        this.newUsername.sendKeys(userName);
+    }
+
+    public String getCurrentUsername() { return this.currentUsername.getText(); }
+
+    public void clickSubmitUsernameButton(){
+        this.submitUsernameButton.click();
+    }
+
+    public String getUsernameErrorMessage() { return this.usernameError.getText(); }
+
+
+
     //Change password component
     @FindBy(how=How.ID, using="currentPassword")
     private WebElement currentPassword;
@@ -44,23 +58,6 @@ public class ManageAccountPage {
     @FindBy(how=How.ID, using="submitPasswordbtn")
     private WebElement submitPasswordButton;
 
-    public void insertNewUsername(String userName){
-        this.newUsername.sendKeys(userName);
-    }
-
-    public String getCurrentUsername() { return this.currentUsername.getText(); }
-
-    public void clickSubmitUsernameButton(){
-        this.submitUsernameButton.click();
-    }
-
-    public String getUsernameErrorMessage() { return this.usernameError.getText(); }
-
-
-    public void insertCurrentPassword(String currentPassword) {
-        this.currentPassword.sendKeys(currentPassword);
-    }
-
     public void insertNewPassword(String newPassword) {
         this.newPassword.sendKeys(newPassword);
     }
@@ -78,4 +75,43 @@ public class ManageAccountPage {
     }
 
     public String getPasswordSuccessMessage() { return this.passwordSuccess.getText(); }
+
+    public void insertCurrentPassword(String currentPassword) {
+        this.currentPassword.sendKeys(currentPassword);
+    }
+
+
+
+    //Change shipping details component
+    @FindBy(how=How.ID, using="address")
+    private WebElement address;
+
+    @FindBy(how=How.ID, using="preferences")
+    private WebElement preferences;
+
+    @FindBy(how=How.ID, using="currentAddress")
+    private WebElement currentAddress;
+
+    @FindBy(how=How.ID, using="currentPreferences")
+    private WebElement currentPreferences;
+
+    @FindBy(how=How.ID, using="submitShippingbtn")
+    private WebElement submitShippingButton;
+
+    @FindBy(how=How.ID, using="deleteShippingbtn")
+    private WebElement deleteShippingButton;
+
+    public void insertNewShippingAddress(String newAddress) {
+        this.address.sendKeys(newAddress);
+    }
+
+    public void clickSubmitShippingButton() {
+        this.submitShippingButton.click();
+    }
+
+    public String getShippingAddress() {
+        return this.currentAddress.getText();
+    }
+
+
 }
