@@ -1,5 +1,6 @@
 package A4.G2.service.account;
 
+import A4.G2.model.users.ShippingDetails;
 import A4.G2.model.users.User;
 
 public class ShippingDetailsManager implements IShippingDetailsManager {
@@ -16,11 +17,19 @@ public class ShippingDetailsManager implements IShippingDetailsManager {
 
     @Override
     public void modifyShippingAddress(User user, String newAddress) {
-        user.getShippingDetails().setAddress(newAddress);
+        if (user.getShippingDetails() == null) {
+            user.setShippingDetails(new ShippingDetails(newAddress, ""));
+        } else {
+            user.getShippingDetails().setAddress(newAddress);
+        }
     }
 
     @Override
     public void modifyShippingPreferences(User user, String newPreferences) {
-        user.getShippingDetails().setPreferences(newPreferences);
+        if (user.getShippingDetails() == null) {
+            user.setShippingDetails(new ShippingDetails("", newPreferences));
+        } else {
+            user.getShippingDetails().setPreferences(newPreferences);
+        }
     }
 }

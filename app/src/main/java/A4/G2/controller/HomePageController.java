@@ -12,13 +12,17 @@ public class HomePageController {
 
     @RequestMapping(value="/", method = RequestMethod.GET)
     public String indexHomePage(ModelMap model) {
-        model.put("loggedInUser", "");
+        if (model.get("loggedInUser") == null) {
+            model.put("loggedInUser", "");
+        }
         return "home";
     }
 
     @RequestMapping(value="/home", method = RequestMethod.GET)
     public String welcomePage(ModelMap model) {
-        model.put("loggedInUser", "");
+        if (model.get("loggedInUser") == null) {
+            model.put("loggedInUser", "");
+        }
         return "home";
     }
 
