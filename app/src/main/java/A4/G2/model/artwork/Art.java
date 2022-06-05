@@ -43,9 +43,15 @@ public abstract class Art {
     public String getTitle() {
         return this.title;
     }
+    public void setTitle(String title) {
+        this.title=title;
+    }
 
     public String getDescription() {
         return this.description;
+    }
+    public void setDescription(String description) {
+        this.description=description;
     }
 
     public Image getImage() {
@@ -54,5 +60,8 @@ public abstract class Art {
 
     public String getDimensions() {
         return this.dimensions;
+    }
+    public void setDimensions(String dimensions) {
+        this.dimensions=dimensions;
     }
 }
