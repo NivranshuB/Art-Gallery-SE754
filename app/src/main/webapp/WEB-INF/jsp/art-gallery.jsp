@@ -30,6 +30,15 @@
         </c:forEach>
     </div>
 
+    Display section : <br/>
+    <div id="display">
+        <c:forEach items="${imageLists}" var="entry">
+            ------------------------------------------------------------------------
+            <h5>"src/test/java/A4/G2/model/artwork/testImage${entry.title.split(" ")[1]}.png"</h5>
+            ------------------------------------------------------------------------
+        </c:forEach>
+    </div>
+
 </body>
 
 </html>

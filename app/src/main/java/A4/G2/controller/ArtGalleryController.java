@@ -36,6 +36,8 @@ public class ArtGalleryController {
         List<Sale> sales = gallery.getArtSalesList();
         map.addObject("saleLists", sales);
 
+        map.addObject("imageLists", arts);
+
         return map;
     }
 
