@@ -1,6 +1,9 @@
 package A4.G2.service;
 
 import A4.G2.model.artwork.Art;
+import A4.G2.model.artwork.Painting;
+import A4.G2.model.artwork.Print;
+import A4.G2.model.artwork.Sculpture;
 import A4.G2.model.sale.Sale;
 import A4.G2.model.users.User;
 import org.springframework.stereotype.Service;
@@ -16,7 +19,9 @@ public class Gallery {
     private String termsAndConditions = "";
 
     public Gallery() {
-
+        arts.add(new Painting(null, "Art 1", "", null, ""));
+        arts.add(new Print(null, "Art 2", "", null, ""));
+        arts.add(new Sculpture(null, "Art 3", "", null, ""));
     }
 
     public void addArt(Art art) {
