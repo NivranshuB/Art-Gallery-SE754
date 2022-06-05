@@ -11,7 +11,7 @@
 | ------------- | ------------- |
 | Home  | http://localhost:8080/home  |
 | Login  | http://localhost:8080/login  |
-| Signup  | http://localhost:8080/login  |
+| Signup  | http://localhost:8080/signup  |
 | Gallery  | http://localhost:8080/art-gallery  |
 | Art Details  | http://localhost:8080/art-details |
 | Add Art  | http://localhost:8080/add-art  |
