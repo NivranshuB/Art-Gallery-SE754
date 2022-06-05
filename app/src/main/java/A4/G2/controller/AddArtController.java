@@ -70,18 +70,13 @@ public class AddArtController {
         artist.setArtistName(artistName);
 
         Art newArt = null;
-        switch (artType) {
-            case "0" -> {
-                newArt = new Painting(artist, title, description, image, dimensions);
-            }
-            case "1" -> {
-                newArt = new Print(artist, title, description, image, dimensions);
 
-            }
-            case "2" -> {
-                newArt = new Sculpture(artist, title, description, image, dimensions);
-
-            }
+        if (artType.equals("0")) {
+            newArt = new Painting(artist, title, description, image, dimensions);
+        } else if(artType.equals("1")) {
+            newArt = new Print(artist, title, description, image, dimensions);
+        } else if (artType.equals("2")) {
+            newArt = new Sculpture(artist, title, description, image, dimensions);
         }
 
         gallery.addArt(newArt);
