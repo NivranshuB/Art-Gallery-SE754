@@ -29,4 +29,4 @@ Feature: Bid on Artwork
   Scenario: User is old enough
     Given I am "23" years old
     When I click the Bid button
-    Then Allow the bid to take place
+    Then Allow the Bid attempt
