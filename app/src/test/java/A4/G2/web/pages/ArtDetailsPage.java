@@ -12,6 +12,9 @@ public class ArtDetailsPage {
 		PageFactory.initElements(driver, this);
 	}
 
+	@FindBy(how=How.ID, using="loginButton")
+	private WebElement loginButton;
+
 	@FindBy(how=How.ID, using="shareButton")
 	private WebElement shareButton;
 
@@ -32,6 +35,10 @@ public class ArtDetailsPage {
 
 	@FindBy(how=How.ID, using ="ageNotification")
 	private WebElement ageNotification;
+
+	public void clickLogin(){
+		this.loginButton.click();
+	}
 
 	public void clickShare(){
 		this.shareButton.click();

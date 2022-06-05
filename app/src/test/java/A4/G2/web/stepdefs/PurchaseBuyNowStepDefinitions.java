@@ -88,4 +88,9 @@ public class PurchaseBuyNowStepDefinitions {
 		driver.get("http://localhost:8080/success-page");
 		Assertions.assertEquals("http://localhost:8080/success-page", driver.getCurrentUrl());
 	}
+
+	@Given("I am logged into an account")
+	public void iAmLoggedIntoAnAccount() {
+		artDetailsPage.clickLogin();
+	}
 }
