@@ -19,10 +19,35 @@ public class ArtGalleryPage {
     @FindBy(how=How.ID, using="arts")
     private WebElement arts;
 
+    @FindBy(how=How.ID, using="sales")
+    private WebElement sales;
+
     public void checkArtworks(List<String> titles, List<String> images){
         for(String title:titles){
             Assert.assertTrue(arts.getText().contains(title));
         }
+        for(String image:images){
+            Assert.assertTrue(arts.getText().contains(image));
+        }
+    }
+
+    public void checkArtworksOnSale(List<String> titles, List<String> images,
+                                    List<String> saleTypes, List<Double> prices){
+        for(String title:titles){
+            Assert.assertTrue(sales.getText().contains(title));
+        }
+        for(String image:images){
+            Assert.assertTrue(sales.getText().contains(image));
+        }
+        for(String saleType:saleTypes){
+            Assert.assertTrue(sales.getText().contains(saleType));
+        }
+        for(Double price:prices){
+            Assert.assertTrue(sales.getText().contains(price.toString()));
+        }
+    }
+
+    public void checkArtworksImage(List<String> images){
         for(String image:images){
             Assert.assertTrue(arts.getText().contains(image));
         }

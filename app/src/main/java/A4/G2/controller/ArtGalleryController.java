@@ -1,6 +1,7 @@
 package A4.G2.controller;
 
 import A4.G2.model.artwork.Art;
+import A4.G2.model.sale.Sale;
 import A4.G2.service.Gallery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,13 +25,19 @@ public class ArtGalleryController {
     Gallery gallery;
 
     @RequestMapping(value = "/art-gallery", method = RequestMethod.GET)
-    public ModelAndView showAddArtPage(ModelMap model) throws IOException {
+    public ModelAndView showArts(ModelMap model) throws IOException {
         //add an artwork to gallery
         gallery.initiate();
 
         List<Art> arts = gallery.getArtList();
         ModelAndView map = new ModelAndView("/art-gallery");
         map.addObject("lists", arts);
+
+        List<Sale> sales = gallery.getArtSalesList();
+        map.addObject("saleLists", sales);
+
+        map.addObject("imageLists", arts);
+
         return map;
     }
 
