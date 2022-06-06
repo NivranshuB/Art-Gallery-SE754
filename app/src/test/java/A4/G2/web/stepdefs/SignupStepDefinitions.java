@@ -27,10 +27,12 @@ public class SignupStepDefinitions {
     public void iAmCurrentlyOnTheHomePage() {
         driver.get("http://localhost:8080/home");
     }
+
     @When("I press the signup button")
     public void iPressTheSignupButton() {
         homePage.clickSignupNavButton();
     }
+
     @Then("I should see the signup page")
     public void iShouldSeeTheSignupPage() {
         assertTrue(driver.getCurrentUrl().contains("signup"));
@@ -40,18 +42,22 @@ public class SignupStepDefinitions {
     public void iVisitTheSignupPage() {
         driver.get("http://localhost:8080/signup");
     }
+
     @When("I enter {string} as new account user name field")
     public void iEnterAsNewAccountUserNameField(String string) {
         signupPage.insertUserName(string);
     }
+
     @When("I enter {string} as new account password field")
     public void iEnterAsNewAccountPasswordField(String string) {
         signupPage.insertPassword(string);
     }
+
     @When("I enter {string} as new account retyped password field")
     public void iEnterAsNewAccountRetypedPasswordField(String string) {
         signupPage.insertRetypedPassword(string);
     }
+
     @When("I tick {string} for terms and conditions")
     public void iTickForTermsAndConditions(String string) {
         boolean termsAccepted = Boolean.valueOf(string);
@@ -59,10 +65,12 @@ public class SignupStepDefinitions {
             signupPage.clickConditions();
         }
     }
+
     @When("I press the signup submit button")
     public void iPressTheSignupSubmitButton() {
         signupPage.clickSignup();
     }
+
     @Then("I should see the invalid credentials message")
     public void iShouldSeeTheInvalidCredentialsMessage() {
         assertTrue(signupPage.getErrorMessage().contains("Invalid Credentials"));

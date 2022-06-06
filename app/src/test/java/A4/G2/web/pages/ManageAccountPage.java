@@ -12,6 +12,7 @@ public class ManageAccountPage {
         PageFactory.initElements(driver, this);
     }
 
+
     //Change username component
     @FindBy(how= How.ID, using ="newUsername")
     private WebElement newUsername;
@@ -36,7 +37,6 @@ public class ManageAccountPage {
     }
 
     public String getUsernameErrorMessage() { return this.usernameError.getText(); }
-
 
 
     //Change password component
@@ -81,7 +81,6 @@ public class ManageAccountPage {
     }
 
 
-
     //Change shipping details component
     @FindBy(how=How.ID, using="address")
     private WebElement address;
@@ -124,7 +123,6 @@ public class ManageAccountPage {
     public void clickDeleteShippingDetailsButton() {
         this.deleteShippingButton.click();
     }
-
 
 
     //Change payment details component

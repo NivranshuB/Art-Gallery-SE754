@@ -89,6 +89,7 @@ public class ArtGalleryPage {
         }
     }
 
+
     //Filter artwork by art type functionality
     @FindBy(how=How.ID, using="painting")
     private WebElement paintingRadioButton;
