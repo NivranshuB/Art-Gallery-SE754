@@ -170,10 +170,15 @@ public class ArtGalleryController {
 
         int seconds = ((intHour * 60) + intMinute) * 60;
 
-        List<Sale> inRangeList = filterArtService.filterAuctionItemsUnderTime(sales, seconds);
-        model.put("saleList", inRangeList);
-        return "time";
+        if (timeTypeOption.equals("Lower")) {
+            List<Sale> inRangeList = filterArtService.filterAuctionItemsUnderTime(sales, seconds);
+            model.put("saleList", inRangeList);
+        } else {
+            List<Sale> inRangeList = filterArtService.filterAuctionItemsOverTime(sales, seconds);
+            model.put("saleList", inRangeList);
+        }
 
+        return "time";
     }
 
     @RequestMapping(value = "/art-gallery/sale-type/time", method = RequestMethod.GET)

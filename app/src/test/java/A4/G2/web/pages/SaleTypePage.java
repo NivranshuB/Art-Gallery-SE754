@@ -55,10 +55,11 @@ public class SaleTypePage {
         this.submitPriceButton.click();
     }
 
-
     public void selectLessThanTimeRemainingOption() {
         this.lowerTimeRadioButton.click();
     }
+
+    public void selectMoreThanTimeRemainingOption() { this.higherTimeRadioButton.click(); }
 
     public void insertHour(int hour) {
         this.hour.sendKeys(hour + "");
