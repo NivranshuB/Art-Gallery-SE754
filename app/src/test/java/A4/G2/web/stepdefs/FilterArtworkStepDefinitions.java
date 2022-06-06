@@ -159,4 +159,14 @@ public class FilterArtworkStepDefinitions {
         List<String> titles = Arrays.asList("Art 1", "Art 5");
         timeRangePage.checkAllInTimeRangeDisplayed(titles);
     }
+
+    @When("I select the higher than option")
+    public void iSelectTheHigherThanOption() {
+        saleTypePage.selecMoreThanTimeRemainingOption();
+    }
+    @Then("I should see all the art pieces on auction with more than {int} hours remaining")
+    public void iShouldSeeAllTheArtPiecesOnAuctionWithMoreThanHoursRemaining(int arg0) {
+        List<String> titles = Arrays.asList("Art 9");
+        timeRangePage.checkAllInTimeRangeDisplayed(titles);
+    }
 }
