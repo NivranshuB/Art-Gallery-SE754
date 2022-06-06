@@ -128,4 +128,32 @@ public class FilterArtworkStepDefinitions {
         List<String> titles = Arrays.asList("Art 8");
         priceRangePage.checkAllInPriceRangeDisplayed(titles);
     }
+
+    @Given("I am currently on the auction art gallery page")
+    public void iAmCurrentlyOnTheAuctionArtGalleryPage() {
+        driver.get("http://localhost:8080/art-gallery");
+        artGalleryPage.selectAuctionFilterOption();
+        artGalleryPage.clickFilterSaleButton();
+    }
+    @When("I select the lower than option")
+    public void iSelectTheLowerThanOption() {
+        saleTypePage.selectLessThanTimeRemainingOption();
+    }
+    @And("I set the hour to {int}")
+    public void iSetTheHourTo(int i) {
+        saleTypePage.insertHour(i);
+    }
+    @And("I set the minutes to {int}")
+    public void iSetTheMinutesTo(int i) {
+        saleTypePage.insertMinute(i);
+    }
+    @And("I press the filter by time button")
+    public void iPressTheFilterByTimeButton() {
+        saleTypePage.clickFilterByTimeButton();
+    }
+    @Then("I should see all the art pieces on auction with less than {int} hour remaining")
+    public void iShouldSeeAllTheArtPiecesOnAuctionWithLessThanHourRemaining(int i) {
+        List<String> titles = Arrays.asList("");
+        timeRemainingPage.checkAllInTimeRangeDisplayed(titles);
+    }
 }
