@@ -32,6 +32,9 @@
                 } else {
                     $('#ageNotification').html("Placeholder - old enough");
                 }
+                if (document.getElementById('loginStatus').innerHTML !="Not logged in" && parseInt($("#ageField").val())>16) {
+                    location.href = "/shipping"
+                }
            });
            $('#loginButton').on('click', function(e){
                e.preventDefault();
