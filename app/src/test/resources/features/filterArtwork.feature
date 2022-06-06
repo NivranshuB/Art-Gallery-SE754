@@ -62,3 +62,11 @@ Feature: Filter Artwork
     And I set the minutes to 0
     And I press the filter by time button
     Then I should see all the art pieces on auction with less than 1 hour remaining
+
+  Scenario: Filter auction items with more than a certain time remaining
+    Given I am currently on the auction art gallery page
+    When I select the higher than option
+    And I set the hour to 2
+    And I set the minutes to 0
+    And I press the filter by time button
+    Then I should see all the art pieces on auction with more than 2 hours remaining
