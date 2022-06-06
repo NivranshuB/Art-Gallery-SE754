@@ -53,4 +53,21 @@ public class Auction extends  Sale {
     public String getSaleType() {
         return "Auction";
     }
+
+    public int getHoursRemaining() {
+        return Math.floorDiv(timeRemaining, 3600);
+    }
+
+    public int getMinutesRemaining() {
+        int hours = Math.floorDiv(timeRemaining, 3600);
+        int minutes = Math.floorDiv(timeRemaining - hours * 3600, 60);
+        return minutes;
+    }
+
+    public int getSecondsRemaining() {
+        int hours = Math.floorDiv(timeRemaining, 3600);
+        int minutes = Math.floorDiv(timeRemaining - hours * 3600, 60);
+        int secondsRemaining = timeRemaining - hours * 3600 - minutes * 60;
+        return secondsRemaining;
+    }
 }

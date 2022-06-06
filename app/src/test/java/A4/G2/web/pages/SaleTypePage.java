@@ -25,6 +25,21 @@ public class SaleTypePage {
     @FindBy(how=How.ID, using="max")
     private WebElement maxPrice;
 
+    @FindBy(how= How.ID, using ="hour")
+    private WebElement hour;
+
+    @FindBy(how=How.ID, using="minute")
+    private WebElement minute;
+
+    @FindBy(how=How.ID, using="higher")
+    private WebElement higherTimeRadioButton;
+
+    @FindBy(how=How.ID, using="lower")
+    private WebElement lowerTimeRadioButton;
+
+    @FindBy(how=How.ID, using="submitTimeBtn")
+    private WebElement submitTimeButton;
+
     @FindBy(how=How.ID, using="submitPriceBtn")
     private WebElement submitPriceButton;
 
@@ -40,9 +55,20 @@ public class SaleTypePage {
         this.submitPriceButton.click();
     }
 
-    public void checkAllInPriceRangeDisplayed(List<String> titles) {
-        for (String title:titles) {
-            assertTrue(sales.getText().contains(title));
-        }
+
+    public void selectLessThanTimeRemainingOption() {
+        this.lowerTimeRadioButton.click();
+    }
+
+    public void insertHour(int hour) {
+        this.hour.sendKeys(hour + "");
+    }
+
+    public void insertMinute(int minute) {
+        this.minute.sendKeys(minute + "");
+    }
+
+    public void clickFilterByTimeButton() {
+        this.submitTimeButton.click();
     }
 }

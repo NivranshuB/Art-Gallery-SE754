@@ -144,6 +144,43 @@ public class ArtGalleryController {
         return "price";
     }
 
+    @RequestMapping(value = "/art-gallery/sale-type/time", method = RequestMethod.POST)
+    public String filterByTimeRange(ModelMap model, @RequestParam String timeTypeOption, @RequestParam String hour,
+                                    @RequestParam String minute) throws IOException {
+        gallery.initiate();
+
+        List<Sale> sales = gallery.getArtSalesList();
+        IFilterArtService filterArtService = new FilterArtService();
+
+        if (hour.length() < 1 || hour.matches("[a-zA-Z]+")) {
+            hour = "24";
+        }
+        if (minute.length() < 1 || minute.matches("[a-zA-Z]+")) {
+            minute = "0";
+        }
+
+        int intHour = Integer.valueOf(hour);
+        if (intHour < 0) {
+            intHour = 24;
+        }
+        int intMinute = Integer.valueOf(minute);
+        if (intMinute < 0) {
+            intMinute = 0;
+        }
+
+        int seconds = ((intHour * 60) + intMinute) * 60;
+
+        List<Sale> inRangeList = filterArtService.filterAuctionItemsUnderTime(sales, seconds);
+        model.put("saleList", inRangeList);
+        return "time";
+
+    }
+
+    @RequestMapping(value = "/art-gallery/sale-type/time", method = RequestMethod.GET)
+    public String artByTimeRange(ModelMap model) throws IOException {
+        return "time";
+    }
+
     /**
      * Test endpoint to add art pieces to gallery.
      */

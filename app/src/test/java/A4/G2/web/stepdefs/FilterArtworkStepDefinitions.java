@@ -3,6 +3,7 @@ package A4.G2.web.stepdefs;
 import A4.G2.web.pages.ArtGalleryPage;
 import A4.G2.web.pages.PricePage;
 import A4.G2.web.pages.SaleTypePage;
+import A4.G2.web.pages.TimePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,6 +18,7 @@ public class FilterArtworkStepDefinitions {
     private ArtGalleryPage artGalleryPage;
     private SaleTypePage saleTypePage;
     private PricePage priceRangePage;
+    private TimePage timeRangePage;
 
     @Given("Driver set up for art gallery page")
     public void driverSetUpForArtGalleryPage() {
@@ -24,6 +26,7 @@ public class FilterArtworkStepDefinitions {
         artGalleryPage = new ArtGalleryPage(driver);
         saleTypePage = new SaleTypePage(driver);
         priceRangePage = new PricePage(driver);
+        timeRangePage = new TimePage(driver);
     }
     @And("Gallery populated with test artwork")
     public void galleryPopulatedWithTestArtwork() {
@@ -99,11 +102,11 @@ public class FilterArtworkStepDefinitions {
         artGalleryPage.clickFilterSaleButton();
     }
     @When("I set the minimum price to {int}")
-    public void i_set_the_minimum_price_to(int i) {
+    public void iSetTheMinimumPriceTo(int i) {
         saleTypePage.insertMinimumPrice(i);
     }
     @When("I set the maximum price to {int}")
-    public void i_set_the_maximum_price_to(int i) {
+    public void iSetTheMaximumPriceTo(int i) {
         saleTypePage.insertMaximumPrice(i);
     }
     @And("I press the filter by price button")
@@ -153,7 +156,7 @@ public class FilterArtworkStepDefinitions {
     }
     @Then("I should see all the art pieces on auction with less than {int} hour remaining")
     public void iShouldSeeAllTheArtPiecesOnAuctionWithLessThanHourRemaining(int i) {
-        List<String> titles = Arrays.asList("");
-        timeRemainingPage.checkAllInTimeRangeDisplayed(titles);
+        List<String> titles = Arrays.asList("Art 1", "Art 5");
+        timeRangePage.checkAllInTimeRangeDisplayed(titles);
     }
 }
