@@ -10,8 +10,10 @@
 | Feature | Link |
 | ------------- | ------------- |
 | Home  | http://localhost:8080/home  |
-| Login  | http://localhost:8080/login  |
+| Login (user1, password123)| http://localhost:8080/login  |
 | Signup  | http://localhost:8080/signup  |
+| Manage account  | http://localhost:8080/manage-account |
+| Shipping  | http://localhost:8080/shipping |
 | Gallery  | http://localhost:8080/art-gallery  |
 | Art Details  | http://localhost:8080/art-details |
 | Add Art  | http://localhost:8080/add-art  |
