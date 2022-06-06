@@ -36,6 +36,10 @@ public class ArtDetailsPage {
 	@FindBy(how=How.ID, using ="ageNotification")
 	private WebElement ageNotification;
 
+	@FindBy(how=How.ID, using ="bidButton")
+	private WebElement bidButton;
+
+
 	public void clickLogin(){
 		this.loginButton.click();
 	}
@@ -50,6 +54,10 @@ public class ArtDetailsPage {
 
 	public void clickBuyNow(){
 		this.buyNowButton.click();
+	}
+
+	public void clickBid(){
+		this.bidButton.click();
 	}
 
 	public String getLoginStatus(){

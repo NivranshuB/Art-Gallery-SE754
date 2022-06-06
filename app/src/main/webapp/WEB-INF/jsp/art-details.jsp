@@ -11,13 +11,31 @@
         <p>Age:</p>
         <input id="ageField"></input>
         <p></p>
-        <button id="buyNowButton">Buy Now</div>
         <div id="loginNotification"></div>
-        <div id="ageNotification"></div>
+         <div id="ageNotification"></div>
+         <button id="bidButton">Bid</button>
+        <button id="buyNowButton">Buy Now</button>
+
+
     </body>
 
     <script>
         $(document).ready(function(){
+        $("#bidButton").click(function(){
+           if(document.getElementById('loginStatus').innerHTML=="Not logged in") {
+               $('#loginNotification').html("Please sign up or log in.");
+           } else {
+               $('#loginNotification').html("Placeholder - success");
+           }
+           if(parseInt($("#ageField").val())<16) {
+                $('#ageNotification').html("You are too young to purchase art.");
+           } else {
+                $('#ageNotification').html("Placeholder - old enough");
+           }
+           if (document.getElementById('loginStatus').innerHTML !="Not logged in" && parseInt($("#ageField").val())>16) {
+               location.href = "/shipping"
+           }
+         });
             $("#shareButton").click(function(){
                $('#generatedLink').html(window.location.href);
            });
@@ -52,6 +70,7 @@
                });
            });
         });
+
     </script>
 
 </html>

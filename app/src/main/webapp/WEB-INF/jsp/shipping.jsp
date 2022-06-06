@@ -6,13 +6,13 @@
     <body>
         <p>Address</p>
         <input id="address"></input>
-        <button id="submit">Buy Now</div>
+        <button id="submit">Submit</div>
     </body>
 
     <script>
         $(document).ready(function(){
             $("#submit").click(function(){
-
+                location.href = "/success"
            });
         });
     </script>

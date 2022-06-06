@@ -54,8 +54,7 @@ public class ShippingDetailsStepDefinitions {
     @Then("I want a confirmation of my purchase.")
     public void iWantAConfirmationOfMyPurchase() {
         driver.get("http://localhost:8080/success");
-        String notification = this.successPage.purchaseConfirmationNotification();
-        assertEquals("Purchase Successful!",notification);
+        Assertions.assertEquals("http://localhost:8080/success", driver.getCurrentUrl());
     }
 
     @Given("That I'm on the art details page")
