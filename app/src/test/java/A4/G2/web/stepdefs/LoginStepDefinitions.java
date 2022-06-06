@@ -25,10 +25,12 @@ public class LoginStepDefinitions {
     public void iAmOnTheHomePage() {
         driver.get("http://localhost:8080/home");
     }
+
     @When("I press the login button")
     public void iPressTheLoginButton() {
         homePage.clickLoginNavButton();
     }
+
     @Then("I should see the login page")
     public void iShouldSeeTheLoginPage() {
         assertTrue(driver.getCurrentUrl().contains("login"));
@@ -38,18 +40,22 @@ public class LoginStepDefinitions {
     public void iVisitTheLoginPage() {
         driver.get("http://localhost:8080/login");
     }
+
     @When("I enter {string} as user name field")
     public void iEnterAsUserNameField(String string) {
         loginPage.insertUserName(string);
     }
+
     @When("I enter {string} as password field")
     public void iEnterAsPasswordField(String string) {
         loginPage.insertPassword(string);
     }
+
     @When("I press the submit button")
     public void iPressTheSubmitButton() {
         loginPage.clickLogin();
     }
+
     @Then("I should see the incorrect credentials message")
     public void iShouldSeeTheIncorrectCredentialsMessage() {
         assertTrue(loginPage.getErrorMessage().contains("Invalid Credentials"));
@@ -59,6 +65,5 @@ public class LoginStepDefinitions {
     public void iShouldSeeTheWelcomePage() {
         assertTrue(loginPage.getMessage().contains("Welcome user1"));
     }
-
 
 }

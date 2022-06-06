@@ -22,6 +22,7 @@ public class ManageAccountStepDefinitions {
         manageAccountPage = new ManageAccountPage(driver);
         homePage = new HomePage(driver);
     }
+
     @Given("User is logged in")
     public void userIsLoggedIn() {
         driver.get("http://localhost:8080/manage-account/testing");
@@ -32,10 +33,12 @@ public class ManageAccountStepDefinitions {
     public void iStartOnTheHomePage() {
         driver.get("http://localhost:8080/home");
     }
+
     @When("I press the manage account button")
     public void iPressTheManageAccountButton() {
         homePage.clickManageAccountButton();
     }
+
     @Then("I should see the manage account page")
     public void iShouldSeeTheManageAccountPage() {
         assertTrue(driver.getCurrentUrl().contains("manage-account"));
@@ -45,14 +48,17 @@ public class ManageAccountStepDefinitions {
     public void iAmCurrentlyOnTheManageAccountPage() {
         driver.get("http://localhost:8080/manage-account");
     }
+
     @When("I enter {string} in the new username field")
     public void iEnterInTheNewUsernameField(String string) {
         manageAccountPage.insertNewUsername(string);
     }
+
     @And("I press the submit username button")
     public void iPressTheSubmitUsernameButton() {
         manageAccountPage.clickSubmitUsernameButton();
     }
+
     @Then("I should see the invalid username message")
     public void iShouldSeeTheInvalidUsernameMessage() {
         assertTrue(manageAccountPage.getUsernameErrorMessage().contains("Invalid username"));
@@ -67,18 +73,22 @@ public class ManageAccountStepDefinitions {
     public void iEnterAsCurrentPasswordField(String string) {
         manageAccountPage.insertCurrentPassword(string);
     }
+
     @When("I enter {string} as new password field")
     public void iEnterAsNewPasswordField(String string) {
         manageAccountPage.insertNewPassword(string);
     }
+
     @When("I enter {string} as retyped new password field")
     public void iEnterAsRetypedNewPasswordField(String string) {
         manageAccountPage.insertRetypedNewPassword(string);
     }
+
     @And("I press the submit password button")
     public void iPressTheSubmitPasswordButton() {
         manageAccountPage.clickSubmitPasswordButton();
     }
+
     @Then("I should see the invalid password message")
     public void iShouldSeeTheInvalidPasswordMessage() {
         assertTrue(manageAccountPage.getPasswordErrorMessage().contains("Invalid password"));
@@ -93,10 +103,12 @@ public class ManageAccountStepDefinitions {
     public void iEnterInShippingAddressField(String string) {
         manageAccountPage.insertNewShippingAddress(string);
     }
+
     @And("I press the submit shipping details button")
     public void iPressTheSubmitShippingDetailsButton() {
         manageAccountPage.clickSubmitShippingButton();
     }
+
     @Then("I should see the new address as my shipping address")
     public void iShouldSeeTheNewAddressAsMyShippingAddress() {
         assertTrue(manageAccountPage.getShippingAddress().contains("8, Rollers Avenue, Paper town"));
@@ -106,6 +118,7 @@ public class ManageAccountStepDefinitions {
     public void iEnterInShippingPreferenceField(String string) {
         manageAccountPage.insertNewShippingPreference(string);
     }
+
     @Then("I should see the new preference as my shipping preference")
     public void iShouldSeeTheNewPreferenceAsMyShippingPreference() {
         assertTrue(manageAccountPage.getShippingPreference().contains("Only available on weekends"));
@@ -115,6 +128,7 @@ public class ManageAccountStepDefinitions {
     public void iPressDeleteButtonInTheShippingDetailsSection() {
         manageAccountPage.clickDeleteShippingDetailsButton();
     }
+
     @Then("Shipping details should be cleared in the page")
     public void shippingDetailsShouldBeClearedInThePage() {
         assertTrue(!manageAccountPage.getShippingAddress().contains("90, Farmer Street, Beach Villa"));
@@ -125,22 +139,27 @@ public class ManageAccountStepDefinitions {
     public void iEnterInTheCardNumberField(String string) {
         manageAccountPage.insertNewCardNumber(string);
     }
+
     @And("I enter {string} in the card holder field")
     public void iEnterInTheCardHolderField(String string) {
         manageAccountPage.insertNewCardHolder(string);
     }
+
     @And("I enter {string} in the cvv field")
     public void iEnterInTheCvvField(String string) {
         manageAccountPage.insertNewCVV(string);
     }
+
     @And("I enter {string} in the expiry year field")
     public void iEnterInTheExpiryYearField(String string) {
         manageAccountPage.insertNewYear(string);
     }
+
     @And("I press the submit payment details button")
     public void iPressTheSubmitPaymentDetailsButton() {
         manageAccountPage.clickSubmitPaymentButton();
     }
+
     @Then("I should see invalid payment credentials")
     public void iShouldSeeInvalidPaymentCredentials() {
         assertTrue(manageAccountPage.getPaymentErrorMessage().contains("Invalid payment details"));
@@ -158,6 +177,7 @@ public class ManageAccountStepDefinitions {
     public void iPressTheDeleteButtonInThePaymentDetailsSection() {
         manageAccountPage.clickDeletePaymentDetailsButton();
     }
+
     @Then("Payment details should be cleared in the page")
     public void paymentDetailsShouldBeClearedInThePage() {
         assertTrue(!manageAccountPage.getCurrentCardNumber().contains("1234432156788765"));

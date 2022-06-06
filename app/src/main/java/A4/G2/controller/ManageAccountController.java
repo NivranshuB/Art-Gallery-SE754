@@ -152,7 +152,7 @@ public class ManageAccountController {
 
 
     /**
-     * Test endpoint to fake a user log in. Used for UI testing of the ManageAccount feature
+     * Test endpoint to simulate a user log in.
      */
     @RequestMapping(value="/manage-account/testing", method = RequestMethod.GET)
     public String testManageAccountPage(ModelMap model) throws IOException {
@@ -162,6 +162,6 @@ public class ManageAccountController {
         User user1 = loginDetailsManager.loginUser("user1", "Password123");
         model.put("loggedInUser", user1);
 
-        return "manage-account";
+        return "populate";
     }
 }
